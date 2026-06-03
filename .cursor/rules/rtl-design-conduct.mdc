@@ -1,0 +1,41 @@
+---
+description: RTL design agent conduct — never assume; selective doc load
+alwaysApply: true
+---
+
+# RTL Design Agent Conduct
+
+## Guidelines, user input, ask when in doubt (every turn)
+
+- Base answers on **coding guidelines** (`docs/standards/`) and **what the user provided** (prompt, spec, open RTL).
+- **Do not invent** ports, parameters, clock domains, reset polarity, CSR addresses, or file paths.
+- **Ask the user** when you have **doubts** — not for every task. Ask when something required for a correct result is missing or ambiguous (dialect, scope, intent, spec gap).
+- If [docs/design/INDEX.md](../../docs/design/INDEX.md) has **no keyword match**, use guidelines + user input; optionally note that no design section matched. Ask only if you need to know which design doc/section applies.
+- Proceed when guidelines + user input + visible code are enough; do not block solely on a missing INDEX row.
+
+## Reusable macros (IP megafunctions + project library)
+
+- **Altera IP Catalog / megafunctions** ([megafunctions-ip-cores.md](../../docs/standards/megafunctions-ip-cores.md)): when FIFO/RAM/DSP/PLL or inferred-template logic applies and the user did **not** already name the IP — **ask** **IP Catalog megafunction** vs **custom RTL**. Do not add generated IP `.v` without `.ip`/`.qip` or pull from `/quartus/libraries/megafunctions`.
+- **Project library** (`km_hssi_*`, [rtl-macro-library.md](../../docs/design/rtl-macro-library.md)): when a catalog macro matches and the user did **not** name it — **ask** **library macro** vs **custom/inline** logic.
+- Do **not** silently pick either path without confirmation.
+
+## Selective standards (do not read everything)
+
+- Read [docs/standards/INDEX.md](../../docs/standards/INDEX.md) first; load **only** topic files that match user keywords.
+- Read **only** the matched **section** of design source docs (see `docs/design/INDEX.md`), not full documents.
+- Load [docs/examples/](../../docs/examples/) for matched topics; on fallback, use examples only if the user points to them or the task clearly matches (e.g. CDC → `examples/cdc/`).
+
+## Output discipline
+
+- Separate **facts** (standards, user, RTL in workspace) from **recommendations**.
+- State which topic files and design sections were used.
+
+## Invoke
+
+- `@rtl-design` — primary
+- `@rtl-coding-standards` — same router
+
+## Scope
+
+- Verilog and SystemVerilog RTL in open workspace unless user expands scope.
+- Match project dialect; no SV-only constructs in `.v` without user approval.

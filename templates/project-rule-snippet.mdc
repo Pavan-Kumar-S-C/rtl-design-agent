@@ -1,0 +1,13 @@
+---
+description: Remind Cursor to use @rtl-design for Verilog and SystemVerilog in this project
+alwaysApply: false
+globs: "**/*.{sv,svh,v,vh}"
+---
+
+# RTL in this project
+
+For **writing, reviewing, or refactoring** Verilog (`.v`, `.vh`) or SystemVerilog (`.sv`, `.svh`) in matched files, invoke **`@rtl-design`** or **`@rtl-coding-standards`** in Agent chat.
+
+Match the **dialect and style** of the surrounding files in this project.
+
+Install the [rtl-design-agent](https://github.com/YOURORG/rtl-design-agent) repo (or open it) so `docs/standards/` is available to the agent.

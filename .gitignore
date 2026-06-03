@@ -1,0 +1,18 @@
+# Local install config (never commit)
+scripts/repo.config.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Cursor local (if any)
+.cursor/projects/
+
+# Maintainer PDF text extracts (regenerate via scripts/extract_*.py)
+docs/standards/_pdf_extract_raw.txt
+docs/standards/_timing_analyzer_extract_raw.txt
+docs/standards/_timing_cookbook_extract_raw.txt
+docs/standards/_megafunctions_extract_raw.txt
+docs/standards/_mega_scan.txt
+docs/standards/_ta_toc_scan.txt
