@@ -21,7 +21,7 @@ In Cursor **Agent** chat:
 | [docs/standards/](docs/standards/) | Company RTL rules (markdown) |
 
 ```bash
-git clone <RTL_AGENT_REPO_URL> rtl-design-agent
+git clone https://github.com/Pavan-Kumar-S-C/rtl-design-agent.git rtl-design-agent
 cd rtl-design-agent
 bash scripts/install-rtl-design-agent.sh
 ```
@@ -44,7 +44,6 @@ rtl-design-agent/
 ## Maintainer
 
 1. Add or edit standards under [docs/standards/](docs/standards/).
-2. Update [docs/README.md](docs/README.md) index.
-3. `git commit` + `git push` — teammates `git pull` and re-run install script.
+2. Update [docs/README.md](docs/README.md) and [docs/standards/INDEX.md](docs/standards/INDEX.md) when adding topics.
 
-See [docs/GITHUB.md](docs/GITHUB.md) for git init and first push (maintainer); [SETUP.md](SETUP.md) for designer install.
+Designer install: [SETUP.md](SETUP.md). Content map: [AGENTS.md](AGENTS.md).

@@ -25,16 +25,11 @@ Cursor skills + rules for **`@rtl-design`** and **`@rtl-coding-standards`** — 
 4. [docs/examples/](docs/examples/) — matched topics only
 5. Per-topic stubs: [.cursor/skills/rtl-design/topics/](.cursor/skills/rtl-design/topics/)
 
-## First-time GitHub
-
-See [docs/GITHUB.md](docs/GITHUB.md) or run `scripts/create-github-repo.ps1`.
-
-## Publishing changes
+## Updating content
 
 1. Edit markdown under `docs/standards/` or skill stubs.
-2. Update [docs/README.md](docs/README.md) index when adding files.
-3. Commit with a clear message (e.g. `docs: add CDC crossing rules`).
-4. Teammates: `git pull` and re-run `scripts/install-rtl-design-agent.sh` if using global install.
+2. Update [docs/README.md](docs/README.md) and [docs/standards/INDEX.md](docs/standards/INDEX.md) when adding files.
+3. Teammates refresh: `git pull` in their clone, then re-run `scripts/install-rtl-design-agent.sh` (or `.ps1`) if using global install — see [SETUP.md](SETUP.md).
 
 ## Verbatim standards
 
