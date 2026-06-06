@@ -8,7 +8,7 @@
 
 ## Standards (by topic)
 
-Router: [standards/INDEX.md](standards/INDEX.md)
+Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → file map.
 
 | File | Topic |
 |------|--------|
@@ -16,6 +16,12 @@ Router: [standards/INDEX.md](standards/INDEX.md)
 | [synthesizability-lint.md](standards/synthesizability-lint.md) | Synth / lint |
 | [clocks-resets.md](standards/clocks-resets.md) | Clocks / resets |
 | [cdc-crossings.md](standards/cdc-crossings.md) | CDC |
+| [metastability-mtbf.md](standards/metastability-mtbf.md) | Metastability / MTBF bridge |
+| [quartus-design-recommendations.md](standards/quartus-design-recommendations.md) | Quartus RTL + metastability |
+| [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Timing Analyzer / STA concepts |
+| [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | SDC recipes (cookbook) |
+| [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | IP Catalog / megafunctions |
+| [rtl-macros.md](standards/rtl-macros.md) | RTL macros / library vs IP |
 | [fsm-coding.md](standards/fsm-coding.md) | FSM |
 | [constants-structure.md](standards/constants-structure.md) | Parameters / structure |
 | [csr-registers.md](standards/csr-registers.md) | CSR |
@@ -24,6 +30,8 @@ Router: [standards/INDEX.md](standards/INDEX.md)
 
 Legacy index stub: [rtl-coding-standards.md](standards/rtl-coding-standards.md) → use INDEX.md.
 
+**PDFs (opt-in verbatim):** under `standards/` — Design Recommendations, Timing Analyser UG, Timing Cookbook, megafunctions UG.
+
 ## Your design documents
 
 | File | Role |
@@ -31,14 +39,21 @@ Legacy index stub: [rtl-coding-standards.md](standards/rtl-coding-standards.md) 
 | [design/cdc-reusable-patterns.md](design/cdc-reusable-patterns.md) | CDC / handshake / FIFO / latching / reset patterns |
 | [design/architecture-comparison.md](design/architecture-comparison.md) | Legacy vs new ToD architecture |
 | [design/km-xcvr-tod-analysis.md](design/km-xcvr-tod-analysis.md) | km_xcvr ToD sync analysis |
+| [design/legacy-tod-sync-analysis.md](design/legacy-tod-sync-analysis.md) | Legacy ToD synchronizer CDC |
+| [design/rtl-macro-library.md](design/rtl-macro-library.md) | `km_hssi_*` macro catalog |
 
 Router: [design/INDEX.md](design/INDEX.md) — read **one section at a time** by keyword match.
 
 ## Examples
 
-Golden patterns: [examples/](examples/) (fsm, cdc, resets, comb, dialect).
+Golden patterns: [examples/](examples/) — CDC, latching, resets, FSM, comb, dialect, [SDC/STA](examples/sdc/).
+
+## Coverage matrix
+
+[COVERAGE.md](COVERAGE.md) — doc section → INDEX → skill topic → example status.
 
 ## Maintainer
 
 - New rule topic → new `standards/<topic>.md` + INDEX row + optional `topics/<topic>.md` skill stub.
-- Copy coding examples from your design doc **Content** sections into `examples/<topic>/`.
+- Update [COVERAGE.md](COVERAGE.md) when adding sections or examples.
+- Copy coding examples from design doc **Content** sections into `examples/<topic>/`.

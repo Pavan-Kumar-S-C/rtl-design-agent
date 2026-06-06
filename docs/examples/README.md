@@ -35,12 +35,27 @@ Extracted from [docs/design/](../design/). The agent loads **only** files for to
 
 ## SDC / STA — [sdc/](sdc/)
 
-| File | Source section |
-|------|----------------|
+Full catalog: [sdc/README.md](sdc/README.md) (14 teaching `.sdc` files — Timing Analyzer UG + Cookbook).
+
+| File | Source |
+|------|--------|
 | `initial_dual_clock.sdc` | Timing Analyzer UG §2.6.1 |
 | `cdc_async_bus.sdc` | Timing Analyzer UG §2.6.5.7 |
+| `multicycle_setup_hold.sdc` | Timing Analyzer UG §2.6.8.4.2 |
+| `generated_clock_mux.sdc` | Timing Analyzer UG §2.6.5.3.2 |
+| `duty_cycle_6040.sdc` | Timing Cookbook |
+| `clock_offset.sdc` | Timing Cookbook |
+| `pll_derive_clocks.sdc` | Timing Cookbook |
+| `external_switched_clock.sdc` | Timing Cookbook |
+| `virtual_io_chip_to_chip.sdc` | Timing Cookbook |
+| `io_tsu_th_tco.sdc` | Timing Cookbook |
+| `multicycle_clk_to_clk.sdc` | Timing Cookbook |
+| `false_path_clk_to_clk.sdc` | Timing Cookbook |
+| `clock_enable_multicycle.sdc` | Timing Cookbook |
+| `jtag_constraints_stub.sdc` | Timing Cookbook (stub) |
+| `dual_port_clock_io.sdc` | Timing Cookbook (stub) |
 
-## FSM / comb — [fsm/](fsm/) · [comb/](comb/)
+## FSM / comb / dialect — [fsm/](fsm/) · [comb/](comb/) · [dialect/](dialect/)
 
 Generic teaching patterns (not from design docs). Prefer design-doc examples when the task is CDC/ToD.
 

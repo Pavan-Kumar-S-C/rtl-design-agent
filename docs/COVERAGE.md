@@ -16,6 +16,10 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | All cookbook topics (27 pp) | Cookbook row + 12-row router | timing-analyzer | 10× cookbook `.sdc` + stubs | **full** |
 | Timing Analyser UG.pdf | full UG 683243 (~145 pp) | pdf opt-in | timing-analyzer | — | pdf |
 | [Timing analyser CookBook.pdf](standards/Timing%20analyser%20CookBook.pdf) | MNL-01035 / 683081 | pdf opt-in (JTAG Tcl) | timing-analyzer | — | pdf |
+| [cdc-crossings.md](standards/cdc-crossings.md) | pointer | CDC row | cdc | examples/cdc/ | partial |
+| [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | § agent–simulation | Megafunctions row | rtl-macros | — | full |
+| [ug_intro_to_megafunctions-683102-848730.pdf](standards/ug_intro_to_megafunctions-683102-848730.pdf) | UG-01056 | pdf opt-in | rtl-macros | — | pdf |
+| Other standards/*.md | per topic | per row | per topic | per topic | full |
 
 ### Timing Analyzer UG — section coverage (timing-analyzer-ug.md)
 
@@ -36,8 +40,6 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | §2.6.8 exceptions + precedence + multicycle how-to | yes | multicycle_setup_hold.sdc |
 | §2.7 Tcl/collections | yes (summary) | — |
 | §2.6.8.5 multicycle worked examples, §2.6.9–10, §2.8 imported results | **no** — PDF only | — |
-| [cdc-crossings.md](standards/cdc-crossings.md) | pointer | CDC row | cdc | examples/cdc/ | partial |
-| Other standards/*.md | per topic | per row | per topic | per topic | full |
 
 ## Design docs
 
@@ -62,8 +64,6 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | legacy-tod-sync-analysis.md | §1–8 | yes | quartus-metastability | legacy_tod_toggle_detect.v | full |
 | rtl-macro-library.md | catalog + ask rule | RTL macros row | rtl-macros | examples/cdc/*_inst.sv | full |
 | macro-library-user.md | user table | optional | rtl-macros | — | partial (template) |
-| [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | § agent–simulation | Megafunctions row | rtl-macros | — | full |
-| [ug_intro_to_megafunctions-683102-848730.pdf](standards/ug_intro_to_megafunctions-683102-848730.pdf) | UG-01056 | pdf opt-in | rtl-macros | — | pdf |
 
 ## Skill entry points
 

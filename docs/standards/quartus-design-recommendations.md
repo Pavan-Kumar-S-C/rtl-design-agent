@@ -2,7 +2,7 @@
 
 **Source:** Intel/Altera *Quartus Prime Pro Edition User Guide: Design Recommendations* (UG-20131, doc **683082**, Quartus Prime **25.1**).
 
-**Verbatim PDF (opt-in):** [Design Recommendations.pdf](Design%20Recommendations.pdf) — same content as [Quartus design recommendations.pdf](Quartus%20design%20recommendations.pdf) (duplicate filename in repo).
+**Verbatim PDF (opt-in):** [Design Recommendations.pdf](Design%20Recommendations.pdf)
 
 **Keywords:** `quartus`, `altera_attribute`, `synchronizer identification`, `metastability`, `mtbf`, `preserve register`, `dont merge`, `timing analyzer`, `report_metastability`, `synchronizer chain`
 
