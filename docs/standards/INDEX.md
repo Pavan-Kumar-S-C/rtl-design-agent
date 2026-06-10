@@ -23,6 +23,9 @@ If **no topic matches** → use **coding guidelines** (at minimum dialect + synt
 | CSR | csr, register, mmio, ro, wo, w1c, memory map | [csr-registers.md](csr-registers.md) | [topics/csr.md](../../.cursor/skills/rtl-design/topics/csr.md) | — |
 | CT22 / security | ct22, security, debug, lock, fuse, zeroization | [ct22-security-debug.md](ct22-security-debug.md) | [topics/ct22.md](../../.cursor/skills/rtl-design/topics/ct22.md) | — |
 | Review flow | review, code review, checklist, sign-off | [review-workflow.md](review-workflow.md) | — | — |
+| Requirements (HAS/MAS) | has, mas, requirement, spec intake, requirement model, extract requirements | [rtl-database-schema.md](rtl-database-schema.md) | [topics/requirements.md](../../.cursor/skills/rtl-design/topics/requirements.md) | [templates/rtl-db/](../../templates/rtl-db/) |
+| RTL database | rtl database, rtl_db, db entry, requirement database, register map index | [rtl-database-schema.md](rtl-database-schema.md) | [topics/rtl-database.md](../../.cursor/skills/rtl-design/topics/rtl-database.md) | [templates/rtl-db/](../../templates/rtl-db/) |
+| Traceability / verification | traceability, traceability matrix, coverage, gap analysis, verify rtl, uncovered requirement, consistency check | [rtl-database-schema.md](rtl-database-schema.md) | [topics/traceability.md](../../.cursor/skills/rtl-design/topics/traceability.md) | [templates/rtl-db/reports/](../../templates/rtl-db/reports/) |
 
 ## Design source documents (authoritative for project patterns)
 
@@ -130,6 +133,7 @@ Source: [timing-analyzer-cookbook.md](timing-analyzer-cookbook.md) (summary of [
 | Any RTL task | This INDEX + conduct rule | Matched topic files only |
 | Write / implement | [design-workflow.md](../../.cursor/skills/rtl-design/design-workflow.md) | Matched topics + matched examples |
 | Review | [review-checklist.md](../../.cursor/skills/rtl-design/review-checklist.md) | `review-workflow.md` + matched topics |
+| Lifecycle (requirements / database / traceability / generate / verify) | [dev-verify-workflow.md](../../.cursor/skills/rtl-design/dev-verify-workflow.md) + [rtl-database-schema.md](rtl-database-schema.md) | Matched coding topics during generation |
 
 ## Maintainer
 

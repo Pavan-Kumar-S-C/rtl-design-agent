@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTL modules model",
+  "type": "object",
+  "required": ["modules"],
+  "additionalProperties": false,
+  "properties": {
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "traces_to"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "interfaces": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "role": { "type": "string" }
+              }
+            }
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "value"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string" },
+                "value": { "type": "string" }
+              }
+            }
+          },
+          "clocks": { "type": "array", "items": { "type": "string" } },
+          "resets": { "type": "array", "items": { "type": "string" } },
+          "memories": { "type": "array", "items": { "type": "string" } },
+          "instantiated_macros_ip": { "type": "array", "items": { "type": "string" } },
+          "traces_to": { "type": "array", "items": { "type": "string", "pattern": "^REQ-[0-9]{4,}$" } }
+        }
+      }
+    }
+  }
+}

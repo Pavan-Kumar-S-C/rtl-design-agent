@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Register map index into SystemRDL/IP-XACT",
+  "type": "object",
+  "required": ["register_blocks"],
+  "additionalProperties": false,
+  "properties": {
+    "register_blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["block_name", "source_type", "source_file", "traces_to"],
+        "additionalProperties": false,
+        "properties": {
+          "block_name": { "type": "string" },
+          "source_type": { "type": "string", "enum": ["systemrdl", "ipxact"] },
+          "source_file": { "type": "string" },
+          "base_offset": { "type": "string", "pattern": "^0x[0-9A-Fa-f]+$" },
+          "traces_to": { "type": "array", "items": { "type": "string", "pattern": "^REQ-[0-9]{4,}$" } }
+        }
+      }
+    }
+  }
+}

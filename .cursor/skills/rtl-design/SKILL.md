@@ -1,7 +1,9 @@
 ---
 name: rtl-design
 description: >-
-  Write, review, and refactor Verilog/SystemVerilog RTL. Loads only topic-matched
+  Write, review, and refactor Verilog/SystemVerilog RTL, and run the RTL
+  development & verification lifecycle (HAS/MAS requirements, RTL database,
+  gap analysis, gated generation, traceability). Loads only topic-matched
   standards from docs/standards/ (FSM, CDC, resets, lint, etc.). Invoke
   @rtl-design. Uses coding guidelines + user input; asks only when in doubt. Alias:
   @rtl-coding-standards.
@@ -11,6 +13,11 @@ disable-model-invocation: true
 # RTL Design Agent
 
 **Invoke:** `@rtl-design`
+
+## Two modes
+
+- **Coding mode** (default) — write / review / refactor RTL. Use the read order below and [design-workflow.md](design-workflow.md) / [review-checklist.md](review-checklist.md).
+- **Lifecycle mode** — when the prompt is about **requirements, RTL database, traceability, gap analysis, generate-from-spec, or verify-against-spec**. Run [dev-verify-workflow.md](dev-verify-workflow.md): start with **workspace assessment**, then follow the gated decision flow (generate RTL only from a validated database). Lifecycle keywords: `has`, `mas`, `requirement`, `rtl database`, `rtl_db`, `traceability`, `gap analysis`, `coverage`, `generate from spec`, `verify rtl`. See [topic-router.md](topic-router.md) for routing. Coding-standards loading still applies during generation.
 
 ## Guidelines + user input; ask when in doubt
 
@@ -32,7 +39,9 @@ Follow [topic-router.md](topic-router.md):
 
 ## Topic skill stubs
 
-Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, csr, ct22, quartus-metastability, timing-analyzer, rtl-macros).
+Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, csr, ct22, quartus-metastability, timing-analyzer, rtl-macros, requirements, rtl-database, traceability).
+
+**Lifecycle:** [dev-verify-workflow.md](dev-verify-workflow.md) + schema [docs/standards/rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) + [templates/rtl-db/](../../../templates/rtl-db/).
 
 **Macros:** [megafunctions-ip-cores.md](../../../docs/standards/megafunctions-ip-cores.md) (IP Catalog / **ug_intro_to_megafunctions**) and [rtl-macro-library.md](../../../docs/design/rtl-macro-library.md) (`km_hssi_*`) — **ask the user** before using IP or library macro (conduct rule). 
 

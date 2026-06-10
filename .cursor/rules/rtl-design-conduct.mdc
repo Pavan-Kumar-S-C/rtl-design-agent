@@ -13,6 +13,22 @@ alwaysApply: true
 - If [docs/design/INDEX.md](../../docs/design/INDEX.md) has **no keyword match**, use guidelines + user input; optionally note that no design section matched. Ask only if you need to know which design doc/section applies.
 - Proceed when guidelines + user input + visible code are enough; do not block solely on a missing INDEX row.
 
+## Development & verification lifecycle (HAS/MAS → database → RTL)
+
+When the task is **lifecycle** (requirements, RTL database, traceability, gap analysis, generate-from-spec, verify-against-spec), follow [dev-verify-workflow.md](../../.cursor/skills/rtl-design/dev-verify-workflow.md):
+
+- **Assess the workspace first** and classify: **New / Partial / Existing RTL** project. Report detected artifacts before acting.
+- **Never assume missing requirements.** Extract only from provided HAS/MAS; mark unknowns `TBD` and ask.
+- **Gate RTL generation on a validated RTL database.** Do not generate RTL until the database is created/verified.
+- **Interaction rules:**
+  - HAS/MAS **and** database both present → **ask** whether to verify the database against HAS/MAS before generation.
+  - Database missing → **offer** to generate it from HAS/MAS.
+  - Requirements and RTL disagree → **stop generation** and present discrepancies.
+  - Update the database only after the user approves the gap report.
+- **Scaffold only on New Project**, and only after asking; never overwrite. For Partial/Existing, detect locations and record them in `rtl_db/index.yaml` `paths:`.
+- **Registers:** index/trace to SystemRDL/IP-XACT sources in `register_map.yaml`; never redefine register fields in YAML.
+- Maintain traceability (requirement ↔ database ↔ RTL ↔ verification) and prioritize coverage/correctness over generation speed.
+
 ## Reusable macros (IP megafunctions + project library)
 
 - **Altera IP Catalog / megafunctions** ([megafunctions-ip-cores.md](../../docs/standards/megafunctions-ip-cores.md)): when FIFO/RAM/DSP/PLL or inferred-template logic applies and the user did **not** already name the IP — **ask** **IP Catalog megafunction** vs **custom RTL**. Do not add generated IP `.v` without `.ip`/`.qip` or pull from `/quartus/libraries/megafunctions`.

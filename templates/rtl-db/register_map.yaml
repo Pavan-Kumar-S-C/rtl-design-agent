@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=./schema/register_map.schema.json
+# Index/traceability into SystemRDL or IP-XACT sources.
+# Do NOT redefine fields here; read field/access detail from source_file.
+register_blocks:
+  - block_name: "TBD"
+    source_type: "systemrdl"     # systemrdl|ipxact
+    source_file: "regs/TBD.rdl"
+    base_offset: "0x0000"
+    traces_to: []

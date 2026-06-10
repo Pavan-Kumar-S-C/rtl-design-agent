@@ -20,6 +20,7 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | § agent–simulation | Megafunctions row | rtl-macros | — | full |
 | [ug_intro_to_megafunctions-683102-848730.pdf](standards/ug_intro_to_megafunctions-683102-848730.pdf) | UG-01056 | pdf opt-in | rtl-macros | — | pdf |
 | Other standards/*.md | per topic | per row | per topic | per topic | full |
+| [rtl-database-schema.md](standards/rtl-database-schema.md) | DB + report schema | Requirements / RTL database / Traceability rows | requirements, rtl-database, traceability | templates/rtl-db/ + templates/project-layout/ | full |
 
 ### Timing Analyzer UG — section coverage (timing-analyzer-ug.md)
 
@@ -69,8 +70,9 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 
 | File | Notes |
 |------|-------|
-| [.cursor/skills/rtl-design/SKILL.md](../.cursor/skills/rtl-design/SKILL.md) | Routes via INDEX; Quartus/MTBF called out |
-| [topic-router.md](../.cursor/skills/rtl-design/topic-router.md) | Procedure for selective load |
+| [.cursor/skills/rtl-design/SKILL.md](../.cursor/skills/rtl-design/SKILL.md) | Routes via INDEX; coding vs lifecycle mode; Quartus/MTBF called out |
+| [topic-router.md](../.cursor/skills/rtl-design/topic-router.md) | Procedure for selective load; Step 0 intent split |
+| [dev-verify-workflow.md](../.cursor/skills/rtl-design/dev-verify-workflow.md) | Lifecycle: assessment → database → gated generation → traceability |
 
 ## Maintainer
 

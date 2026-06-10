@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTL requirements model",
+  "type": "object",
+  "required": ["requirements"],
+  "additionalProperties": false,
+  "properties": {
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "text", "category", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^REQ-[0-9]{4,}$" },
+          "source": { "type": "string" },
+          "text": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["interface", "register", "memory", "clock", "reset", "parameter", "protocol", "constraint"]
+          },
+          "status": { "type": "string", "enum": ["active", "obsolete", "tbd"] },
+          "derived": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

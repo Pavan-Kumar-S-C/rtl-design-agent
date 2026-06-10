@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=./schema/modules.schema.json
+# Design entities and their requirement links.
+modules:
+  - name: "TBD"
+    description: "TBD"
+    interfaces:
+      - { name: "TBD", type: "TBD", role: "TBD" }
+    parameters:
+      - { name: "TBD", value: "TBD" }
+    clocks: []
+    resets: []
+    memories: []
+    instantiated_macros_ip: []
+    traces_to: []

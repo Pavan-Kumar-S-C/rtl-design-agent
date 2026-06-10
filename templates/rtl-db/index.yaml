@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=./schema/index.schema.json
+# RTL database manifest + configurable paths.
+# Copy into the target project as rtl_db/index.yaml and edit paths to match it.
+version: "1.0"
+project: "TBD"
+generated_by: "rtl-design lifecycle"
+paths:
+  has_dir: "docs/has"
+  mas_dir: "docs/mas"
+  rtl_dir: "rtl"
+  register_sources: ["regs"]
+  standards_dir: "docs/standards"
+  reports_dir: "rtl_db/reports"
+files:
+  - requirements.yaml
+  - modules.yaml
+  - register_map.yaml
+  - traceability.yaml

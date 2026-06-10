@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=./schema/requirements.schema.json
+# Requirements extracted from HAS/MAS. Do not invent: unknowns -> "TBD".
+requirements:
+  - id: "REQ-0001"
+    source: "HAS §0.0"
+    text: "TBD"
+    category: "interface"        # interface|register|memory|clock|reset|parameter|protocol|constraint
+    status: "tbd"                # active|obsolete|tbd
+    derived: false

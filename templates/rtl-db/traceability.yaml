@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=./schema/traceability.schema.json
+# Bidirectional links: requirement <-> db entry <-> RTL <-> verification.
+links:
+  - requirement_id: "REQ-0001"
+    db_entry: "TBD"              # modules/<name> | register_blocks/<block_name>
+    rtl: ""                      # file or module; empty until generated
+    verification: "TBD"          # test/assertion/report ref; TBD until verified
+    status: "uncovered"          # in_progress|covered|uncovered|conflict

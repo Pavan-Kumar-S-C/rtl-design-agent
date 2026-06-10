@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTL database index/manifest",
+  "type": "object",
+  "required": ["version", "paths", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "project": { "type": "string" },
+    "generated_by": { "type": "string" },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["has_dir", "mas_dir", "rtl_dir", "register_sources", "reports_dir"],
+      "properties": {
+        "has_dir": { "type": "string" },
+        "mas_dir": { "type": "string" },
+        "rtl_dir": { "type": "string" },
+        "register_sources": { "type": "array", "items": { "type": "string" } },
+        "standards_dir": { "type": "string" },
+        "reports_dir": { "type": "string" }
+      }
+    },
+    "files": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -12,6 +12,9 @@ Cursor skills + rules for **`@rtl-design`** and **`@rtl-coding-standards`** — 
 | **Golden examples** | [docs/examples/](docs/examples/) |
 | **Design flow cheatsheet** | [.cursor/skills/rtl-design/design-workflow.md](.cursor/skills/rtl-design/design-workflow.md) |
 | **Review checklist** | [.cursor/skills/rtl-design/review-checklist.md](.cursor/skills/rtl-design/review-checklist.md) |
+| **Dev & verification lifecycle** | [.cursor/skills/rtl-design/dev-verify-workflow.md](.cursor/skills/rtl-design/dev-verify-workflow.md) |
+| **RTL database schema** | [docs/standards/rtl-database-schema.md](docs/standards/rtl-database-schema.md) |
+| **DB + report + scaffold templates** | [templates/rtl-db/](templates/rtl-db/), [templates/project-layout/](templates/project-layout/) |
 | **Always-on conduct** | [.cursor/rules/rtl-design-conduct.mdc](.cursor/rules/rtl-design-conduct.mdc) |
 | **Legacy invoke** | [.cursor/skills/rtl-coding-standards/SKILL.md](.cursor/skills/rtl-coding-standards/SKILL.md) |
 
@@ -19,11 +22,12 @@ Cursor skills + rules for **`@rtl-design`** and **`@rtl-coding-standards`** — 
 
 [.cursor/skills/rtl-design/SKILL.md](.cursor/skills/rtl-design/SKILL.md) — procedure:
 
-1. [topic-router.md](.cursor/skills/rtl-design/topic-router.md) — **ask user** if scope unclear
+1. [topic-router.md](.cursor/skills/rtl-design/topic-router.md) — **Step 0** coding vs lifecycle intent; **ask user** if scope unclear
 2. [docs/standards/INDEX.md](docs/standards/INDEX.md) — keyword match → load **only** those topic files
 3. [docs/design/INDEX.md](docs/design/INDEX.md) — matched **Content** sections only
 4. [docs/examples/](docs/examples/) — matched topics only
 5. Per-topic stubs: [.cursor/skills/rtl-design/topics/](.cursor/skills/rtl-design/topics/)
+6. Lifecycle tasks: [dev-verify-workflow.md](.cursor/skills/rtl-design/dev-verify-workflow.md) + [rtl-database-schema.md](docs/standards/rtl-database-schema.md)
 
 ## Updating content
 

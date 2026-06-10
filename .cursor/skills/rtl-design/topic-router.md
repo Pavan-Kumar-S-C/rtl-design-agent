@@ -10,6 +10,13 @@ Before writing or changing RTL:
 4. **Ask the user** when you have **doubts** — ambiguous scope, missing dialect, unclear intent, or conflicting requirements. One clear question; wait if the answer changes the approach.
 5. If you can proceed reasonably from guidelines + user input + visible RTL, **do not** block the task only because INDEX had no keyword row.
 
+## Step 0 — Coding vs lifecycle intent
+
+Before topic matching, classify intent:
+
+- **Lifecycle mode** when keywords match: `has`, `mas`, `requirement`, `rtl database`, `rtl_db`, `traceability`, `traceability matrix`, `gap analysis`, `coverage`, `generate from spec`, `verify rtl`, `requirement coverage`, `consistency check`. Run [dev-verify-workflow.md](dev-verify-workflow.md) (workspace assessment first; gated decision flow). Load lifecycle topic stubs [topics/requirements.md](topics/requirements.md), [topics/rtl-database.md](topics/rtl-database.md), [topics/traceability.md](topics/traceability.md) and schema [docs/standards/rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md). Coding-standards topic matching (Steps 1-2) still applies when generating RTL.
+- **Coding mode** otherwise — continue with Step 1.
+
 ## Step 1 — Match topics
 
 Read [docs/standards/INDEX.md](../../../docs/standards/INDEX.md) and [docs/design/INDEX.md](../../../docs/design/INDEX.md).
@@ -40,7 +47,8 @@ For each match, read **only**:
 |------------------------|------|
 | review, audit, checklist | [review-checklist.md](review-checklist.md) + `review-workflow.md` standard |
 | write, implement, create, refactor | [design-workflow.md](design-workflow.md) |
-| (unclear) | **Ask** write vs review vs explain |
+| requirements, database, traceability, generate-from-spec, verify (lifecycle) | [dev-verify-workflow.md](dev-verify-workflow.md) + [rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) |
+| (unclear) | **Ask** write vs review vs lifecycle vs explain |
 
 ## Step 4 — Topic skill stubs (optional)
 

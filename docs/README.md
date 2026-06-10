@@ -27,6 +27,7 @@ Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → f
 | [csr-registers.md](standards/csr-registers.md) | CSR |
 | [ct22-security-debug.md](standards/ct22-security-debug.md) | CT22 |
 | [review-workflow.md](standards/review-workflow.md) | Review flow |
+| [rtl-database-schema.md](standards/rtl-database-schema.md) | RTL database schema (requirements / modules / register index / traceability) |
 
 Legacy index stub: [rtl-coding-standards.md](standards/rtl-coding-standards.md) → use INDEX.md.
 
@@ -43,6 +44,14 @@ Legacy index stub: [rtl-coding-standards.md](standards/rtl-coding-standards.md) 
 | [design/rtl-macro-library.md](design/rtl-macro-library.md) | `km_hssi_*` macro catalog |
 
 Router: [design/INDEX.md](design/INDEX.md) — read **one section at a time** by keyword match.
+
+## Development & verification lifecycle
+
+The agent also runs a HAS/MAS → RTL database → gated generation → traceability lifecycle:
+
+- Workflow: [.cursor/skills/rtl-design/dev-verify-workflow.md](../.cursor/skills/rtl-design/dev-verify-workflow.md)
+- Schema: [standards/rtl-database-schema.md](standards/rtl-database-schema.md)
+- Templates: [templates/rtl-db/](../templates/rtl-db/) (YAML DB + JSON Schema + report skeletons) and [templates/project-layout/](../templates/project-layout/) (new-project scaffold)
 
 ## Examples
 
