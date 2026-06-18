@@ -3,16 +3,18 @@ name: rtl-design
 description: >-
   Write, review, and refactor Verilog/SystemVerilog RTL, and run the RTL
   development & verification lifecycle (HAS/MAS requirements, RTL database,
-  gap analysis, gated generation, traceability). Loads only topic-matched
-  standards from docs/standards/ (FSM, CDC, resets, lint, etc.). Invoke
-  @rtl-design. Uses coding guidelines + user input; asks only when in doubt. Alias:
-  @rtl-coding-standards.
+  gap analysis, gated generation, traceability). FSM, CDC, resets, lint, CSR,
+  macros. Invoke @rtl-design. For STA reports use @timing-analysis; for SDC
+  files use @sdc; for SpyGlass CDC use @cdc; for SpyGlass Lint use @lint;
+  for testbenches use @testbench; for all invokes type @help.
 disable-model-invocation: true
 ---
 
 # RTL Design Agent
 
-**Invoke:** `@rtl-design`
+**Invoke:** `@rtl-design` (alias: `@rtl-coding-standards`)
+
+**Other invokes:** `@timing-analysis` · `@sdc` · `@cdc` · `@lint` · `@testbench` · `@help`
 
 ## Two modes
 
@@ -27,19 +29,23 @@ disable-model-invocation: true
 
 ## Read order (selective — not everything)
 
+**Hard block:** follow [rtl-design-exclusions.md](rtl-design-exclusions.md) — never load Timing Analyzer, Cookbook, SpyGlass CDC/Lint, testbench-generation, or `examples/sdc/`. Redirect to `@timing-analysis` / `@sdc` / `@cdc` / `@lint` / `@testbench`.
+
 Follow [topic-router.md](topic-router.md):
 
 1. [docs/standards/INDEX.md](../../../docs/standards/INDEX.md) — match keywords → topic list
-2. **Only** matched [docs/standards/<topic>.md](../../../docs/standards/) files (including **Quartus / MTBF:** [quartus-design-recommendations.md](../../../docs/standards/quartus-design-recommendations.md), [metastability-mtbf.md](../../../docs/standards/metastability-mtbf.md); **STA / SDC concepts:** [timing-analyzer-ug.md](../../../docs/standards/timing-analyzer-ug.md); **SDC recipes:** [timing-analyzer-cookbook.md](../../../docs/standards/timing-analyzer-cookbook.md))
+2. **Only** matched [docs/standards/<topic>.md](../../../docs/standards/) files — **never** [timing-analyzer-ug.md](../../../docs/standards/timing-analyzer-ug.md) or [timing-analyzer-cookbook.md](../../../docs/standards/timing-analyzer-cookbook.md) (see [rtl-design-exclusions.md](rtl-design-exclusions.md))
 3. **Only** matched sections from [docs/design/INDEX.md](../../../docs/design/INDEX.md) (user design docs)
-4. **Only** matched [docs/examples/](../../../docs/examples/) for those topics
+4. **Only** matched [docs/examples/](../../../docs/examples/) for those topics — **never** [examples/sdc/](../../../docs/examples/sdc/)
 5. [design-workflow.md](design-workflow.md) or [review-checklist.md](review-checklist.md) if write vs review intent is clear; else **ask**
 
 **Never** read all files under `docs/standards/` in one turn.
 
 ## Topic skill stubs
 
-Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, csr, ct22, quartus-metastability, timing-analyzer, rtl-macros, requirements, rtl-database, traceability).
+Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, csr, ct22, quartus-metastability, rtl-macros, requirements, rtl-database, traceability).
+
+**Timing / SDC / SpyGlass / TB:** use separate invokes — `@timing-analysis`, `@sdc`, `@cdc`, `@lint`, `@testbench` (see [invoke-registry.md](../invoke-registry.md)).
 
 **Lifecycle:** [dev-verify-workflow.md](dev-verify-workflow.md) + schema [docs/standards/rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) + [templates/rtl-db/](../../../templates/rtl-db/).
 

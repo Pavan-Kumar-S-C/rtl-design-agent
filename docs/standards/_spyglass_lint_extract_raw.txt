@@ -1,0 +1,2906 @@
+LINT PDF FPGA / KEYWORD PAGES
+================================================================================
+--- page 1 ---
+Verification Continuum™
+VC SpyGlass Lint®  User Guide
+Version X-2025.06-SP1, September 2025
+
+--- page 2 ---
+Copyright and Proprietary Information Notice
+© 2025 Synopsys, Inc. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. 
+and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All 
+other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is 
+strictly prohibited.
+Destination Control Statement
+All technical data contained in this publication is subject to the export control laws of the United States of America. 
+Disclosure to nationals of other countries contrary to United States law is prohibited. It is the reader’s responsibility to 
+determine the applicable regulations and to comply with them.
+Disclaimer
+SYNOPSYS, INC., AND ITS LICENSORS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+WITH REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+Trademarks
+Synopsys and certain Synopsys product names are trademarks of Synopsys, as set forth at
+https://www.synopsys.com/company/legal/trademarks-brands.html.
+All other product or company names may be trademarks of their respective owners.
+Free and Open-Source Licensing Notices
+If applicable, Free and Open-Source Software (FOSS) licensing notices are available in the product installation.
+Third-Party Links
+Any links to third-party websites included in this document are for your convenience only. Synopsys does not endorse 
+and is not responsible for such websites and their practices, including privacy practices, availability, and content.
+ 
+www.synopsys.com
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+2
+
+--- page 3 ---
+Feedback
+Statement on Inclusivity and Diversity
+Synopsys is committed to creating an inclusive environment where every employee, 
+customer, and partner feels welcomed. We are reviewing and removing exclusionary 
+language from our products and supporting customer-facing collateral. Our effort also 
+includes internal initiatives to remove biased language from our engineering and working 
+environment, including terms that are embedded in our software and IPs. At the same 
+time, we are working to ensure that our web content and software applications are usable 
+to people of varying abilities. You may still find examples of non-inclusive language in our 
+software or documentation as our IPs implement industry-standard specifications that are 
+currently under review to remove exclusionary language.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+3
+
+--- page 4 ---
+Copyright and Proprietary Information Notice
+Feedback
+Customer Support
+Customer support is available through SolvNetPlus.
+Accessing SolvNetPlus
+The SolvNetPlus site includes a knowledge base of technical articles and answers to 
+frequently asked questions about Synopsys tools. The SolvNetPlus site also gives you 
+access to a wide range of Synopsys online services including software downloads, 
+documentation, and technical support.
+To access the SolvNetPlus site, go to the following address:
+https://solvnetplus.synopsys.com
+If prompted, enter your user name and password. If you do not have a Synopsys user 
+name and password, follow the instructions to sign up for an account.
+If you need help using the SolvNetPlus site, click REGISTRATION HELP in the top-right 
+menu bar.
+Contacting Customer Support
+To contact Customer Support, go to 
+https://solvnetplus.synopsys.com.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+4
+
+--- page 5 ---
+Feedback
+Contents
+1. Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+About this Guide . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+Contents of this Manual . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+2. Getting Started  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .17
+Verification Compiler (VC) Platform . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+VC Static and Formal Solution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+VC SpyGlass Lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+Licensing Requirements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+Key Features of VC SpyGlass Lint . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . 20
+VC SpyGlass Lint Methodology Flow . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . 20
+3. Reading the Design  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .22
+Setting Up Design Environment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+Licensing and Installation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+VC SpyGlass Fundamentals for Lint . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . .23
+Support for DesignWare (DW) Components . . . . . . . . . . . . . . . . . . . .  . . . . . . . 23
+Reusing the Pre-compiled DW Components . . . . . . . . . . . . . . . . . . . . .  . . . . . . 23
+Selecting DW Components for Elaboration . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+Language Support . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+Running the VC Static Shell . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . .24
+Changing the VC Static Session Name and Location . . . . . . . . . . . . . . . . . .  . . 26
+Sample Design Setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .26
+Saving and Restoring Sessions . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . 27
+Updating Application Variable Settings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .27
+Reading the Liberty Files . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . 29
+Using Black Boxes in VC SpyGlass Lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+Reading the Design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .31
+Enabling the Design Read Messages . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . 34
+Application Variables that Impact Reading a Design . . . . . . . . . . . . . . . . . . . . . 35
+5
+
+--- page 6 ---
+Contents
+Feedback
+Overriding Parameters Using elaborate Command . . . . . . . . . . . . . . . . . . . . . . 35
+Performing VC SpyGlass Lint Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .36
+Enabling Lint Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+Analyzing Reports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .37
+4. Working with Methodologies and Goals  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .38
+Terminology . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+Challenges in the Development of an SoC Design . . . . . . . . . . . . . . . . . . . . . . . . . 40
+Development Phases and Methodologies . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+RTL Handoff . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+Netlist Handoff . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .44
+Layout Handoff . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Understanding GuideWare Goals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Setting Up Methodology/Goals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+Running Custom Goals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .53
+5. Configuring Application Variables and Commands  . . . . . . . . . . . . . . . . . . . . . . 54
+Application Variables . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .54
+analyze_skip_translate_body . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+disable_rtl_deadcode_extended . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+enable_clk_rst_infer_potential . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .55
+enable_enhanced_rca_reporting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+enable_lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+enable_lint_save . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+enable_generate_label_naming . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+enable_gw_optional_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+enable_sv_net_ports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .58
+enable_reduction_engine . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+elab_summary_report_max_inst . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .59
+enable_timing_arc_for_bbox_detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+hierarchy_delimiter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+ignore_encrypted_module_violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+infer_unique_bbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .61
+language_check_hierarchy_format . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+lang_check_report_input_path . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+6
+
+--- page 7 ---
+Contents
+Feedback
+lint_check_top_du . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+lint_clk_rst_node_latch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+lint_clk_rst_node_on_pad . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+lint_debug . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+lint_disable_busmerge_file_line . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+lint_disable_instance_bus_merging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+lint_disable_internal_waiver_gen . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+lint_disable_side_reports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .66
+lint_dont_report_outside_design_pkg . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+lint_dont_report_inside_design_pkg . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+lint_dump_hanging_clocks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+lint_enable_all_tags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .67
+lint_enable_detailed_hierarchy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+lint_enable_formal_schematic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .68
+lint_enable_multidim_busmerge . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+lint_enable_netlist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+lint_enable_native_to_sam_qor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+lint_enable_pgpins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+lint_enable_smart_tag_execution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+lint_enable_waveform_viewer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .71
+lint_enable_wdf . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+lint_enhanced_dead_code_detection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+lint_enhanced_locations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+lint_formal_disable_stage_name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+lint_functional_check_libs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+lint_functional_exclude_arithmetic_fsm . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+lint_functional_mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+lint_functional_total_time . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .74
+lint_global_scope_violation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+lint_ignore_syncreset_for_asyncflop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .75
+lint_ignore_redundant_field_waiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+lint_impl_mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+lint_implicit_vc_synth_param_real . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+lint_netlist_language_check . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77
+lint_keep_old_starc_severity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .77
+lint_load_goal_results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+lint_max_viol_count . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .86
+lint_memory_threshold . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 87
+lint_message_for_encrypted_block . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .87
+7
+
+--- page 8 ---
+Contents
+Feedback
+lint_multibit_sync_reset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .87
+lint_no_of_formal_processes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+lint_option_waive_by_v2k . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+lint_post_dblink_language_check . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+lint_no_of_lang_processes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+lint_report_all_paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+lint_report_same_similar_rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+lint_report_split_userdefined_signal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+lint_report_whole_path . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+lint_remove_unused_func_violation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+lint_rtl_goal_default_enable . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+lint_signature_exclude_hierarchy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+lint_spyglass_waiver_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+lint_traverse_depth . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 93
+match_severity_for_builtins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .93
+prefer_lib_or_rtl_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 94
+replace_rootdir_for_waivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+report_all_hdl_errors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 95
+sh_continue_on_error . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 96
+tag_severity_for_unsynth_modules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 96
+LINT Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+check_lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+create_lint_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+debug_lint_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 98
+get_flp_summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .98
+report_lint_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+report_violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 100
+report_fsm_info . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 103
+sg_read_project . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .103
+sg_read_waiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .106
+view_fl_viol_summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 107
+Lint Configure Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+configure_lint_abort_unverified_point . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+configure_lint_functional_setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .109
+configure_lint_methodology . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 110
+configure_lint_language_tags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 111
+configure_lint_parameter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .112
+configure_lint_rca . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 112
+8
+
+--- page 9 ---
+Contents
+Feedback
+configure_lint_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 113
+configure_lint_tag_parameter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+configure_lint_setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 116
+configure_waiver_data_file . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+lint_disable_bus_merge . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+lint_loop_configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+lint_smart_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120
+Database Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+all_clock_gates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+all_clocks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .122
+all_connected . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 123
+all_designs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+all_fanin . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+all_fanout . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .126
+all_inputs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+all_instances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+all_outputs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+change_link . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+configure_mem_macro_inference . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .130
+connect_net . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .130
+create_bus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .131
+create_cell . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 132
+create_net . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 133
+create_port . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 134
+define_user_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .135
+disconnect_net . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 136
+find . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .137
+get_cells . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 138
+get_designs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .140
+get_libs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 141
+get_lib_cells . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .143
+get_lib_pins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 145
+get_lib_timing_arcs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 147
+get_link . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 148
+get_nets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .149
+get_object_name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .152
+get_pins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .152
+get_ports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 155
+9
+
+--- page 11 ---
+Contents
+Feedback
+create_clock . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 185
+create_generated_clock . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 187
+create_interface_wrapper . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 189
+create_reset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 190
+create_static . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 191
+define_design_lib . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 192
+define_clock_sense . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .193
+define_name_rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 193
+diff_database . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .195
+disable_tag_field . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 196
+elaborate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 196
+execute_rootcause_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .199
+enable_rca_cluster . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 200
+generate_waiver_commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 201
+get_blackbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 202
+get_clock_relationship . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .203
+get_cluster_info . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .204
+get_constant_sources . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 205
+get_exception . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 205
+get_field_subfield . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 206
+get_glassbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 207
+get_license . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 208
+get_no_msg_reporting_tags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 208
+get_pi_drive_clock . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .209
+get_readmsg_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 209
+get_readmsg_field . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .210
+get_readmsg_ids . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .210
+get_readmsg_names . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .210
+get_supported_tags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .211
+get_violation_waiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 211
+get_waiver_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 212
+get_waivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 212
+index_database . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .213
+infer_clock_roots . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 213
+infer_reset_roots . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 213
+infer_setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .214
+link . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 215
+link_design . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 216
+list_all_waiver_files . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 217
+11
+
+--- page 12 ---
+Contents
+Feedback
+llib . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 217
+man . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 218
+merge_database . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 218
+read_file . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .219
+read_sdc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 223
+remove_case_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 223
+remove_clock . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 224
+remove_clock_groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 225
+remove_generated_clocks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 226
+rename_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 226
+report_checker_thread_consumption . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 227
+report_mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 227
+report_names . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 228
+report_properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .228
+report_read . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 229
+report_read_violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .229
+report_session_data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 231
+report_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 232
+reset_mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 233
+set_case_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .233
+waive_read . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 234
+write_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 235
+Command Sanity Checks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 237
+Errors Generated by Tcl Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 237
+TCL_COMMAND_INVALID . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 237
+TCL_PREREQUISITE_COMMAND_NOT_FOUND . . . . . . . . . . . . . . . . . .238
+TCL_COMMAND_OPTION_VALUE_INVALID . . . . . . . . . . . . . . . . . . . . . .239
+TCL_OBJECT_NOT_FOUND . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 239
+TCL_COMMAND_CONFLICTING . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 240
+6. Using VC SpyGlass Lint  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 242
+Invoking VC SpyGlass Lint in Tcl Shell Mode . . . . . . . . . . . . . . . . . .  . . . . . . . . . . .242
+Sourcing a Tcl Script in VC SpyGlass Lint . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . 243
+Building a Design File . . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . 243
+Running Lint Checks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .244
+Reporting Violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 244
+Reporting Same or Similar Tags . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . .245
+12
+
+--- page 13 ---
+Contents
+Feedback
+Using Multi-Cores . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 245
+VC SpyGlass Lint Flow . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 245
+Functional Lint Flow . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . 246
+Violation Messages Reported for the Multi-core Feature . . . . . . . . . . . . . . . . . .  . . 246
+Module-based Reporting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 247
+Generating Audit Reports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 248
+Using Waivers in VC SpyGlass Lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 250
+Using the VC SpyGlass Lint Setup Wizard . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . 254
+Accessing the VC SpyGlass Lint Setup Wizard . . . . . . . . . . . . . . . . . . . . . . . . 255
+Defining Application Variables . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 259
+Define Methodology and Goal Settings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 260
+Defining the Severity Level . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .261
+Configure Tags and Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .263
+Importing Design and Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 264
+Specify Constraint Settings . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .268
+Generating Reports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .271
+Saving Sessions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 272
+Viewing Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 273
+7. Configuring Tags and Parameters  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .277
+About VC SpyGlass Lint tags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 277
+Creating the Configuration File . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 277
+Configuring Tag Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 277
+Inferring Hanging Clocks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .278
+Support for STARC and STARC02 Tag Mapping . . . . . . . . . . . . . . . . . . . . . . . . . . 278
+8. Migrating Waivers  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 281
+Working with Waivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 281
+Migrating Waivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 286
+Waiving Using GUI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 290
+Reporting Waivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 298
+Debugging Aids . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 299
+Waiver-related Commands and Application Variables . . . . . . . . . . . . . . . . . . . . . . 300
+13
+
+--- page 14 ---
+Contents
+Feedback
+9. Analyzing VC SpyGlass Lint Results  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 304
+Understanding VC SpyGlass Lint Violation Database . . . . . . . . . . . . . . . . . . . . . . 304
+Debugging Lint Violations Using Tcl . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 307
+Examples of Violation Fields . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . 311
+Filtering Messages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 311
+Operations on Tag Definitions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 312
+Reports Generated by VC SpyGlass Lint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 314
+10. VC SpyGlass Supported Flows  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 319
+Functional Lint Flow . . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . 319
+Key Features . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .319
+VC SpyGlass Functional Lint Flow . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 320
+Invoking VC SpyGlass Functional Lint . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . 320
+Using the view_fl_viol_summary Command . . . . . . . . . . . . . . . . . . . . . . . 321
+The viol_breakup.csv Report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 321
+Using the FSM Viewer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 321
+Displaying the FSM Viewer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 322
+Hierarchical Flow (SAM) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 346
+Use Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .348
+Generating the Abstract Model . . . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . . . 348
+Specifying the SAM Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .348
+QoR Validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 349
+Comparing Violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 350
+14
+
+--- page 15 ---
+Feedback
+1
+Introduction
+This chapter provides an overview of VC SpyGlass Lint and includes the following 
+sections:
+•
+About this Guide
+• Contents of this Manual
+About this Guide
+The VC SpyGlass Lint User Guide describes the concepts, features, usage, and tags of 
+VC SpyGlass Lint, which enable you to use the Verilog or SystemVerilog designs against 
+various coding standards and design tags.
+Contents of this Manual
+The VC SpyGlass Lint User Guide consists of the following sections:
+Section Description
+Getting Started Provides an overview of VC SpyGlass Lint.
+Reading the Design Describes how to read a design in VC SpyGlass Lint.
+Working with 
+Methodologies and Goals
+Provides information on using methodologies and goals.
+Configuring Application 
+Variables and Commands
+Describes the SDC commands, Tcl commands, 
+configure commands and application variables 
+supported by VC SpyGlass Lint.
+Using VC SpyGlass Lint Provides reference information for the built-in Tcl 
+commands implemented in VC SpyGlass Lint.
+Configuring Tags and 
+Parameters
+Provides detailed procedures for how to configure and 
+use the prepackaged tags to check your HDL code.
+Migrating Waivers Describes migrating waivers in VC SpyGlass Lint.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+15
+
+--- page 16 ---
+Chapter 1: Introduction
+Contents of this Manual
+Feedback
+Section Description
+Analyzing VC SpyGlass 
+Lint Results
+Describes the VC SpyGlass Lint violations, how to 
+debug Lint Violations Using Tcl, and reports generated 
+by VC SpyGlass Lint.
+VC SpyGlass Supported 
+Flows
+Describes the VC SpyGlass Functional Lint flow.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+16
+
+--- page 17 ---
+Feedback
+2
+Getting Started
+This section introduces Verification Compiler (VC) Platform, VC SpyGlass, and VC 
+SpyGlass Lint and is organized into the following sections:
+•
+Verification Compiler (VC) Platform
+• VC Static and Formal Solution
+• VC SpyGlass Lint
+• VC SpyGlass Lint Methodology Flow
+Verification Compiler (VC) Platform
+Today's electronic consumer market is driven by a huge demand for mobility, portability, 
+and reliability. Additional functionality, performance, and bandwidth are very important for 
+maximizing semiconductor sales in addition to faster time-to-market and product quality. 
+The evolution of applications, such as cellular phones, laptops, PDAs, computers, mobile 
+multimedia devices, and portable systems, has seen an exponential growth in battery 
+operated systems.
+The increase in design complexities and shrinking technologies, where more and more 
+functionality is being added into smaller area of a chip has brought in a new set of 
+challenges in System-on-Chip (SoC) verification. With adoption of advanced techniques 
+and sophisticated tools, which helps in verifying SoC connectivity, signal integrity, power 
+management, and functionality of analog components, hardware-software co-verification 
+has become inevitable.
+This brings in a need for a unified and integrated verification environment with seamless 
+flow and reuse of the information across different domains/levels to achieve faster results.
+Verification Compiler Platform is a next-generation verification solution that provides 
+a scalable environment, where sophisticated tools work seamlessly with each other 
+throughout the flow to accomplish various verification tasks using integration of 
+technologies. It helps in optimizing design iterations and recompilations, shortens debug 
+cycles, and enables steady integration and interoperability between individual verification 
+tools.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+17
+
+--- page 18 ---
+Chapter 2: Getting Started
+VC Static and Formal Solution
+Feedback
+VC Static and Formal Solution
+Traditionally, simulation-based dynamic verification techniques have been the mainstay of 
+functional verification. As modern day SoC designs become more complex, the adoption 
+of static verification techniques is important.
+Synopsys' VC Static and Formal verification solution offers the next-generation 
+comprehensive VC Formal verification solution, VC SpyGlass Lint, VC SpyGlass CDC, VC 
+SpyGlass RDC, and VC Low Power verification solution.
+Synopsys' VC Static and Formal verification solution combines the best-in-class 
+technologies for improved ease-of-use, accuracy, and performance. It also provides low 
+violation noise and excellent debug capabilities. This solution enables designers and 
+verification engineers to quickly and easily find and fix bugs in RTL before simulation; 
+therefore, reducing the time needed before software bring-up, hardware emulation, and 
+prototyping.
+VC LP is a multi-voltage, static low power rule checker that allows engineers to rapidly 
+verify designs that use voltage control-based techniques for power management. VC LP 
+is part of the Synopsys Eclypse Flow. VC LP also helps in cleaning up the power intent of 
+the design that is captured in IEEE 1801 Unified Power Format (UPF) before such intent is 
+used as a golden reference for implementation and other verification tools. Further, VC LP 
+verifies the implemented power intent later in the design flow.
+VC Formal verification offers property checking using mathematical techniques to test 
+properties or assertions to ensure the correct functionality of RTL designs. For more 
+information, see the VC Formal Verification User Guide.
+VC SpyGlass Lint, a static verification tool, performs system-to-netlist verification using 
+prepackaged tags to check Verilog, SystemVerilog, VHDL design against various coding 
+standards and design tags. After you elaborate the design in the VC Lint environment, you 
+can use built-in Tcl queries, prepackaged checks, and a set of predefined procedures to 
+run interactive queries on your design.
+RTL code is verified for correct connectivity between two nodes of a design using the 
+VC Formal Connectivity Checking solution. For more information, see the VC Formal 
+Connectivity Checking User Guide.
+RTL is further verified for functionality and policy compliance. Model checking techniques 
+exhaustively and automatically check whether a model adheres to a given specification 
+and verifies correct properties of finite-state systems. For more information, see the VC 
+Formal Verification User Guide.
+VC SpyGlass RDC performs reset verification to report issues, such as metastability, 
+glitches, and functional failures leading to silicon failure. It also provides advanced RDC 
+capabilities, such as performing RDC synchronization in sequential crossing paths, 
+memory modeling, and automatically extracting reset order from the simulation database. 
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+18
+
+--- page 19 ---
+Chapter 2: Getting Started
+VC SpyGlass Lint
+Feedback
+In addition, it generates RDC reports that you can use to identify synchronization issues in 
+the design. You can also waive and filter violations.
+VC SpyGlass Lint
+VC SpyGlass Lint is a system-to-netlist checking tool that comes with prepackaged tags to 
+check Verilog or SystemVerilog designs against various coding standards and design tags.
+After you elaborate the design in the VC SpyGlass Lint environment, you can use the 
+built-in Tcl shell and a set of predefined procedures to run interactive queries on your 
+design. With full support for Verilog 2001 and IEEE Std 1800-2005 SystemVerilog design 
+constructs, combined with extensive RTL and netlist checks, VC SpyGlass Lint can check 
+your designs for errors that may cause problems in the downstream simulation, synthesis, 
+and equivalence checking flows. The best way to learn the tool is to test one of your 
+designs with the Checker and the prepackaged policies (sets of tags). The prepackaged 
+tags are designed to follow the best coding guidelines and practices followed in the 
+industry.
+VC SpyGlass Lint is a design checker tool that comes with a rich set of prepackaged tags 
+to check Verilog and SystemVerilog designs against various coding standards and design 
+tags.
+You use the Checker to designate Verilog or SystemVerilog input files that you want to 
+compare against coding tags that you select with the click of a mouse. The Checker 
+analyzes your Verilog and SystemVerilog source code against the selected tags and 
+generates a report indicating which lines in the code violate the tags. You can then:
+• Open the report in the GUI and debug the reported violations
+• Generate schematics to debug structural checks.
+• Navigate directly from the violation message in the GUI to its source code in your HDL 
+files.
+• Create filters and waivers for better report management
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+19
+
+--- page 20 ---
+Chapter 2: Getting Started
+VC SpyGlass Lint Methodology Flow
+Feedback
+Licensing Requirements
+• VC SpyGlass Lint requires the VC-LINT-BASE  & checker licenses. Ensure that these 
+licenses are available before you run VC SpyGlass Lint.
+• To use the following Functional Lint tags, you need to specify the VC-SG-ELITE  license 
+key:
+NotReachableFsmState, MissingFsmStateTransition, NoExitFsmState, 
+FsmLiveLock, MissingCaseItems-ML, NoAssignX-ML, DeadCode-ML, 
+RegisterStuckInResetState-ML, LINT_NOTOGGLE_SIGNAL, ModuleComplexityInfo-
+ML, LINT_INTERACTING_FSM, LINT_MULTIDRIVEN_BUS, LINT_FLOATING_BUS
+Key Features of VC SpyGlass Lint
+The key features and benefits of using VC SpyGlass LINT for static verification in a typical 
+design are as follows:
+• Improved total runtime and PEAK memory
+• Unified compilation
+• Management of large memories and does not require options to handle large memories 
+during synthesis
+• Word-level traversal and avoidance of bit level traversal (if needed)
+• Consistent handling of clocks and resets
+• Multi-message and multi-line support
+• Tag-specific reports
+• Noise reduction using the allviol parameter
+• V2k language support
+• VHDL2008 support
+• Complete IEEE 1800-2005 System Verilog design constructs
+• Saving and restoring elaborated design view
+VC SpyGlass Lint Methodology Flow
+The following figure shows the VC SpyGlass Lint methodology flow.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+20
+
+--- page 21 ---
+Chapter 2: Getting Started
+VC SpyGlass Lint Methodology Flow
+Feedback
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+21
+
+--- page 22 ---
+Feedback
+3
+Reading the Design
+This section describes how you can get started with VC SpyGlass Lint.
+•
+Setting Up Design Environment
+• VC SpyGlass Fundamentals for Lint
+• Reading the Liberty Files
+• Using Black Boxes in VC SpyGlass Lint
+• Reading the Design
+• Performing VC SpyGlass Lint Analysis
+Setting Up Design Environment
+You must provide the synthesizable design files (RTL/Netlist) to perform Lint verification.
+Licensing and Installation
+This release of VC Static Platform is a standalone platform and must be installed in an 
+empty directory, using the latest version of the Synopsys Installer. Do not install this 
+release over an existing release of a Synopsys tool.
+For installation instructions, see the vc_static_INSTALL_README.txt  file in the product 
+download directory. For detailed installation instructions, see the Synopsys Installation 
+Guide at the following address:
+http://www.synopsys.com/install
+Before running Synopsys tools, you must have installed and configured the Synopsys 
+Common Licensing (SCL) software, retrieved your license key file, and defined the license 
+file environment variable. For detailed information about SCL installation and setup, see 
+the Synopsys Licensing Quickstart Guide at the following address:
+http://www.synopsys.com/licensing
+For more information on the VC Static license keys, see section VC Static Product 
+Installation Notes.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+22
+
+--- page 23 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+VC SpyGlass Fundamentals for Lint
+VC SpyGlass Lint uses the synthesizable RTL files to perform Lint verification. The tool 
+provides you with commands that you can use to create and verify Lint setup, perform 
+various checks on the design.
+VC SpyGlass Lint reports the results of the checks performed on the design in the form of 
+violation tags. A violation tag can be an Error, Warning, or Info type depending on the type 
+of violation reported.
+Support for DesignWare (DW) Components
+VC SpyGlass supports usage of DesignWare components in the RTL. To read a design 
+with DesignWare components:
+• For Verilog designs, no setting is required.
+• For VHDL design, use the following command:
+set_app_var enable_library_scan_in_design_read true
+Reusing the Pre-compiled DW Components
+You can use DW components that are compiled in a previous major release by saving the 
+compiled DW components to an appropriate location that is accessible by other users. 
+Users can use this compile in all Service Pack releases of the major VC Static release. 
+You need to recompile the DW components when you move to the next major VC Static 
+release.
+For example, if you compile DW components in the VC Static 2017.12 release and save 
+it at a central location, all users can use the compile in all the VC Static 2017.12-SP* 
+releases.
+To use such compiled DW components, use the following command:
+set_app_var vsi_dwroot  <path>/NG_DW_WORK_1712
+Where, <path>  specifies the directory where the compiled DW components are stored.
+Note:
+You can save the compiled DW components on your local machine and use it in 
+successive SP* releases as well.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+23
+
+--- page 24 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+Selecting DW Components for Elaboration
+If both RTL and DW pre compiled libraries are present in a design, VC SPYGLASS, by 
+default, uses the RTL definition for elaboration. This might lead to creation of blackboxes 
+of the DesignWare components in the design.
+Set the prefer_dw_over_rtl  application variable to true  to enable VC SpyGlass to use 
+the DW pre-compiled libraries instead of RTL.
+Language Support
+VC Static platform supports the following industry standard HDLs:
+• Verilog (1995, v2k)
+• VHDL (‘87, ‘93, 2008)
+• SystemVerilog 1800-2005, and 2009
+• Mixed Language Design
+Running the VC Static Shell
+VC SpyGlass Lint uses the pivotal environment variable, VC_STATIC_HOME. This variable 
+must be set to point to the installation directory as shown in the following code snippet. In 
+the installation directory, you can find the bin, lib, doc and other directories.
+% setenv VC_STATIC_HOME /tools/synopsys/vcst
+Optionally, you can add $VC_STATIC_HOME/bin  to your $PATH. To start the VC Static tool, 
+execute the following command:
+% $VC_STATIC_HOME/bin/vc_static_shell
+To invoke the VC Static platform from the shell in the 64-bit mode (default mode), use the 
+following command:
+%vc_static_shell
+VC Static Shell Command Line Options
+The following command line options are available for VC Static. The options might be 
+abbreviated by leaving out the text in parenthesis; for example, either -for -file  can be 
+used to give the name of a script file to execute.
+Syntax
+%vc_static_shell -help
+Usage: /~/Release/bin/vc_static_shell
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+24
+
+--- page 25 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+[-batch] Start tool in batch mode. When you use the -batch option, VC 
+ Static automatically quits the shell even when quit is not explicitly 
+ specified in the vcst.tcl file or when an unexpected error occurs and 
+ the full run is not complete.
+[-out_dir <dir_name>] Name of output directory.
+[-cmd_log_file <log_name>] Name of command log file in current directory.
+[-f(ile) <file_name>] Script file to exec after setup.
+[-gui] Start the GUI ActivityView.
+[-h(elp)] Print this help message.
+[-id | -ID] Give more information about application build/env.
+[-lic_wait <minutes>] Wait for license for #minutes.
+[-mode64 | -full64] Start tool in 64bit mode.
+[-mode32 ] Start tool in 32bit mode.
+[-no_init] Don't load .synopsys_vcst.setup files.
+[-no_restore] Remove previous session and start a new one.
+[-no_ui] Starts the tool without the GUI/UI process.
+[-output_log_file <log_name>] Capture console output in given log file.
+ [-read_only] Restore a previous session in read-only mode.
+ [-remoteConfig <conf_file>] Remote config file for running   VCS compile 
+ process on bsub/qsub.
+ [-reset] Clean up the old data of the work session.
+ [-restore] Restore a previous session.
+ [-session <session_name>] Use the <session_name> directory  for the 
+ runtime database.
+ [-unbuffered] Output all screen messages in unbuffered mode.
+ [-use_ipv4] Use IPv4 protocol for inter process communications.
+ [-use_ipv6] Use IPv6 protocol for inter process communications.
+ [-no_color] Start tool in non-color mode.
+ [-x] Execute configuration TCL command.
+ [-y] Execute post configuration TCL command.
+ [-scl_span] Enable grabbing licenses across multiple  servers.
+ [-container] Start tool within a container environment.
+ [-lic_report] Enable reporting of license check-in check-out 
+  information.
+ [-noecho] Disable reporting commands in the screen output  and session 
+ log.
+ debug options:
+ [-echo] Echo the environment but do not  invoke the  executable.
+Use Model
+Using vc_static_shell  in the batch mode:
+%vc_static_shell -f vcst.tcl -batch
+Using vc_static_shell  in the interactive mode:
+%vc_static_shell -f vcst.tcl
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+25
+
+--- page 26 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+Changing the VC Static Session Name and Location
+After vc_static_shell  is run in any user work directory, VC Static creates a default session 
+(work database directory) in the current working area called vcst_rtdb  [VC Static Run Time 
+Data Base] along with default log files. The default session name is vcst.
+You can change the name of the session and the location of the session at the time of 
+invoking vc_static_shell.
+%vc_static_shell -session my_path/my_session <other commands>
+This command creates a database directory named my_session_rtdb  in the ./my_path 
+directory.
+Sample Design Setup
+You can use the following script file to run VC SpyGlass Lint flow in vc_static_shell.
+### Note to set respective app_vars' and other settings in below order.
+# Basic VC SpyGlass LINT TCL file.
+# Edit, fill in <options> and uncomment any settings/commands, then save.
+ 
+#Settings to enable VC SpyGlass LINT flow
+set_app_var enable_lint true
+ 
+#The following command reads Cell library files in .db format
+set search_path < Path to directory which contain db files>
+set link_library <db file list which located in search path> //Refer to 
+ the Reading the Liberty Files section for details.
+ 
+### Enabling/Disabling VC Spyglass LINT tags
+configure_lint_tag -enable -tag "<tag_name>" -goal <goal_name>
+configure_lint_tag_parameter -tag "<tag_name>" -parameter 
+ <parameter_name> -value {<value>} -goal <goal_name>
+configure_lint_setup -goal <goal_name>
+ 
+### Set below settings after the "Enabling/Disabling VC Spyglass LINT 
+ tags" settings
+ 
+#### Design read
+define_design_lib WORK -path ./WORK/VCS
+analyze -format <Verilog/sverilog/vhdl> {-f <file_list> }
+-vcs {<vcs_command>}
+elaborate <top_module_name>
+ 
+#Command to check LINT
+check_lint
+ 
+#The following command generates a verbose report
+report_violations -app lint -verbose -file <File_name> -limit 0
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+26
+
+--- page 27 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+ 
+# Show results in GUI
+view_activity
+Saving and Restoring Sessions
+VC SpyGlass Lint enables you to save the results of the run after the check_lint  TCL 
+command and restore the results in the subsequent run from the same point. You can use 
+GUI based debugging, applying waivers and report generation in the restored run.
+Saving Sessions
+When you exit the vc_static_shell, the results of the current session are not 
+automatically saved. To save the session setup and run data, use the save_session 
+command. The command uses the following syntax:
+save_session
+-session <session_name>
+where, -session <session_name>  specifies the name to be used to save the session.
+Restoring sessions
+To restore a saved session, use the restore_session  command. The command uses the 
+following syntax:
+restore_session
+[-session <session_name>]
+where, -session <session_name> specifies the name of a previously saved session.
+Updating Application Variable Settings
+VC SpyGlass Lint offers a list of application variables that can be used as per your 
+requirements. To see the list of all the available application variables and their current 
+settings in the vc_static_shell, use the following command:
+%vc_static_shell> printvar (or)
+%vc_static_shell> report_app_var
+The printvar  command reports all variables including user-defined variables while the 
+report_app_var  command reports only the VC Static and Formal application variable 
+settings.
+Example 1
+%vc_static_shell> printvar
+......
+......
+....
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+27
+
+--- page 28 ---
+Chapter 3: Reading the Design
+VC SpyGlass Fundamentals for Lint
+Feedback
+      lint_enable_pgpins   = "false"
+    lint_enable_smart_tag_execution = "false"
+    lint_functional_mode = "false"
+    lint_ignore_encrypted_violations = "false"
+    lint_ignore_syncreset_for_asyncflop = "false"
+...
+...
+....
+.....
+Example 2
+vc_static_shell> report_app_var *lint*
+Variable               Value      Type    Default    Constraints
+---------        --------- ------- ---------- ---------------enable_lint 
+             true     string   false       {apex elite base true false on 
+ off yes no 1 0 }
+enable_lint_save         true    bool      false        
+ lint_clk_rst_node_latch  true    bool      true
+lint_clk_rst_node_on_pad true    bool      false
+lint_debug               0       int       0
+lint_disable_internal_waiver_gen true   bool     true
+lint_dump_hanging_clock  true    bool      true
+lint_enable_all_tags     false   bool      false
+lint_enable_detailed_hierarchy false   bool      true
+lint_enable_native_to_sam_qor  false   bool     false
+lint_enable_pgpins       false   bool     false
+lint_enable_smart_tag_execution false  bool     false
+lint_enable_waveform_viewer     true  bool     true
+lint_enhanced_dead_code_detection false bool    false
+lint_formal_disable_stage_name false bool    false
+lint_functional_mode         false  bool   false
+lint_ignore_redundant_field_waiver   true  bool    true
+ 
+lint_ignore_syncreset_for_asyncflop    true      bool    true
+lint_impl_mode                        false    bool     false
+lint_load_goal_results           false     bool    false
+lint_no_of_formal_processes            0          int     0              
+      1 <= val <= 32
+lint_no_of_lang_processes       1         int      1                    1 
+ <= val <= 16
+lint_report_all_paths             false       bool    false
+lint_report_same_similar_rules        false      bool    false
+lint_report_split_userdefined_signal  true        bool    false
+lint_report_whole_path             3         int     3
+lint_signature_exclude_hierarchy      false        bool    false
+lint_spyglass_waiver_report                   string
+lint_traverse_depth          5000       int     5000
+Example 3
+vc_static_shell> report_app_var lint_functional_mode
+-verbose
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+28
+
+--- page 29 ---
+Chapter 3: Reading the Design
+Reading the Liberty Files
+Feedback
+Variable    Value     Type    Default    Constraints
+--------- --------- ------- ---------- ----------------
+lint_
+functional_
+mode          false     bool    false
+# Enables the formal mode for lint checks.Noisy lint checks like 
+ Width-Mismatch, Index-Overflow, DeadCode, FSM etc. will leverage formal 
+ technology
+You can change the default behavior of VC SpyGlass Lint by changing the default settings 
+of the application variables. You can use the set_app_var  command to change the setting 
+of an application variable. The following example shows how to set a variable:
+vc_static_shell> set_app_var lint_functional_mode true
+Reading the Liberty Files
+For pure RTL designs, supplying liberty files is not necessary, However, supplying liberty 
+files is necessary for RTL designs with pre-instantiated cells and for most logical/physical 
+netlist designs. You must provide all the required liberty files using search_path  and 
+link_library  application variables before reading the design. After the link_library 
+and search_path  commands are set, read the design using the read_file  command.
+The search_path and link_library Variable
+The search_path  application variable specifies a sequence of directories where VC 
+SpyGlass Lint looks for the library (.db) files. The specified directories are searched before 
+a new library file is loaded.
+%vc_static_shell> set_app_var search_path <list of all the paths>
+• Specify all the paths where VC SpyGlass Lint should search for the library files and 
+design files. The paths might be absolute or relative to the directory from which VC 
+SpyGlass Lint is invoked.
+• If multiple paths are present, specify the paths as space separated values in double 
+quotation marks.
+• The search_path  variable supports environment variables.
+• The search_path  variable does not support wildcard characters.
+Note:
+If you are using search_path  application variable with analyze  command, 
+make sure to set the enable_dc_compat_optfile  application variable so that 
+VC SpyGlass can effectively process the file lists specified in the search_path.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+29
+
+--- page 30 ---
+Chapter 3: Reading the Design
+Using Black Boxes in VC SpyGlass Lint
+Feedback
+The link_library  application variable specifies a list of .db library files to be searched 
+when a cell instantiation is to be resolved.
+%vc_static_shell> set_app_var link_library <list of .db files>
+• Specify all the library files that should be read.
+• Only Liberty .db  files (not .lib files) are read in by the tool.
+• If multiple .db  files are present, specify the paths as space separated values in double 
+quotation marks.
+• The link_library  variable does not support environment variables.
+Example
+%vc_static_shell> set_app_var  search_path ". path1 path2 …"
+%vc_static_shell> set_app_var  link_library "lib1 lib2 … libN"
+Using Black Boxes in VC SpyGlass Lint
+A black box is either categorized as an automatic black box or a user-defined black box:
+• A user-defined black box  is created using the Tcl command set_blackbox. This 
+needs to be done before using the analyze/read_file  commands.
+For example, to black-box the module moduleA, use the following command:
+set_blackbox -designs {moduleA}
+read_file -format verilog -top top <design file name.v>
+• An automatic black box  is marked by the tool automatically. To see the designs 
+marked as a black box, use the following command:
+vc_static_shell> get_blackbox -designs
+VC SpyGlass Lint issues the following message for each black boxed module instance:
+Note-[SM_BB_SKIP] Skipping blackboxed Module/Entity
+In a design that contains one or more black boxes, the black boxes are elaborated with the 
+following implicit hardware:
+• Each input port of a black box is connected inside the corresponding module entity to 
+one input of one implicit combinatorial gate (of undefined type).
+• Each output port of a black box is driven inside the corresponding module by one 
+output of one implicit combinatorial gate (of undefined type).
+• Each inout port of a black box has both characteristics above as an input and an output 
+port.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+30
+
+--- page 31 ---
+Chapter 3: Reading the Design
+Reading the Design
+Feedback
+VC SpyGlass Lint does not perform tag checking for black-boxed modules and all modules 
+that are instantiated in a black-boxed module.
+Reading the Design
+VC SpyGlass Lint reads design in RTL (verilog, VHDL, SystemVerilog) and netlist (verilog) 
+formats.
+VC SpyGlass Lint provides the following commands to read a design:
+• read_file: Read in design source files, and link design in memory. This command 
+can be used to load design in a single language (Verilog/SV or VHDL). Using this 
+command, you can specify all source files in one command in a single language 
+environment. The files get analyzed and then elaborated. Upon completion of the 
+command the complete design has been loaded and is ready to be used. The 
+command returns 1 on success and 0 on failure.
+Syntax
+%vc_static_shell> read_file -help
+Usage: read_file    # Reading design files
+[-top <top_design>] (Name of the top design)
+[-library <library_name>] (Remaps work library to library_name)
+[-define <list of verilog defines>] (Verilog/SV defines)
+[-work <work_library>] (alias for -library)
+[-netlist] (Verilog Netlist Reader)
+[-parameters <comma-separated list of ordered or named parameters>] 
+ (design parameters)
+[-vcs <vcs command line>] (VCS Command line for reading design)
+[-vcs_elab <vcs elaborate command line>] (VCS Command line for 
+ elaborating design)
+[-format <file format>] (Verilog/SV defines: Values: verilog, 
+ sverilog, vhdl, mdb)
+[-sva] (Process SVA/PSL during compilation using 2009 semantics)
+[-sva2005] (Process SVA/PSL during compilation using 2005 semantics)
+[-v2kconfig <configuration-name>] (Specifies the v2k configuration)
+[-buildTop <dut name>] (Specifies the DUT down from which synthesis 
+ model is generated)
+[-multi_step] (Load design in multi-step mode)
+[-cov <metric_type>] (Enables coverage instrumentation during 
+ compilation)
+[-llk <llk_type>] (Creates livelock goals during compilation)
+[-aep <aep_type>] (Enables AEP extraction during compilation)
+[-inject_fault <fault_type>] Injects behavioral faults in the design 
+ for doing sign-off with formal)
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+31
+
+--- page 32 ---
+Chapter 3: Reading the Design
+Reading the Design
+Feedback
+[-j <number_of_processes>] (Specifies the number of processes to use 
+ for parallel compilation: Value >= 1)
+[slist] (List of input files)
+Note:
+For details on how to compile a design using the VCS standard switches, 
+see the VCS® MX/VCS® MXi™ User Guide. You can download this 
+document from SolvNet.
+• analyze: Analyzes the specified HDL source files and stores the design templates into 
+the specified library in a format that is ready to elaborate to form linkable cells of a full 
+design. Using this command, you can specify multiple source files in a single language 
+in one command. On completion of the command, all specified files are analyzed and 
+are ready for elaboration. The command returns 1 on success and 0 on failure.
+Syntax
+%vc_static_shell> analyze -help
+Usage: analyze    # Analyze the source files
+[-format <file_format>] (Specify file format: Values: verilog, vhdl, 
+ sverilog)
+[-library <library_name>] (Remaps the work library to library_name)
+[-work <library_name>] (Remaps the work library to library_name)
+[-define <define_macros>] (Specify list of top-level macros)
+[-vcs <vcs_cmd>] (VCS Command line for reading design)
+[design_file_list] (List of source files)
+Note:
+When you use the -vcs  switch, the vlogan and vhdlan arguments and 
+switches must be enclosed in curly braces.
+Examples:
+analyze -format verilog {test.v}
+analyze -format vhdl {test.vhd}
+analyze -format vhdl -vcs {-vhdl08} test.vhd
+analyze -format vhdl -vcs {-f filelist_vhdl.f}
+analyze -format verilog -vcs {+define+g90d -f sources_ng.f}
+analyze -format verilog -vcs { +incdir+src/./sim_1 -f sources_ng.f}
+analyze -format verilog -vcs { +incdir+src/./sim_1 -f sources_ng.f}
+• elaborate: Builds a design from the intermediate format of a Verilog module, a VHDL 
+entity and architecture, or a VHDL configuration. Using this command, the user can 
+elaborate design from pre-analyzed design files, from a specified top module. This 
+command returns 1 on success and 0 on failure.
+Syntax
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+32
+
+--- page 33 ---
+Chapter 3: Reading the Design
+Reading the Design
+Feedback
+%vc_static_shell> elaborate -help
+Usage: elaborate    # Elaborate the design, which is analyzed using 
+ analyze command
+[-work <library_name>] (Specifies the library name to which work is to 
+ be mapped)
+[-library <library_name>] (Specifies the library name to which work is 
+ to be mapped)
+[-architecture <arch_name>] (Specifies the name of the architecture)
+[-parameters <param_list>] (Specifies a list of design parameters 
+ enclosed in quotation marks)
+[-file_parameters <file_list>] (Specifies a list of files that contain 
+ parameter specifications)
+[-vcs <vcs_cmd>] (VCS Command line for elaborating design)
+[-sva] (Process SVA/PSL during compilation using 2009 semantics)
+[-sva2005] (Process SVA/PSL during compilation using 2005 semantics)
+[-v2kconfig <configuration-name>] (Specifies the v2k configuration)
+[-buildTop <dut name>] (Specifies the DUT down from which synthesis 
+ model is generated)
+[-cov <metric_type>] (Enables coverage instrumentation during 
+ compilation)
+[-llk <llk_type>] (Creates livelock goals during compilation)
+[-aep <aep_type>] (Enables AEP extraction during compilation)
+[-inject_fault <fault_type>] (Injects behavioral faults in the design 
+ for doing sign-off with formal)
+[-j <number_of_processes>] (Specifies the number of processes to use 
+ for parallel compilation: Value >= 1)
+design_name (Specifies the name of the design to build)
+Note:
+• If there is one design top, it must not be passed using vcs arguments, 
+that is, elaborate -vcs {designtop} . It must be passed as follows: 
+elaborate designtop
+• For a model with testbench, you must pass the arguments as follows: 
+elaborate dut_top -vcs "tb_top , Where, dut_top  is the design top, 
+and tb_top  is the testbench top.
+• Set the cdc_number_of_processes  application variable before the 
+sg_read_project  command to specify if value of the -j  argument of 
+the elaborate  command should be generated in the internal.tcl  and 
+vc_setup.tcl  files created by the sg_read_project  command.
+• read_verilog: Reads in one or more design or library files in Verilog format.
+Syntax
+%vc_static_shell> read_verilog -help
+Usage: read_verilog  # Read one or more verilog files
+[-netlist] (Use structural Verilog netlist reader)
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+33
+
+--- page 34 ---
+Chapter 3: Reading the Design
+Reading the Design
+Feedback
+[-rtl] (Use RTL Verilog)
+file_names (Files to read)
+• read_vhdl: Reads in one or more designs or library files in VHDL format.
+Syntax
+%vc_static_shell> read_vhdl -help
+Usage: read_vhdl    # Read one or more vhdl files
+[-netlist] (Use structural VHDL netlist reader)
+file_names (Files to read)
+• read_sverilog: Reads in one or more design or library files in SystemVerilog format.
+Syntax
+%vc_static_shell> read_sverilog -help
+Usage: read_sverilog    # Read one or more systemverilog files
+[-netlist] (Use structural Verilog netlist reader)
+[-rtl] (Use RTL Systemverilog)
+file_names (Files to read)
+Enabling the Design Read Messages
+By default, the Design Read (analyze/ elaborate) messages are not reported in the 
+vcst_session.log  file or displayed on the console. These message are reported in 
+moresimple.rpt/ VC Style Report/GUI .
+To enable the Design Read messages, use the following command:
+configure_console_messages  -show both -tags [ get_tags -app DESIGN ]
+• For SGUM
+Use the following command to enable the messages on SGUM:
+sg_read_project -project analyze.prj -goal designread -app lint 
+ -pre_design_read_tcl setup.tcl  -run
+In the setup.tcl  file, set the following command:
+configure_console_messages  -show both -tags [ get_tags -app DESIGN ]
+• For VCUM
+Use the following command to enable the messages on VCUM:
+configure_console_messages -show both -tags [ get_tags -app DESIGN ]
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+34
+
+--- page 35 ---
+Chapter 3: Reading the Design
+Reading the Design
+Feedback
+Application Variables that Impact Reading a Design
+There are few application variables that affect the design read and database generation. 
+Before you start reading the design, ensure that you review and set these application 
+variables as per your design read requirements.
+•
+analyze_skip_translate_body
+• hierarchy_delimiter
+• sh_continue_on_error
+• language_check_hierarchy_format
+• enable_timing_arc_for_bbox_detection
+• prefer_lib_or_rtl_model
+Overriding Parameters Using elaborate Command
+For specifying non-default parameters using the elaborate  command for VC SpyGlass 
+Lint language checks in Verilog, any one of the three following methods can be used:
+• Set the -parameters $(parameter_file)  argument as per the following syntax:
+elaborate ${design_name} -vcs { -parameters $(parameter_file)}
+For example, specify the command as elaborate ${design_name} -vcs { -
+parameters $(IP1_u2_param.txt)} . In this method, IP1_u2_param.txt  is 
+the parameter_file  file passed as an argument. The file contains the following 
+parameters:
+assign 8 IP1::P1
+assign 8 IP1::P2
+where 8 is the parameter value, IP1 is the design name and P1 is the parameter name.
+• Set the -parameters  argument as follows:
+elaborate ${design_name} -parameters "P1=8"
+In this case, P1=8  is the parameter value.
+• Set the -file_parameters $(parameter_file)  argument as follows:
+elaborate ${design_name} -file_parameters $(parameter_file)
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+35
+
+--- page 36 ---
+Chapter 3: Reading the Design
+Performing VC SpyGlass Lint Analysis
+Feedback
+For example, specify the command as elaborate ${design_name} 
+-file_parameters $(IP1_u2_param.txt) . In this case, IP1_u2_param.txt  is the 
+parameter_file  passed as an argument. The file contains the following parameters:
+P1=8
+P2=5
+where P1 and P2 are parameters having values 8 and 5, respectively.
+For VHDL, only one method is supported for specifying non-default parameters using the 
+elaborate  command:
+elaborate ${design_name} -vcs { -parameters ./param.txt -generics
+        ./genericsForVcs.txt}
+Both the files param.txt  and genericForVcs.txt  should have the same parameters and 
+values. The file param.txt  contains:
+assign 9 top_test::AW
+The file genericForVcs.txt  contains:
+assign 9 /top_test/AW
+where top_test  is the ${design_name}.
+Performing VC SpyGlass Lint Analysis
+Performing VC SpyGlass Lint checks involves performing language checks and structural 
+checks.
+Prerequisites
+Before performing Lint analysis, ensure that the:
+• Design is read and elaborated.
+• Necessary licenses are available.
+Enabling Lint Analysis
+Use the following TCL commands to perform the Lint analysis in VC SpyGlass.
+#Performing Lint Analysis
+#Design Libraries
+set_app_var search_path ...
+set_app_var link_library ...
+#App var to enable Lint Analysis
+set_app_var enable_lint true
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+36
+
+--- page 37 ---
+Chapter 3: Reading the Design
+Performing VC SpyGlass Lint Analysis
+Feedback
+#Goal Configuration
+configure_lint_setup -goal lint_rtl
+#Load Design
+analyze -f sverilog {test.v}
+elaborate TOP
+#Run Lint
+check_lint
+#View/Analysis Reports
+report_violations -app {design lint} -file report_hdl.txt -report 
+ { sg_moresimple}
+view_activity
+Analyzing Reports
+After performing VC SpyGlass Lint checks, analyze the reports that VC SpyGlass Lint 
+generates.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+37
+
+--- page 38 ---
+Feedback
+4
+Working with Methodologies and Goals
+A VC SpyGlass methodology is a set of relevant goals which represents a sign-off phase 
+of ASIC development. Methodology includes goals that are arranged with pre-defined 
+parameters.
+GuideWare is the testing platform to check the functionality of various goals by running 
+them on different types of designs. The designer keeps modifying and adding goals until 
+the desired coverage is achieved from these goals. Each design goal is directly addressed 
+by pre-packaged VC SpyGlass goals. These goals have been tested and fine-tuned for 
+high impact results and minimal noise.
+This section provides information about the following topics:
+•
+Terminology
+• Challenges in the Development of an SoC Design
+• Development Phases and Methodologies
+• RTL Handoff
+• Netlist Handoff
+• Layout Handoff
+• Understanding GuideWare Goals
+• Setting Up Methodology/Goals
+• Running Custom Goals
+Terminology
+This section defines some commonly used terms that have a specific meaning in the VC 
+SpyGlass environment.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+38
+
+--- page 39 ---
+Chapter 4: Working with Methodologies and Goals
+Terminology
+Feedback
+• Tag: In VC SpyGlass environment, a 'Tag' represents the atomic unit of RTL analysis 
+and checking performed by the VC SpyGlass software. Although a 'Tag' can be 
+configured, it cannot be further sub-divided to select what analysis is performed.
+• Violation Message: A violation message (or simply a message) is unit of VC SpyGlass 
+reporting. When a VC SpyGlass 'Tag' detects a design condition not consistent with the 
+rule requirement, it reports each such occurrence as a (violation) message. In addition 
+to text message, such report usually contains other supporting data, such as back-
+reference in RTL source code where such problem originates, schematic highlight of 
+the problem, detailed tables and graphs (as in power activity over time), waveform for a 
+formal 'witness' (such as a false path proven to be not a false path), and so on.
+• Parameter: In VC SpyGlass environment, a 'Parameter' is like an option to a tag that 
+dictates the tag behavior. Parameters are typically used to make the tag do specific or 
+detailed analysis of the RTL.
+• Goal: A VC SpyGlass goal is a collection of relevant tags that are grouped together 
+to perform a specific task. In addition to the tag list, a goal may further configure the 
+parameters and redefine severity labels assigned to these tags. VC SpyGlass software 
+release contains a useful set of many widely applicable goals. However, a user may 
+fine-tune existing goals or create new goals to meet their specific design and workflow 
+needs.
+• Methodology: A VC SpyGlass methodology is a set of relevant goals that are grouped 
+together to achieve a particular design goal. In addition to software, these sub-
+methodologies contain detailed documentation to assist customer in understanding 
+specific usage and debug nuances.
+• Severity: A VC SpyGlass violation message is tagged with an attribute, called severity, 
+which helps to identify the criticality of reported message, within the context of a goal 
+and sub-methodology being run. VC SpyGlass supports four main severity classes: 
+FATAL, ERROR, WARNING, and INFO. A VC SpyGlass tag or goal can define a 
+(severity) text label belonging to one of the above classes, and attach it to a tag.
+• Waivers: A VC SpyGlass 'waiver' is a method for user to review a tag (violation) 
+message and flag a specific occurrence (or set of occurrences) as acceptable in 
+context of their design and workflow. This is a very important mechanism to flag an 
+apparently non-compliant design scenario as intended and verified by actual design or 
+verification engineer. In the SoC design workflow, the VC SpyGlass waivers play a very 
+significant role both in Block regressions and in Block handoff to SoC integration and 
+implementation teams.
+• SGDC: SGDC is an abbreviation for 'VC SpyGlass Design Constraints', and is used to 
+capture additional designer intent of the block/SoC functionality which are not obvious 
+at RTL/netlist. SGDC is used for capturing a wide variety of design intent, related with 
+clock domain crossing, power, testability, etc.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+39
+
+--- page 40 ---
+Chapter 4: Working with Methodologies and Goals
+Challenges in the Development of an SoC Design
+Feedback
+Challenges in the Development of an SoC Design
+The development of large SoC designs typically involves integration of various disparate 
+sub-systems or blocks. Most of these blocks are sourced from legacy designs or third 
+party IP providers. A few blocks may involve significant changes before they are used in 
+the final SoC. In some cases, a new block is developed from scratch. All these blocks are 
+finally stitched together to develop large SoC design(s).
+The development process of large designs is divided into various stages, as shown in the 
+following figure:
+Challenges Involved During New RTL Block/Sub-system 
+Development
+In the development flow process, you can use the GuideWare Reference Methodology to 
+achieve your design goals for the following:
+• Block/IP
+• SoC RTL
+• SoC Netlist
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+40
+
+--- page 41 ---
+Chapter 4: Working with Methodologies and Goals
+Challenges in the Development of an SoC Design
+Feedback
+The above fields are highlighted in the following figure:
+The development process of large designs is divided into various stages, as shown in the 
+following figure:
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+41
+
+--- page 42 ---
+Chapter 4: Working with Methodologies and Goals
+Development Phases and Methodologies
+Feedback
+Development Phases and Methodologies
+A VC SpyGlass methodology is a set of relevant goals which represents a sign-off phase 
+of ASIC development. Methodology includes goals which are arranged with pre-defined 
+parameters.
+Development Levels
+Currently, VC SpyGlass Lint is used at two major development levels, block level and SoC 
+level.
+Block Level Development
+The process of the development of a new RTL goes through progressive RTL refinement 
+starting with simpler goals that meet the functional requirements, such as functional 
+correctness and simulation and synthesis readiness of the code. As the RTL code and 
+design constraints mature, the design goals evolve to performance, testability, and 
+meeting handoff requirements. In this field of use, this design phase recommends three 
+methodology flow.
+SoC Level Integration and Implementation
+During SoC design or a subset of design (sub-system) that has been integrated by using 
+various blocks, consistency across blocks is required.
+This field of use involves checks related to inter-block/inter-IP issues. In addition, it 
+ensures that block constraints are consistent with SoC constraints. In this field of use, this 
+design phase recommends a four-stage flows.
+Development Phases
+Initial RTL Development
+The initial RTL design goal set contains a set of checks for the stage of the project when 
+the RTL is still in coding development and may not be functionally complete. The idea is 
+not necessarily to be clean all at once but provide a starting point for getting to the clean 
+RTL.
+The design team faces the following lint related challenges during this stage:
+• Issues related with correct code capture
+• Issues related with simulation and synthesis
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+42
+
+--- page 43 ---
+Chapter 4: Working with Methodologies and Goals
+RTL Handoff
+Feedback
+• Issues with basic connectivity
+• Issues related with basic structure like combinational loops and multiple drivers
+Initial RTL Development on Block Level
+During this stage, an initial version of the RTL is completed, and an initial set of SGDC 
+constraints are available. This stage involves basic structural and sanity checks of the 
+design (and constraints, wherever appropriate). In addition, issues related to connectivity, 
+synthesizability, preliminary clocks, and reset integrity issues, such as glitches and clock-
+multiplexing are also checked during this stage.
+For this stage, methodology recommends a set of goals that can be used by individual 
+RTL designers to correct the issues within their own desktop environment before 
+simulation and synthesis tasks can begin. These goals are recommended to be used quite 
+frequently. In some cases, designers use these goals before checking-in their RTL code. 
+Waivers, if any, should be captured on an ongoing basis.
+This stage may involve some micro-architectural changes related with bus widths, RAM/
+ROM usage, and clock phase/frequency refinements. It is important to ensure that the 
+proposed micro-architectural changes are reflected in the RTL without any adverse impact 
+on the implementation issues.
+RTL Handoff
+The rtl_handoff goals are a super-set of the initial_rtl goals. This stage contains the 
+complete set of recommended RTL Handoff checks.
+The design team faces the following lint related challenges during this stage:
+• Issues related with verification regressions and associated bug fixes
+• Issues related with incomplete handoff
+• Providing closure on various implementation issues, such as synthesizability, timing, 
+constraints, clock domain crossings, testability, congestion/routing, and power 
+management
+An incomplete handoff results in expensive and unpredictable error-prone iterations during 
+the SoC integration phase. Handoff is assumed to be the hand-off from the RTL design 
+team to the post-synthesis implementation team or hand-off to System Integration (sub-
+system or SoC) integration.
+Since the hand-off process is typically iterative, it is not necessarily expected that all 
+goals will be clean at the first hand-off, but at least the issues will be known and can be 
+communicated to the consumers downstream.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+43
+
+--- page 44 ---
+Chapter 4: Working with Methodologies and Goals
+Netlist Handoff
+Feedback
+RTL Handoff with Block Level
+This is the final completion and handoff stage for the RTL. By this stage, it is assumed that 
+the RTL has already been refined as per the methodology.
+Most checks are applicable at this point before backend implementation begins. During 
+this stage, the micro-architecture and majority of the logic is stable. VC SpyGlass goals 
+are used to perform handoff checks with appropriate waiver definitions.
+At this milestone, the block is expected to be clean and all the necessary inputs are 
+expected to be in place before you perform the final VC SpyGlass run. It is also expected 
+that the user is able to share the setup, constraints, waivers, reports, and so on, with the 
+customer.
+RTL Handoff with SoC Level
+During this stage, the SoC/sub-system integration team assembles the RTL blocks and 
+IPs to form a SoC/sub-system. These RTL blocks are usually designed by different teams. 
+The design teams may also use third party or legacy IPs.
+The goals used during this stage target the following objectives:
+• Check the complete design intent captured in individual blocks and their assembly
+• Correct various inter-block issues, such as combinational loops and unconnected ports
+• During this stage, the intent is to clean the RTL before production level synthesis 
+begins.
+Netlist Handoff
+The netlist_handoff goals are designed to check post-synthesis netlist prior to layout. 
+These checks are ideal for hand-off to the backend physical implementation team or ASIC 
+handoff.
+Netlist Handoff on Block Level
+During this stage, the handoff RTL is synthesized and netlist is handed off for backend 
+implementation. All structural checks at RTL hand off are applicable here. In addition, 
+certain ERC checks are appropriate at this stage. This netlist is used by many groups as 
+a starting point for their tasks (such as floor planning, test insertion, power estimation, 
+and reduction analysis). VC SpyGlass goals are used to perform handoff checks with 
+appropriate waiver definitions.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+44
+
+--- page 45 ---
+Chapter 4: Working with Methodologies and Goals
+Layout Handoff
+Feedback
+Netlist Handoff on SoC Level
+This netlist is used by many groups as a starting point for their tasks (such as floor 
+planning, test insertion, power estimation, and reduction analysis). During this stage, third 
+party tools modify the preliminary netlist for scan and BIST insertion and power-related 
+gating. This version of netlist is known as pre-layout netlist by most of the design teams. 
+The goals used during this stage ensure that the original design intent is not adversely 
+impacted during these modifications. The goals and sub-methodologies recommended for 
+this stage ensure the integrity of the complete SoC-level netlist from ERC perspective.
+Layout Handoff
+This is only available for SoC level.
+During this phase, the SoC post layout netlist is closest to silicon. It is important to ensure 
+final integrity of this post-layout netlist before tape-out.
+Recommended goals allow the designer to ensure integrity of post-layout netlist during the 
+ECOs and before the final handoff for tape-out.
+Understanding GuideWare Goals
+A goal is a collection of relevant tags that are grouped together to perform a specific task. 
+In addition to the tag list, a goal may further configure the tag parameters and redefine 
+severity labels assigned to these tags. VC SpyGlass Lint contains a useful set of many 
+widely applicable goals. However, you can fine-tune existing goals or create new goals to 
+meet their specific design and workflow needs.
+The following table describes the recommended VC SpyGlass goals for each of the stages 
+of the new Block/IP development.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+45
+
+--- page 46 ---
+Chapter 4: Working with Methodologies and Goals
+Understanding GuideWare Goals
+Feedback
+Table 1 Goal/Methodology Setup Commands
+Command Description
+lint_rtl Specifies the basic rule set recommended for lint 
+analysis. This goal checks:
+• Basic connectivity issues in a design, such as 
+floating input, width mismatch, and so on.
+• Simulation issues in the design, such as 
+incomplete sensitivity list, incorrect use of 
+block/ non-blocking assignments, potential 
+functional errors and possible simulation hang 
+and simulation race cases.
+• Unsynthesizable constructs in the design and 
+code that can cause RTL vs. gate simulation 
+mismatch.
+• Structural issues in design that affect 
+the post-implementation functionality or 
+performance of the design. Examples include 
+multiple drivers, high fan-in MUX, and 
+synchronous/asynchronous use of resets.
+These checks should be run after every change 
+in the RTL code prior to code-check-in.
+lint_rtl_enhanced This goal checks the design for issues that 
+could impact the implementation functionality, 
+post-implementation functionality, and 
+performance of the design. These checks should 
+be run after every change in the RTL code prior 
+to code-check-in.
+lint_rtl_automotive This goal consists of various tags that help to 
+identify:
+• Instability in design operations.
+• Design issues such as faulty FSM, race 
+conditions, combinational loops, improper 
+drivers leading to bus contention or floating 
+bus and clocks being treated as data.
+This goal is recommended to be used during the 
+developing/validating phase of a design in the 
+automotive industry.
+lint_netlist Lists the tag set for Netlist Design. This goal 
+is similar to lint_rtl but applicable only for 
+netlist_handoff.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+46
+
+--- page 47 ---
+Chapter 4: Working with Methodologies and Goals
+Understanding GuideWare Goals
+Feedback
+Table 1 Goal/Methodology Setup Commands  (Continued)
+Command Description
+lint_assurance DO-254 Methodology  for Aerospace. This 
+goal checks basic connectivity issues in the 
+design such as floating input, width mismatch, 
+and so on. These checks should be run after 
+every change in the RTL code prior to the code 
+check-in. This goal checks simulation issues in a 
+design, such as:
+• Incomplete sensitivity list
+• Incorrect use of blocking/ non-blocking 
+assignments
+• Potential functional errors
+• Possible simulation hang cases
+• Simulation race cases
+This goal is recommended for the aerospace 
+industry.
+lint_emulation This goal aims to cleanup the design for 
+emulation tools. It checks the following issues in 
+a design:
+• Basic Connectivity issues
+• Basic Simulation issues
+• Recommended design practices
+• Structural issues
+• Basic Synthesis issues
+The lint_emulation goal is primarily used during 
+the developing/hand-off phase of a design in the 
+emulation industry.
+lint_dccompat Reports implementation issues. This goal clubs 
+all the tags that are required to perform the Lint 
+checks for DC compatibility and helps users to 
+run all these tags in one go.
+lint_formality Reports formality issues.
+lint_synth Reports Simulation Vs Synthesis mismatches. 
+This goal clubs all the tags that are required to pe
+rform earlier identification of the simulation and 
+synthesis mismatch and helps the user to run all 
+these tags in one go.​
+lint_risc-v This goal consists of various tags that can 
+help with the early analysis of the RISC-V 
+designs. It reports various issues, including width 
+mismatches, combinational loops, and synthesis 
+vs. simulation mismatches.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+47
+
+--- page 48 ---
+Chapter 4: Working with Methodologies and Goals
+Setting Up Methodology/Goals
+Feedback
+To enable or disable any VC SpyGlass Lint tag or parameter, you need to first configure 
+the GuideWare goal by using the configure_lint_setup -goal <>  command and then 
+specify the command to enable/disable the goal.
+For example, to disable the W415a tag, specify the configure_lint_tag  command 
+AFTER specifying the configure_lint_setup  command for the built-in lint_rtl  goal:
+#configure_lint_setup -goal lint_rtl
+#configure_lint_tag -disable -tag "W415a" -goal lint_rtl
+#configure_lint_tag -enable -tag "DefaultState" -goal lint_rtl
+Setting Up Methodology/Goals
+To view the default methodology and goal, expand the Check Lint drop-down list, as 
+shown in the following figure:
+When you select a methodology in the GuideWare Methodology section, the goals in the 
+Goal section change accordingly.
+When you click the Check Lint option after you select a methodology and a goal, the 
+corresponding Tcl commands are run.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+48
+
+--- page 49 ---
+Chapter 4: Working with Methodologies and Goals
+Setting Up Methodology/Goals
+Feedback
+For example, in the above figure, the Block/initial_rtl  methodology and the lint_rtl 
+goal is selected. Now, when you click the Check Lint option, the following Tcl commands 
+are run:
+#configure_lint_methodology  -path 
+ $::env(VC_STATIC_HOME)/auxx/monet/tcl/GuideWare/block/initial_rtl/lint/ 
+ -goal lint_rtl;
+Note:
+• For adv_lint_verify.tcl, lint_dccompat.tcl, 
+lint_formal_aware_rtl.tcl, lint_functional_rtl.tcl, 
+lint_rtl_optional_rules.tcl, lint_synth.tcl, design_audit.tcl, 
+lint_emulation.tcl, lint_formality.tcl, lint_rtl_enhanced.tcl, 
+and lint_rtl.tcl goals , use the following command for configuring the 
+lint methodology:
+#configure_lint_methodology -path 
+ $::env(VC_STATIC_HOME)/auxx/monet/tcl/GuideWare/block/initial
+_rtl/lint/ -goal lint_rtl;
+• For lint_assurance.tcl, lint_connectivity.tcl, lint_risc-
+v.tcl,  and lint_rtl_automotive.tcl, use the following command for 
+configuring the lint methodology:
+#configure_lint_methodology  -path 
+ $::env(VC_STATIC_HOME)/auxx/monet/tcl/GuideWare/2024.09-Early
+Adopter/block/initial_rtl/lint -goal lint_rtl;
+Using the Default Goal
+In VC SpyGlass Lint, the default goal is lint_rtl_enhanced. By specifying this goal, you 
+can quickly execute the tool without configuring tags or parameters.
+Note:
+Before the 2025.06 release, the default goal was set to lint_rtl. For 
+backward compatibility, you can enable this behavior by setting the 
+lint_rtl_goal_default_enable  application variable. Use the following command to 
+set lint_rtl_goal_default_enable:
+set_app_var lint_rtl_goal_default_enable true
+Use the following commands to execute the lint_rtl_enhanced  goal:
+set enable_lint true
+configure_lint_setup
+analyze -f sverilog {bb.v} -vcs {+incdir+rtl}
+elaborate TOP -simonOptionFile simon.opt -vcs { TOP }
+check_lint
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+49
+
+--- page 50 ---
+Chapter 4: Working with Methodologies and Goals
+Setting Up Methodology/Goals
+Feedback
+report_violations -app {design lint} -file report_hdl.txt -report 
+ {sg_moresimple}
+The following table lists the supported methodologies in VC SpyGlass Lint and their 
+corresponding goals:
+Table 2 Goals and Methodologies
+Methodology Goals Description
+block/initial_
+rtl
+lint_rtl, 
+lint_rtl_enhanced,lin
+t_rtl_automotive, 
+lint_assurance
+This goal performs the following checks on block 
+RTL:
+• Basic connectivity issue in the design, such as 
+floating input, width mismatch, and so on
+• Simulation issues in the design, such as 
+incomplete sensitivity list, incorrect usage of 
+blocking or non-blocking assignments, potential 
+functional errors and possible simulation hangs 
+due to race condition
+• Unsynthesizable constructs in the design and 
+code that can cause RTL vs. gate simulation 
+mismatch
+• Structural issues in design that affect the 
+post-implementation functionality or performance 
+of the design.
+Examples include multiple drivers, high fan-in 
+MUX, and synchronous/asynchronous use of 
+resets.
+These checks should be run after every change in 
+RTL code prior to code-check-in.
+It helps to identify instability in the design operations 
+and other design issues such as faulty FSM, race 
+conditions, combinational loops, improper drivers 
+leading to bus contention or floating bus.
+Note:
+The STARC05-1.6.3.2 and 
+delayLineDependentCkt tags are not supported in 
+the current release.
+block/rtl_hand
+off
+lint_rtl, 
+lint_rtl_enhanced,lin
+t_rtl_automotive, 
+lint_assurance
+This is similar to block/initial_rtl.
+netlist_handoff lint_netlist This is similar to lint_rtl  but applicable only for 
+netlist_handoff.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+50
+
+--- page 51 ---
+Chapter 4: Working with Methodologies and Goals
+Setting Up Methodology/Goals
+Feedback
+Table 2 Goals and Methodologies  (Continued)
+Methodology Goals Description
+soc/initial_rtl
+soc/rtl_handoff
+lint_rtl, 
+lint_rtl_enhnced,lint
+_rtl_automotive, 
+lint_assurance
+This goal performs the following checks on SoC RTL:
+• Basic connectivity issue in the design, such as 
+floating input, width mismatch
+• Simulation issues in the design, such as 
+incomplete sensitivity list, incorrect usage of 
+blocking or non-blocking assignments, potential 
+functional errors and possible simulation hangs 
+due to race condition.
+• Unsynthesizable constructs in the design and 
+code that can cause RTL vs. gate simulation 
+mismatch
+• Structural issues in design that affect the 
+post-implementation functionality or performance 
+of the design.
+Examples include multiple drivers, high fan-in 
+MUX, and synchronous/asynchronous use of 
+resets.
+It helps to identify the cause of instability in the 
+design operations and design issues such as faulty 
+FSM, race conditions, combinational loops, improper 
+drivers leading to bus contention, or floating bus.
+These checks should be run after every change in 
+RTL code prior to code-check-in.
+soc/netlist_hand
+off
+lint_netlist This is similar to SoC lint_rtl  but applicable only 
+for netlist_handoff
+soc/layout_hand
+off
+lint_netlist This goal checks basic connectivity issues in the 
+design, such as floating input and width mismatch. 
+These checks should be run after every change. 
+This goal performs netlist integrity checks such as 
+connectivity, simulation and structural issues. This 
+goal must be run when synthesis is complete and 
+after each major step in SoC implementation, such 
+as scan-insertion, and power-gating.
+block/initial_
+rtl
+This goal clubs all the formality related rules and 
+helps user to run all these formality related rule in 
+one go.
+block/rtl_hand
+off
+lint_formality
+Similar to block lint_formality  but applicable to 
+netlist handoff
+block/initial_
+rtl
+This goal clubs all the tags to perform lint checks for 
+DC compatibility and helps user to run all these tags 
+in one go.
+block/rtl_hand
+off
+lint_dccompat
+similar to block lint_dccompat  but applicable for 
+netlist handoff.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+51
+
+--- page 52 ---
+Chapter 4: Working with Methodologies and Goals
+Setting Up Methodology/Goals
+Feedback
+Table 2 Goals and Methodologies  (Continued)
+Methodology Goals Description
+block/initial_
+rtl
+This goal clubs all the rules to perform earlier 
+identification of simulation synthesis mismatch and 
+helps user to run all these rules in one go.
+Block/rtl_hand
+off
+lint_synth
+Similar to block lint_synth  but applicable for netlist 
+handoff.
+The following table lists the commands used to set up the goals/methodologies:
+Table 3 Goal/Methodology Setup Commands
+Command Description
+configure_lint_methodology Sets the current methodology.
+configure_lint_tag -enable 
+-tag <tag-name> [-goal 
+<goal-name>]
+Enables the tag for the respective goal name.
+configure_lint_tag_parameter 
+-tag <tag-name> -parameter 
+<param-name> -value <value> 
+[-goal <goal-name>]
+Configures the parameter for the respective goal 
+name.
+check_lint Invoke VC SpyGlass Lint checker to perform Lint 
+Tag checks.
+configure_lint_setup [-goal 
+<goal-name>] [-j <+ve 
+integer>]
+To specify a goal to run in the early shift flow, use 
+the following command:
+Note:
+Setup the current goal using -goal option 
+and number of cores using -j(default: 4). 
+If you are defining a custom methodology 
+and using the name of the goal as standard 
+goal name lint_rtl  or lint/lint_rtl. 
+This gets conflicted with tool default goal 
+name and tool picks up the default rule set. 
+If you want to continue with using the name 
+as lint_rtl  or lint/lint_rtl  use the 
+command configure_lint_methodology 
+and parse the setup file instead of source 
+goal_setup.tcl
+configure_lint_methodology  -path 
+ <methodology_dir> -goal lint_rtl
+ 
+configure_lint_setup -goal lint_rtl
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+52
+
+--- page 53 ---
+Chapter 4: Working with Methodologies and Goals
+Running Custom Goals
+Feedback
+Table 3 Goal/Methodology Setup Commands  (Continued)
+Command Description
+report_violations [-filter 
+<goal-name>]
+Reports results for a given goal. Without 
+this option report_violations  reports all 
+available results from every goal which has been 
+executed.
+Note:
+If check_lint command is used without configure_lint_setup  command, the 
+lint_rtl_advanced  GuideWare goal, is executed.
+Running Custom Goals
+To run a custom goal, in the Lint Checks dialog, specify a Tcl file, which contains goal 
+details.
+The following figure illustrates how to specify the custom goal through the GUI:
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+53
+
+--- page 54 ---
+Feedback
+5
+Configuring Application Variables and 
+Commands
+This section provides information about the application variables, SDC commands, Tcl 
+commands, and configure commands supported by VC SpyGlass Lint
+•
+Application Variables
+• LINT Commands
+• Lint Configure Commands
+• Database Commands
+• Common Commands
+• Command Sanity Checks
+Application Variables
+This section describes the application variables used by VC SpyGlass Lint.
+Note:
+Specify the application variables before using the Design Read commands.
+analyze_skip_translate_body
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+54
+
+--- page 55 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+When this application variable is set to true, VC SpyGlass honors pragmas in user HDL 
+files (synopsys_translate_off  and synopsys_translate_on) and skips the code in 
+between the pragmas from its analysis. If set to false, VC SpyGlass ignores the pragmas 
+and thereby tries to compile and elaborate the code inside the pragmas.
+If you want to analyze some files with honoring the pragmas and some other files by 
+ignoring pragmas, you can set the Tcl variable accordingly before each file (or a set of 
+files) that must to be compiled.
+disable_rtl_deadcode_extended
+Type
+string
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+The disable_rtl_deadcode_extended  application variable disables violations for dead 
+codes.
+enable_clk_rst_infer_potential
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+This application variable disables the optimization in clock/reset inferences and detects 
+extra potential clock/reset roots.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+55
+
+--- page 56 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+enable_enhanced_rca_reporting
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+By default, the value of the enable_enhanced_rca_reporting  application variable is 
+false. Set the value of the enable_enhanced_rca_reporting  application variable to true 
+to:
+• Display the cause violation ID for effect violations in the report generated by VC 
+SpyGlass.
+• Merge the tree summary for cause and cluster violations in a single Tree Summary 
+table and remove RCACountUncovered and RCACountCovered columns from the 
+merged Tree Summary table.
+enable_lint
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+56
+
+--- page 57 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+The enable_lint  application variable configures the platform for performing the VC 
+SpyGlass Lint checks and to specify the license tier. The following are the valid values for 
+the enable_lint  application variable:
+• true
+• base
+• false
+enable_lint_save
+Type
+boolean
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+This application variable enables the save-restore support in VC SpyGlass LINT.
+enable_generate_label_naming
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+The enable_generate_label_naming  application variable lists names in the report 
+containing generate label for VHDL. Note that this app var is available only for language 
+checks.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+57
+
+--- page 58 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Note:
+enable_gw_optional_tag
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+When this application variable is set, the GW optional tag is enabled.
+enable_sv_net_ports
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+The enable_sv_net_ports  application variable considers the input/inout ports with 
+implicit port kind and explicit data type as a net.
+enable_reduction_engine
+Type
+bool
+Default Value
+true
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+58
+
+--- page 59 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Invokes the netlist reduction engine for improving the process of rule checking 
+corresponding to the NLDM operators. Set this application variable to false for backward 
+compatibility.
+elab_summary_report_max_inst
+Type
+int
+Default Value
+5
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use this application variable to customize the printing number of instances per design unit 
+in the elab_summary.rpt  report. Specify an integer value as an input to the app var.
+The default value of the app var is 5, that is, a maximum of 5 instances per design unit is 
+displayed in the elab_summary.rpt report. Specify any positive integer value as an input.
+If set to -1, it displays all instances.
+If set to any other negative number then the default behavior is applied, that is, a 
+maximum of 5 instances per design unit is displayed.
+If set to 0, it displays zero instances.
+Examples
+The following example shows the usage of the elab_summary_report_max_inst 
+command:
+set_app_var elab_summary_report_max_inst 10
+set_app_var elab_summary_report_max_inst 100
+set_app_var elab_summary_report_max_inst -1
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+59
+
+--- page 60 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+enable_timing_arc_for_bbox_detection
+Type
+string
+Default Value
+none
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+This application variable enables the users to decide whether timing arcs will be 
+considered during blackbox analysis. This application variable can take any one of the 
+three values: none, active, all. By default, this application variable is set to none.
+• If this application variable is set to none, timing arcs will not be considered in 
+determining the cell functional view during blackbox analysis.
+• If this application variable is set to active, cell is considered to have functional view if 
+active timing arcs are present.
+• If this application variable is set to all, cell is considered to have functional view if any 
+timing arc is present.
+hierarchy_delimiter
+Type
+string
+Default Value
+path
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+60
+
+--- page 61 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+The hierarchy_delimiter  application variable specifies the delimiter character that can 
+be used for hierarchy in the name lookup and is present to support DC-style naming. The 
+default value is "/". You can specify only the following characters as hierarchy delimiter:
+/ @ ^ # . |
+ignore_encrypted_module_violations
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use the ignore_encrypted_module_violations  application variable to 
+ignore the violations reported for the encrypted modules. When the value of the 
+ignore_encrypted_module_violations  app var is false, violations belonging to 
+encrypted modules are reported.
+This variable lists names in the report containing generate label for VHDL. Note that this 
+application variable is available only for language checks.
+infer_unique_bbox
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+61
+
+--- page 62 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+Enables VC SpyGlass to infer and create a unique representative personality for all black 
+boxes in the design instead of inferring multiple copies of black boxes for the same master 
+definition.
+language_check_hierarchy_format
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use the language_check_hierarchy_format  application variable to change the format 
+of the hierarchical object names in the violation messages. By default, the application 
+variable is set to true, and the hierarchy format is as follows for both standard mode and 
+functional mode lint:
+:top:inst1@m1:inst2@m2:inst3@m3
+In a violation message, the format of the hierarchical object name depends on the values 
+of the lint mode, language_check_hierarchy_format, and hierarchy_delimiter 
+application variable. When language_check_hierarchy_format  is set to true, it overrides 
+the values of the language_check_hierarchy_format  application variable.
+Set language_check_hierarchy_format  to false  to apply the hierarchy_delimiter 
+application variable values. For example, set the language_check_hierarchy_format  to 
+false  and hierarchy_delimiter  to '.':
+set_app_var hierarchy_delimiter .
+set_app_var language_check_hierarchy_format false
+The following hierarchy format is displayed:
+bit_top.slice_0.piso_bit
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+62
+
+--- page 63 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+lang_check_report_input_path
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+When this application variable is set, it enables reporting of path (which can be a link) 
+provided for RTL, in language checks.
+lint_check_top_du
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use this application variable to check instances only at the top level.
+lint_clk_rst_node_latch
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+63
+
+--- page 64 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+Use this application variable to infer the generated clock/resets on the latch outputs pins.
+lint_clk_rst_node_on_pad
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use this application variable to infer immediate clock/resets on the pad cell outputs pins 
+after fanin traversal from the sequential clock/resets pins.
+lint_debug
+Type
+int
+Default Value
+0
+Stage
+Use this application variable before specifying the Design Read commands
+Description
+When the lint_debug  application variable is set, it reports different log messages for 
+debugging. This application variable can have any value from 1 to 8.
+lint_disable_busmerge_file_line
+Type
+string
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+64
+
+--- page 65 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Default Value
+empty string
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Disables bus merging for the file name and line number field in the specified tags. By 
+default, the lint_disable_busmerge_file_line  application variable is empty and not 
+set. Set the value of this application variable to a comma-separated list of tags, where 
+you want to skip bus merging for the file name and line number field. For example, if you 
+specify the following command, bus merging does not consider the file name and line 
+number in W391:
+set_app_var lint_disable_busmerge_file_line W391
+lint_disable_instance_bus_merging
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Disables instance bus merging in VC SpyGlass.
+lint_disable_internal_waiver_gen
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+65
+
+--- page 66 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+When this application variable is set to true, it disables the waiver generation in language 
+checker.
+lint_disable_side_reports
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+By default, the value of the lint_disable_side_reports  application variable is false 
+and VC SpyGlass generates tag-specific reports and the location info messages. Set the 
+application variable to true to disable the generation of tag-specific reports and the location 
+info message of the reports.
+lint_dont_report_outside_design_pkg
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use the lint_dont_report_outside_design_pkg  application variable to enable/disable 
+violations reported outside the design packages. By default, the value of the application 
+variable is false. Set the value of the lint_dont_report_outside_design_pkg 
+application variable to true  to not report violations that are reported outside the design 
+packages.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+66
+
+--- page 67 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+lint_dont_report_inside_design_pkg
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use the lint_dont_report_inside_design_pkg  application variable 
+to enable or disable the violations reported inside a design package. By 
+default, the value of the application variable is false. Set the value of the 
+lint_dont_report_inside_design_pkg  application variable to true  to not report 
+violations that are reported inside the design packages.
+lint_dump_hanging_clocks
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+When the lint_dump_hanging_clocks  application variable is set to true, the hanging 
+clocks are also inferred in the auto clock inference.
+lint_enable_all_tags
+Type
+bool
+Default Value
+false
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+67
+
+--- page 68 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Set the lint_enable_all_tags  application variable value to true to enable all the 
+language and structural Lint tags in VC SpyGlass.
+Messages
+There is no practical reason to set this variable to false, as doing so prevents any rules 
+from running. Additionally, if you attempt to change the value from true  to false, the 
+following warning message is reported:
+[Warning] APPVAR_CHANGE_NOT_ALLOWED: Application variable 
+ 'lint_enable_all_tags' is not allowed to change once it is set
+lint_enable_detailed_hierarchy
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Reports the hierarchy for interface instances and performs array indexing related to an 
+array of module instances.
+lint_enable_formal_schematic
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+68
+
+--- page 69 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+Enables/disables the formal schematic.
+lint_enable_multidim_busmerge
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables the bus merging of multidimensional signals and instance-based 
+signals for language check violations. To disable only instance-based 
+merging, you can use lint_disable_instance_bus_merging. When both 
+lint_disable_instance_bus_merging  and lint_enable_multidim_busmerge 
+application variables are set to true, then only bus merging is enabled for multidimensional 
+signals.
+lint_enable_netlist
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables the netlist flow in VC SpyGlass. By default, the value of the application variable 
+is set to false. If the lint_enable_netlist  application variable is set to true and no 
+language rule is enabled, then all the cores are used to run the structural rules.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+69
+
+--- page 70 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+lint_enable_native_to_sam_qor
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables Native-to-Sam QOR improvements in VC SpyGlass.
+lint_enable_pgpins
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+This application variable enables power and ground pin information to be taken into 
+consideration from the specified physical libraries.
+lint_enable_smart_tag_execution
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+70
+
+--- page 71 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+By default, the STARC/STARC02 tags are not supported in VC SpyGlass. 
+The lint_enable_smart_tag_execution  application variable enables VC 
+SpyGlass to convert the STARC/STARC02 tags to STARC05 tags. However, 
+lint_enable_smart_tag_execution  is supported only under SGUM. The STARC/
+STARC02 tags are not supported under VCUM. In such cases, it is recommended to use 
+STARC05.
+For example, the following message is displayed while converting the STARC-1.4.3.2 tag:
+ReportObsoleteTag "Running Tag 'STARC05-1.4.3.4' instead of obsolete Tag 
+ 'STARC-1.4.3.2'"
+lint_enable_waveform_viewer
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables/disables the Waveform Viewer in VC SpyGlass.
+lint_enable_wdf
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables/disables the WDF flow in VC SpyGlass Lint.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+71
+
+--- page 72 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+lint_enhanced_dead_code_detection
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Set the lint_enhanced_dead_code_detection  application variable value to true to 
+enable advanced dead code detection for LINT language rules.
+lint_enhanced_locations
+Type
+bool
+Default value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+The lint_enhanced_locations  application variable provides accurate source information 
+for expressions spanning multiple lines in language checks. The default value of the 
+application variable is false. Set the value of the lint_enhanced_locations  application 
+variable to true to retrieve the accurate source location, namely, the source file name and 
+line number, for expressions spanning multiple lines.
+Example
+In the case below, RTL waiver pragma gets applied successfully with 
+lint_enhanced_locations  set to yes.
+module test(input [3:0] in1,in2,in3,in4,d);
+wire [3:0] init = (d == 3'd1) ? in1 :
+   (d == 3'd2) ? in2 :
+   (d == 3'd3) ? in3 :
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+72
+
+--- page 73 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+   (d == 3'd4) ? in4 : 4'bxxxx; //VC SpyGlass disable W443
+endmodule
+lint_formal_disable_stage_name
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Disables stage name modification of the supported lint checks in VC SpyGlass Lint formal 
+rule violations.
+lint_functional_check_libs
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables lint functional checks in the modules that are compiled as a library.
+lint_functional_exclude_arithmetic_fsm
+Type
+bool
+Default value
+false
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+73
+
+--- page 74 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Disables the FSM detections that contain arithmetic expressions.
+lint_functional_mode
+Type
+bool
+Default Value
+false
+Stage
+Specify the lint_functional_mode  application variable before using the 
+configure_lint_setup  command.
+Description
+Enables the formal mode for VC SpyGlass Lint checks. Noisy lint checks like Width-
+Mismatch, Index-Overflow, DeadCode, and FSM will leverage formal technology.
+Note:
+To change the hierarchy delimiter in lint_functional_mode, set 
+the hierarchy_delimiter  application variable after specifying the 
+configure_lint_setup  command.
+lint_functional_total_time
+Type
+str
+Default Value
+-1
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+74
+
+--- page 75 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+Use this application variable to stop all formal checks after the specified time. 
+The default value of this application variable is -1. Setting the value of the 
+lint_functional_total_time  application variable to the required time limit will stop all 
+the formal checks after the specified value. You can specify the time units as minutes.
+Example
+Set the total time limit to 5 minutes using the following command:
+set_app_var lint_functional_total_time 5
+lint_global_scope_violation
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Use the lint_global_scope_violation  application variable to report empty modules for 
+language tag violations that occur in the global scope (outside module).
+lint_ignore_syncreset_for_asyncflop
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+When this application variable is set to true, synchronous resets are not detected for flops 
+having asynchronous resets.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+75
+
+--- page 76 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+lint_ignore_redundant_field_waiver
+Type
+bool
+Default Value
+true
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Ignores non mandatory fields while waiver translation.
+lint_impl_mode
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Enables the Implementation Design Checks flow in VC SpyGlass.
+lint_implicit_vc_synth_param_real
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+76
+
+--- page 77 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Description
+• Enables the VC_SYNTH_PARAM_REAL tag to report violations for the implicitly-
+defined real type parameters. By default, the VC_SYNTH_PARAM_REAL tag reports 
+violations only for the real type parameters that are specified explicitly. Set the value of 
+the lint_implicit_vc_synth_param_real  application variable to true to enable the 
+VC_SYNTH_PARAM_REAL tag to report violations for the implicitly defined real type 
+parameters also, such as localparam p = 14.69 . Use the following command:
+set_app_var lint_implicit_vc_synth_param_real true
+lint_netlist_language_check
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the Design Read commands.
+Description
+Runs language checks in the netlist flow. The default value of the application variable is 
+false. Set the value of the lint_netlist_language_check  application variable to true to 
+run language checks in the netlist flow.
+lint_keep_old_starc_severity
+Type
+bool
+Default Value
+false
+Stage
+Use this application variable before specifying the enable_lint  command.
+Description
+Provides backward compatibility support for reverting to the previous severity label of the 
+STARC* tags.
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+77
+
+--- page 78 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+The following table lists the STARC05 Structural Checks tags for which the default severity 
+label is updated to Warning:
+Tag name Old Severity New Severity
+STARC05-1.4.3.2 Error Warning
+STARC05-1.6.1.2 Error Warning
+STARC05-1.6.1.1b Error Warning
+STARC05-2.5.1.2 Error Warning
+STARC05-2.4.1.5 Error Warning
+STARC05-2.5.2.1 Error Warning
+STARC05-1.1.5.1 Error Warning
+STARC05-1.2.1.1b Error Warning
+STARC05-1.1.5.2a Error Warning
+STARC05-3.1.3.3 Error Warning
+STARC05-3.3.2.2 Error Warning
+STARC05-1.6.3.2 Error Warning
+STARC05-2.5.1.8 Error Warning
+STARC05-1.3.1.3 Error Warning
+STARC05-2.3.6.2b Error Warning
+STARC05-2.5.1.4 Error Warning
+STARC05-1.4.3.4 Error Warning
+STARC05-3.1.3.2a Error Warning
+STARC05-3.1.3.2b Error Warning
+STARC05-1.4.3.1a Error Warning
+STARC05-1.6.2.2 Error Warning
+STARC05-1.4.1.1 Error Warning
+STARC05-1.3.2.1a Error Warning
+STARC05-1.3.1.7 Error Warning
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+78
+
+--- page 79 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Tag name Old Severity New Severity
+STARC05-1.3.2.2 Error Warning
+STARC05-1.1.5.2b Error Warning
+STARC05-1.2.1.1a Error Warning
+STARC05-1.3.2.1b Error Warning
+STARC05-1.1.4.6b Error Warning
+STARC05-1.1.4.6a Error Warning
+STARC05-2.3.5.1 Error Warning
+STARC05-1.4.3.1c Error Warning
+STARC05-1.6.2.1 Error Warning
+STARC05-2.4.1.3 Error Warning
+STARC05-2.5.1.1 Error Warning
+STARC05-2.4.1.2 Error Warning
+STARC05-1.4.4.2 Error Info
+The following table lists the STARC05 Language Checks tags for which the default 
+severity label is updated to Warning:
+Tag name Old Severity New Severity
+STARC05-1.1.1.1 Error Warning
+STARC05-1.1.1.6 Error Warning
+STARC05-1.1.1.6v Error Warning
+STARC05-1.1.1.7 Error Warning
+STARC05-1.1.1.8 Error Warning
+STARC05-1.1.1.8v Error Warning
+STARC05-1.1.1.9a Error Warning
+STARC05-1.1.1.9b Error Warning
+STARC05-1.1.1.9c Error Warning
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+79
+
+--- page 80 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Tag name Old Severity New Severity
+STARC05-1.1.1.9d Error Warning
+STARC05-1.1.2.2 Error Warning
+STARC05-1.1.2.3 Error Warning
+STARC05-1.1.2.4 Error Warning
+STARC05-1.1.2.6a Error Warning
+STARC05-1.1.2.6b Error Warning
+STARC05-1.1.4.1 Error Warning
+STARC05-1.1.4.1va Error Warning
+STARC05-1.1.4.1vb Error Warning
+STARC05-1.1.4.2a Error Warning
+STARC05-1.1.4.2b Error Warning
+STARC05-1.1.4.2v Error Warning
+STARC05-1.1.4.3 Error Warning
+STARC05-1.1.4.3v Error Warning
+STARC05-1.1.4.4 Error Warning
+STARC05-1.1.4.7 Error Warning
+STARC05-1.1.4.8 Error Warning
+STARC05-1.1.4.8v Error Warning
+STARC05-1.1.4.9v Error Warning
+STARC05-1.1.6.1 Error Warning
+STARC05-1.1.6.4 Error Warning
+STARC05-1.3.1.2 Error Warning
+STARC05-1.3.1.5a Error Warning
+STARC05-1.3.1.5b Error Warning
+STARC05-1.4.3.6 Error Warning
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+80
+
+--- page 81 ---
+Chapter 5: Configuring Application Variables and Commands
+Application Variables
+Feedback
+Tag name Old Severity New Severity
+STARC05-2.1.1.2v Error Warning
+STARC05-2.1.1.3 Error Warning
+STARC05-2.1.10.1 Error Warning
+STARC05-2.1.10.10 Error Warning
+STARC05-2.1.10.11 Error Warning
+STARC05-2.1.10.2 Error Warning
+STARC05-2.1.10.3 Error Warning
+STARC05-2.1.10.4 Error Warning
+STARC05-2.1.10.5 Error Warning
+STARC05-2.1.10.6 Error Warning
+STARC05-2.1.10.8 Error Warning
+STARC05-2.1.2.4 Error Warning
+STARC05-2.1.3.4 Error Warning
+STARC05-2.1.4.5 Error Warning
+STARC05-2.1.4.6a Error Warning
+STARC05-2.1.4.6b Error Warning
+STARC05-2.1.5.1 Error Warning
+STARC05-2.1.5.1v Error Warning
+STARC05-2.1.5.3 Error Warning
+STARC05-2.1.6.1 Error Warning
+STARC05-2.1.6.1v Error Warning
+STARC05-2.1.6.2 Error Warning
+STARC05-2.1.6.3 Error Warning
+STARC05-2.1.6.4 Error Warning
+STARC05-2.1.8.10 Error Warning
+VC SpyGlass Lint® User Guide
+X-2025.06-SP1
+81

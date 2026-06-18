@@ -48,10 +48,18 @@ When the task is **lifecycle** (requirements, RTL database, traceability, gap an
 
 ## Invoke
 
-- `@rtl-design` — primary
-- `@rtl-coding-standards` — same router
+- `@help` — list all invoke names and descriptions
+- `@rtl-design` — RTL write/review/lifecycle (alias `@rtl-coding-standards`)
+- `@timing-analysis` — STA, timing reports, MTBF analysis
+- `@sdc` — SDC constraint authoring and review
+- `@cdc` — VC SpyGlass CDC verification (FPGA)
+- `@lint` — VC SpyGlass Lint (FPGA RTL)
+- `@testbench` — self-checking simulation testbenches
 
-## Scope
+Full registry: [.cursor/skills/invoke-registry.md](../../.cursor/skills/invoke-registry.md)
+
+## Scope (@rtl-design)
 
 - Verilog and SystemVerilog RTL in open workspace unless user expands scope.
 - Match project dialect; no SV-only constructs in `.v` without user approval.
+- **Never** load Timing Analyzer UG, Cookbook, SpyGlass CDC/Lint, testbench-generation, or `examples/sdc/` — see [rtl-design-exclusions.md](../../.cursor/skills/rtl-design/rtl-design-exclusions.md). Redirect timing/SDC to `@timing-analysis` / `@sdc`; SpyGlass CDC to `@cdc`; SpyGlass Lint to `@lint`; testbench generation to `@testbench`.

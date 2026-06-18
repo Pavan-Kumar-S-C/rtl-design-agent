@@ -9,7 +9,9 @@ disable-model-invocation: true
 
 # RTL coding standards
 
-**Invoke:** `@rtl-coding-standards`
+**Invoke:** `@rtl-coding-standards` (alias of `@rtl-design`)
+
+For timing reports use `@timing-analysis`; for SDC use `@sdc`; for all invokes use `@help`.
 
 Use the same procedure as [@rtl-design](../rtl-design/SKILL.md):
 

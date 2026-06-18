@@ -10,6 +10,6 @@
 
 **Verbatim PDF:** [docs/standards/Design Recommendations.pdf](../../../../docs/standards/Design%20Recommendations.pdf) — only when user asks for full UG wording.
 
-**Also load when:** reviewing Intel/Altera synchronizer attributes on project cells — plus [topics/cdc.md](cdc.md) for CDC primitives; SDC / `report_metastability` — [topics/timing-analyzer.md](timing-analyzer.md).
+**Also load when:** reviewing Intel/Altera synchronizer attributes on project cells — plus [topics/cdc.md](cdc.md). For SDC or `report_metastability` → **`@timing-analysis`** / **`@sdc`** (not `@rtl-design`).
 
 **Ask user if:** device family, Quartus version, or whether MTBF report vs RTL fix is the goal.

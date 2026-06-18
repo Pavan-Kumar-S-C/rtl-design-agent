@@ -1,0 +1,1136 @@
+================================================================================
+CDC_SETUP
+================================================================================
+(10 pages captured)
+
+--- page 31 ---
+Contents
+Feedback
+configure_cdc_property . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1730
+configure_cdc_rca . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1730
+configure_cdc_read_project . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1733
+configure_cdc_reason_code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1735
+configure_cdc_sam_constraints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1736
+configure_cdc_setup_blackbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1738
+configure_cdc_setup_check . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1739
+configure_cdc_setup_libcell . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1746
+configure_cdc_sg_hier . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1749
+configure_cdc_sgwaiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1749
+configure_cdc_smart_netlist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1750
+configure_cdc_static . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1753
+configure_cdc_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1755
+configure_cdc_userpath_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1756
+configure_cdc_userpath_data_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1758
+configure_cdc_userpath_nff_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1760
+configure_cdc_validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1763
+configure_cdc_verbose_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1769
+configure_cdc_via_points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1770
+configure_cdc_waive_block_violation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1771
+configure_clock_reset_race . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1772
+configure_clock_reset_tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1773
+configure_clock_propagation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1774
+configure_console_messages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1776
+configure_command_validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1777
+configure_delta_delay . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1778
+configure_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1779
+configure_glitch_free_cells . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1780
+configure_inferred_clock_name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1783
+configure_ip_block . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1783
+configure_internal_clock_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1785
+configure_libcell_uniquification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1785
+configure_partial_commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1786
+configure_property_panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1787
+configure_quasi_signal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1789
+configure_set_clock_group . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1789
+configure_setup_port . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1791
+configure_static_aware_synthesis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1793
+configure_stop_auto_infer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1794
+31
+
+--- page 80 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+If you do not fix this violation, the sequential elements which are reported are not checked 
+during CDC/RDC analysis.
+How to Debug
+Sequential elements with clock pins tied to a constant are not checked during CDC/
+RDC analysis. Not resolving such issues can cause valid crossings to be missed by 
+the tool during CDC analysis. To analyze this violation, back trace the clock pin of the 
+corresponding sequential logic.
+Review the schematic to ensure that no constant is propagating to the clock pin of the cell. 
+Review the 
+set_case_analysis  constraints or any other constraint applied to the design.
+Related Reason Code(s)
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -show_constant_source true
+•
+RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+Related Configuration(s)
+• create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_DATA_CONSTANT
+Reports data signals in sequential elements that are set to a constant
+Severity
+Info
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+80
+
+--- page 82 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+The arguments of the above message are explained:
+Argument Fields Short Description
+ReasonInfoList Reason info list
+DestObjectType Destination object type
+ContainerInstance Containing instance
+Module Design Unit
+FileName File Name
+LineNumber Line number
+Potential Issues
+VC SpyGlass CDC ignores this clock because it is not driving any logic. If this is the 
+expectation, no further action is required.
+Else, this could be an indication of a tool input specification error or design read issue. For 
+example, a black-box might be blocking the clock propagation.
+How to Debug
+To perform the root cause analysis of the problem, review the reason code reported.
+Related Reason Code(s)
+The tag reports the following reason codes by default:
+•
+CONST_DATA
+• CONST_DATA_SET
+• CONST_DATA_RESET
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -report_all_setup_data_constant_violation true
+•
+CONST_DATA
+This configuration is used to report all SETUP_DATA_CONSTANT violations irrespective 
+of set and reset pins.
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -show_constant_source true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+82
+
+--- page 83 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+This configuration is used to report reason code according to the type of constant source 
+which is driving the constant value.
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_CLKPROP_NO_CLK
+No clock definitions found in SDC file
+Severity
+Error
+When to Use
+Use this tag to find the clocks which are not defined in SDC.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+Use this tag to check for setup issues related to clocks.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+83
+
+--- page 87 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+How to Debug
+Open the schematic to see the path and how the clocks are converging.
+Related Reason Code(s)
+•
+MULT_ASYNC_CLK_MUX
+• MULT_ASYNC_CLKGATE
+• MUX_DRIVING_REDUNDANT_LOGIC
+• COMBO_DRIVING_REDUNDANT_LOGIC
+Related Configuration(s)
+• set_clock_groups
+• configure_cdc_tag
+• set_case_analysis
+• create_clock
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_ASYNC_CLOCK_OVERLAP_CONSTRAINED
+Two or more clocks from different domains overlap on a constrained combinational logic
+Severity
+Info
+When to Use
+Use this tag to report issues when asynchronous clocks are converging but have 
+constrains defined at the converging clock to overcome that issue.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+87
+
+--- page 89 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+This is informational message for review purpose.
+How to Debug
+This is informational message for review purpose.
+Related Reason Code(s)
+This tag reports the following reason codes:
+•
+MUX_SELPIN_CONSTRAINED
+• MUX_OUTPUT_CLOCK
+• COMBO_OUTPUT_CLOCK
+Related Configuration(s)
+• set_clock_groups
+• configure_cdc_tag
+• set_case_analysis
+• create_clock
+• configure_cdc_setup_check
+SETUP_ASYNC_CLOCK_OVERWRITE
+User clock propagates to another user clock which has asynchronous relationship with the 
+propagating clock
+Severity
+Warning
+When to Use
+Use this tag to report issues when a new asynchronous clock is defined in the fanout of a 
+user-defined clock.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+89
+
+--- page 92 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• create_clock
+• configure_cdc_setup_check
+SETUP_SYNC_CLOCK_OVERLAP
+Two or more clocks from same domain converge on a multi-input gate
+Severity
+Info
+When to Use
+Use this tag to report a violation when synchronous clocks are converging on a 
+combinational gate.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+VC SpyGlass reports this tag when two or more synchronous clocks converge on 
+combinational gates.
+Example Code and/or Schematic
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+92
+
+--- page 98 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Argument Fields Short Description
+OverwriteClocks Overwrite Clock Info Overwrite. Possible sub-fields 
+include:ClkRoot: Clock root ClockDataList: List of 
+Clock Data
+ContainerInstance Containing instance
+Module Design Unit
+FileName File Name
+LineNumber Line Number
+Potential Issues
+This is an information message for review purpose
+How to Debug
+Check if stopping the propagation of the primary clock by defining the other synchronous 
+clock on its path is as per the design intent. If not, remove the overwriting clock.
+Also, check if the primary clock should have propagated to this point or should have 
+stopped earlier in the path.
+Related Reason Code(s)
+None
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• configure_cdc_setup_check
+SETUP_CLOCKPATH_MUX_NOCLOCK
+Unconstrained mux does not receive clocks in all its data inputs
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+98
+
+--- page 117 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• Specify the Elite  or Apex  license features
+• Set the enable_cdc  application variable to true
+• Read the design
+• Specify reset constraints using the create_reset  command. Specify data path 
+constrains using the set_input_delay, set_clock_attribute, or set_sync_attribute 
+command. Specify combo paths using the set_connectivity_attribute  command. Specify 
+the constant using set_case_analysis  and quasi using the create_quasi command.
+Description
+VC SpyGlass CDC reports this tag for top-level input ports, inout ports, and output 
+ports which are fully constrained. A port is considered fully constrained if the following 
+constraints are defined on it:
+create_clock, set_input_delay, set_output_delay, set_case_analysis, creat
+e_static, set_clock_attribute  or set_sync_attribute
+Note:
+By default, only constrained input ports are reported under this tag. To report 
+output ports also along with the input ports, use the following command before 
+the check_cdc  command:
+configure_cdc_setup_check -check_port_setup all
+For inout ports, if it is a data path, constraint the ports in both directions.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+117
+
+--- page 123 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+The arguments of the above message are explained below:
+Argument Fields Short Description
+ReasonInfoList Reason info list
+FileName File Name
+LineNumber Line number
+Potential Issues
+This information message is for review purpose.
+How to Debug
+To perform the root cause analysis of the problem, review the reason code reported.
+Related Reason Code(s)
+This violation can have the following reason codes:
+•
+PORT_UNCLOCKED_SEQS
+• PORT_UNCONNECTED
+• PORT_NO_SEQS
+Related Configuration(s)
+configure_unconstrained_ports
+configure_cdc_setup_check
+SETUP_PORT_PARTIALLY_CONSTRAINED
+Port is partially constrained
+Severity
+Error
+When to Use
+Use this tag to report issues where the top-level constrains are partially constrained.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+123
+
+================================================================================
+CDC_SETUP_CHECK
+================================================================================
+(10 pages captured)
+
+--- page 31 ---
+Contents
+Feedback
+configure_cdc_property . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1730
+configure_cdc_rca . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1730
+configure_cdc_read_project . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1733
+configure_cdc_reason_code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1735
+configure_cdc_sam_constraints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1736
+configure_cdc_setup_blackbox . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1738
+configure_cdc_setup_check . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1739
+configure_cdc_setup_libcell . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1746
+configure_cdc_sg_hier . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1749
+configure_cdc_sgwaiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1749
+configure_cdc_smart_netlist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1750
+configure_cdc_static . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1753
+configure_cdc_tag . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1755
+configure_cdc_userpath_analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1756
+configure_cdc_userpath_data_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1758
+configure_cdc_userpath_nff_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1760
+configure_cdc_validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1763
+configure_cdc_verbose_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1769
+configure_cdc_via_points . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1770
+configure_cdc_waive_block_violation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1771
+configure_clock_reset_race . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1772
+configure_clock_reset_tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1773
+configure_clock_propagation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1774
+configure_console_messages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1776
+configure_command_validation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1777
+configure_delta_delay . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1778
+configure_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1779
+configure_glitch_free_cells . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1780
+configure_inferred_clock_name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1783
+configure_ip_block . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1783
+configure_internal_clock_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1785
+configure_libcell_uniquification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1785
+configure_partial_commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1786
+configure_property_panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1787
+configure_quasi_signal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1789
+configure_set_clock_group . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1789
+configure_setup_port . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1791
+configure_static_aware_synthesis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1793
+configure_stop_auto_infer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1794
+31
+
+--- page 80 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+If you do not fix this violation, the sequential elements which are reported are not checked 
+during CDC/RDC analysis.
+How to Debug
+Sequential elements with clock pins tied to a constant are not checked during CDC/
+RDC analysis. Not resolving such issues can cause valid crossings to be missed by 
+the tool during CDC analysis. To analyze this violation, back trace the clock pin of the 
+corresponding sequential logic.
+Review the schematic to ensure that no constant is propagating to the clock pin of the cell. 
+Review the 
+set_case_analysis  constraints or any other constraint applied to the design.
+Related Reason Code(s)
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -show_constant_source true
+•
+RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+Related Configuration(s)
+• create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_DATA_CONSTANT
+Reports data signals in sequential elements that are set to a constant
+Severity
+Info
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+80
+
+--- page 82 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+The arguments of the above message are explained:
+Argument Fields Short Description
+ReasonInfoList Reason info list
+DestObjectType Destination object type
+ContainerInstance Containing instance
+Module Design Unit
+FileName File Name
+LineNumber Line number
+Potential Issues
+VC SpyGlass CDC ignores this clock because it is not driving any logic. If this is the 
+expectation, no further action is required.
+Else, this could be an indication of a tool input specification error or design read issue. For 
+example, a black-box might be blocking the clock propagation.
+How to Debug
+To perform the root cause analysis of the problem, review the reason code reported.
+Related Reason Code(s)
+The tag reports the following reason codes by default:
+•
+CONST_DATA
+• CONST_DATA_SET
+• CONST_DATA_RESET
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -report_all_setup_data_constant_violation true
+•
+CONST_DATA
+This configuration is used to report all SETUP_DATA_CONSTANT violations irrespective 
+of set and reset pins.
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -show_constant_source true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+82
+
+--- page 83 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+This configuration is used to report reason code according to the type of constant source 
+which is driving the constant value.
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_CLKPROP_NO_CLK
+No clock definitions found in SDC file
+Severity
+Error
+When to Use
+Use this tag to find the clocks which are not defined in SDC.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+Use this tag to check for setup issues related to clocks.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+83
+
+--- page 87 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+How to Debug
+Open the schematic to see the path and how the clocks are converging.
+Related Reason Code(s)
+•
+MULT_ASYNC_CLK_MUX
+• MULT_ASYNC_CLKGATE
+• MUX_DRIVING_REDUNDANT_LOGIC
+• COMBO_DRIVING_REDUNDANT_LOGIC
+Related Configuration(s)
+• set_clock_groups
+• configure_cdc_tag
+• set_case_analysis
+• create_clock
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_ASYNC_CLOCK_OVERLAP_CONSTRAINED
+Two or more clocks from different domains overlap on a constrained combinational logic
+Severity
+Info
+When to Use
+Use this tag to report issues when asynchronous clocks are converging but have 
+constrains defined at the converging clock to overcome that issue.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+87
+
+--- page 89 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+This is informational message for review purpose.
+How to Debug
+This is informational message for review purpose.
+Related Reason Code(s)
+This tag reports the following reason codes:
+•
+MUX_SELPIN_CONSTRAINED
+• MUX_OUTPUT_CLOCK
+• COMBO_OUTPUT_CLOCK
+Related Configuration(s)
+• set_clock_groups
+• configure_cdc_tag
+• set_case_analysis
+• create_clock
+• configure_cdc_setup_check
+SETUP_ASYNC_CLOCK_OVERWRITE
+User clock propagates to another user clock which has asynchronous relationship with the 
+propagating clock
+Severity
+Warning
+When to Use
+Use this tag to report issues when a new asynchronous clock is defined in the fanout of a 
+user-defined clock.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+89
+
+--- page 92 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• create_clock
+• configure_cdc_setup_check
+SETUP_SYNC_CLOCK_OVERLAP
+Two or more clocks from same domain converge on a multi-input gate
+Severity
+Info
+When to Use
+Use this tag to report a violation when synchronous clocks are converging on a 
+combinational gate.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+VC SpyGlass reports this tag when two or more synchronous clocks converge on 
+combinational gates.
+Example Code and/or Schematic
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+92
+
+--- page 98 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Argument Fields Short Description
+OverwriteClocks Overwrite Clock Info Overwrite. Possible sub-fields 
+include:ClkRoot: Clock root ClockDataList: List of 
+Clock Data
+ContainerInstance Containing instance
+Module Design Unit
+FileName File Name
+LineNumber Line Number
+Potential Issues
+This is an information message for review purpose
+How to Debug
+Check if stopping the propagation of the primary clock by defining the other synchronous 
+clock on its path is as per the design intent. If not, remove the overwriting clock.
+Also, check if the primary clock should have propagated to this point or should have 
+stopped earlier in the path.
+Related Reason Code(s)
+None
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• configure_cdc_setup_check
+SETUP_CLOCKPATH_MUX_NOCLOCK
+Unconstrained mux does not receive clocks in all its data inputs
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+98
+
+--- page 117 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• Specify the Elite  or Apex  license features
+• Set the enable_cdc  application variable to true
+• Read the design
+• Specify reset constraints using the create_reset  command. Specify data path 
+constrains using the set_input_delay, set_clock_attribute, or set_sync_attribute 
+command. Specify combo paths using the set_connectivity_attribute  command. Specify 
+the constant using set_case_analysis  and quasi using the create_quasi command.
+Description
+VC SpyGlass CDC reports this tag for top-level input ports, inout ports, and output 
+ports which are fully constrained. A port is considered fully constrained if the following 
+constraints are defined on it:
+create_clock, set_input_delay, set_output_delay, set_case_analysis, creat
+e_static, set_clock_attribute  or set_sync_attribute
+Note:
+By default, only constrained input ports are reported under this tag. To report 
+output ports also along with the input ports, use the following command before 
+the check_cdc  command:
+configure_cdc_setup_check -check_port_setup all
+For inout ports, if it is a data path, constraint the ports in both directions.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+117
+
+--- page 123 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+The arguments of the above message are explained below:
+Argument Fields Short Description
+ReasonInfoList Reason info list
+FileName File Name
+LineNumber Line number
+Potential Issues
+This information message is for review purpose.
+How to Debug
+To perform the root cause analysis of the problem, review the reason code reported.
+Related Reason Code(s)
+This violation can have the following reason codes:
+•
+PORT_UNCLOCKED_SEQS
+• PORT_UNCONNECTED
+• PORT_NO_SEQS
+Related Configuration(s)
+configure_unconstrained_ports
+configure_cdc_setup_check
+SETUP_PORT_PARTIALLY_CONSTRAINED
+Port is partially constrained
+Severity
+Error
+When to Use
+Use this tag to report issues where the top-level constrains are partially constrained.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+123
+
+================================================================================
+CDC_RESET_INTEGRITY
+================================================================================
+(0 pages captured)
+
+================================================================================
+CDC_VERIFY
+================================================================================
+(0 pages captured)
+
+================================================================================
+CDC_ABSTRACT
+================================================================================
+(10 pages captured)
+
+--- page 28 ---
+Contents
+Feedback
+report_hier_ports . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1426
+save_cdc_constraints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1427
+spyglass_waiver_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1427
+show_msg_in_create_waiver . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1427
+show_sg_backref_in_waiversanity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1428
+timing_block_mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1429
+Supported SDC Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1430
+CDC Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1432
+all_registers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1432
+apply_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1434
+cdc_check_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1435
+cdc_define_transition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1435
+check_cdc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1436
+clock_infer_same_src_dom . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1437
+compress_cdc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1438
+create_cdc_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1439
+customize_cdc_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1440
+define_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1441
+enable_rca_cluster . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1442
+end_constraints_scope . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1443
+get_asyncrst_paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1443
+get_cdc_cluster_cause_viols . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1445
+get_cdc_cluster_effect_viols . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1445
+get_cdc_cluster_viols . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1446
+get_cdc_coherency . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1447
+get_cdc_coherency_elements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1448
+get_cdc_control_synchronizer_elements . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1449
+get_cdc_control_synchronizers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1449
+get_cdc_mapped_name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1450
+get_cdc_path_elements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1451
+get_cdc_paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1452
+get_clock_domains . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1454
+get_clock_relationship . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1455
+get_clock_roots . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1458
+get_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1459
+get_glitch_paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1461
+get_reset_roots . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1462
+get_synchronizer_cells . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1462
+28
+
+--- page 30 ---
+Contents
+Feedback
+set_signal_waveform . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1533
+set_sync_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1536
+set_tag_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1538
+set_test_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1539
+waive_cdc . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1539
+waive_cdc_block_violations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1547
+write_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1548
+write_cdc_property . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1550
+write_clock_tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1558
+write_reset_tree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1559
+write_resets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1560
+Configure Commands . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1560
+check_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1561
+configure_abstract_port . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1561
+configure_bus_merging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1563
+configure_cdc_abstract_model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1563
+configure_cdc_asyncrst_crossing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1566
+configure_cdc_asyncrst_data_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1567
+configure_cdc_asyncrst_nff_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1576
+configure_cdc_attribute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1597
+configure_cdc_back_to_back_uds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1599
+configure_cdc_clock_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1599
+configure_cdc_convergence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1600
+configure_cdc_crossing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1623
+configure_cdc_data_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1627
+configure_cdc_detailed_report . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1660
+configure_cdc_formal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1661
+configure_cdc_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1673
+configure_cdc_hiersoc_verification . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1684
+configure_cdc_integrity_checks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1685
+configure_cdc_integrity_glitch . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1688
+configure_cdc_internal_crossing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1692
+configure_cdc_ignore_path . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1694
+configure_cdc_multiflop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1696
+configure_cdc_netlist_busmerging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1696
+configure_cdc_nff_sync . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1697
+configure_cdc_port . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1728
+configure_cdc_power_aware . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1728
+30
+
+--- page 50 ---
+Chapter 2: Reading the Design
+Updating the vc_static_shell Setup File
+Feedback
+configure_cdc_....
+read_sdc test.sdc
+ 
+check_cdc
+create_cdc_abstract_model
+save_session -session SI
+report_violations -app CDC -file report_cdc.log exit
+If you perform save_session  with no arguments, the session is saved in the vcst_rtdb 
+directory. Restore the session using the restore_session  command with no arguments, 
+so that the tool does not create a new directory while restoring the session.
+But, if you specified the -out_dir  argument with the save_session  command, or 
+changed the path of the vcst_rtdb  directory, then you would need to add the -session 
+argument when doing the restore.
+For example:
+% vc_static_shell -out_dir my -f xxxx
+% save_session
+ 
+#To restore
+vc_static_shell -restore -session my/vcst_rtdb   #since the out_dir 
+ location changed
+Updating the vc_static_shell Setup File
+VC SpyGlass CDC can use the .synopsys_vcst.setup  file (if present), for the VC 
+SpyGlass CDC run. You can create your own custom setup file with all the required 
+settings and commands (application variables, settings, custom scripts, .db reads) that 
+must be loaded each time you invoke the vc_static_shell. This helps to keep the 
+top-level Tcl file uncluttered. This setup file is read immediately upon invocation of the 
+vc_static_shell  binary. You can source Tcl files here, so this file might look like:
+This file contains the application variables to be set for every run:
+source /path/to/global_app_vars.tcl
+This file includes search_path and link_library settings:
+source /path/to/libs_read.tcl
+This file includes the analyze and elaborate commands
+source /path/to/rtl_read.tcl
+This file contains custom Tcl procs
+source /path/to/our_procs.tcl
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+50
+
+--- page 74 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+VC SpyGlass CDC ignores this clock because it is not driving any logic. If this is the 
+expectation, no further action is required.
+Else, this could be an indication of a tool input specification error or design read issue. For 
+example, a black-box might be blocking the clock propagation.
+How to Debug
+Review the tool setup, fix any specification errors, and rerun the tool to incorporate the 
+revised setup information.
+Related Reason Code(s)
+None
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_CLOCK_RESET_TREE
+Tree browser database is generated
+Severity
+Info
+When to Use
+Use this tag to generate the clock and reset tree browser database.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+74
+
+--- page 78 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Related Configuration(s)
+• create_clock
+• create_generated_clock.
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_CLOCK_CONSTANT
+Clock net is set to a constant
+Severity
+Error
+When to Use
+Use this tag to find the clock net when it is set to a constant.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  or enable_rdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+VC SpyGlass CDC and RDC report this tag if the clock pin of a sequential element is tied 
+to a constant.
+In such cases, the clock pin of reported flip-flops, latches, or sequential library cells can 
+be:
+• Constrained by case analysis settings (specified using the 
+set_case_analysis 
+command)
+• Connected to supply nets
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+78
+
+--- page 80 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Potential Issues
+If you do not fix this violation, the sequential elements which are reported are not checked 
+during CDC/RDC analysis.
+How to Debug
+Sequential elements with clock pins tied to a constant are not checked during CDC/
+RDC analysis. Not resolving such issues can cause valid crossings to be missed by 
+the tool during CDC analysis. To analyze this violation, back trace the clock pin of the 
+corresponding sequential logic.
+Review the schematic to ensure that no constant is propagating to the clock pin of the cell. 
+Review the 
+set_case_analysis  constraints or any other constraint applied to the design.
+Related Reason Code(s)
+The tag reports the following reason codes only when below configuration is defined.
+configure_cdc_setup_check -show_constant_source true
+•
+RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+Related Configuration(s)
+• create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_DATA_CONSTANT
+Reports data signals in sequential elements that are set to a constant
+Severity
+Info
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+80
+
+--- page 83 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+• RTL_CONSTANT
+• SCA_CONSTANT
+• RTL_SCA_CONSTANT
+This configuration is used to report reason code according to the type of constant source 
+which is driving the constant value.
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups
+• set_clock_sense
+• set_sense
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_CLKPROP_NO_CLK
+No clock definitions found in SDC file
+Severity
+Error
+When to Use
+Use this tag to find the clocks which are not defined in SDC.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+Use this tag to check for setup issues related to clocks.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+83
+
+--- page 87 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+How to Debug
+Open the schematic to see the path and how the clocks are converging.
+Related Reason Code(s)
+•
+MULT_ASYNC_CLK_MUX
+• MULT_ASYNC_CLKGATE
+• MUX_DRIVING_REDUNDANT_LOGIC
+• COMBO_DRIVING_REDUNDANT_LOGIC
+Related Configuration(s)
+• set_clock_groups
+• configure_cdc_tag
+• set_case_analysis
+• create_clock
+• configure_cdc_setup_check
+• configure_cdc_abstract_model
+SETUP_ASYNC_CLOCK_OVERLAP_CONSTRAINED
+Two or more clocks from different domains overlap on a constrained combinational logic
+Severity
+Info
+When to Use
+Use this tag to report issues when asynchronous clocks are converging but have 
+constrains defined at the converging clock to overcome that issue.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+87
+
+--- page 94 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Related Configuration(s)
+• create_clock
+• create_generated_clock
+• set_clock_groups
+• set_sense
+• configure_cdc_abstract_model
+SETUP_SYNC_CLOCK_OVERLAP_CONSTRAINED
+Two or more clocks from same domain converge on a multi-input gate
+Severity
+Info
+When to Use
+Use this tag to report a violation when synchronous clocks converge but have constraints 
+defined at the converging gate to overcome that issue.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+VC SpyGlass reports this tag when two or more synchronous clocks converge on a 
+combinational gate which is a:
+• Mux with constrained SELECT
+• Combo and its output drive another clock
+Example Code and/or Schematic
+create_clock -name {C1} -period 10 {Clk1}
+create_clock -name {C2} -period 10 {Clk2}
+create_clock -name {C3} -period 10 {Clk3}
+set_clock_groups -group {C1,C2} -group {C3} -asynchronous
+set_case_analysis 0 MuxSel
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+94
+
+--- page 101 ---
+Chapter 3: Creating and Verifying CDC Setup
+Debugging CDC Setup Violations
+Feedback
+Related Reason Code(s)
+None
+Related Configuration(s)
+•
+create_clock
+• create_generated_clock
+• set_case_analysis
+• set_clock_groups.
+• set_clock_sense
+• set_sense
+• configure_cdc_abstract_model
+SETUP_CLOCK_GLITCH
+Asynchronous source converges with different domain clock(s)
+Severity
+Error
+When to Use
+Use this tag to report asynchronous signals which isolates the clock and are in different 
+domains with respect to the clock.
+Prerequisites
+• Specify the Elite  or Apex  license features
+• Set the 
+enable_cdc  application variable to true
+• Read the design
+• Specify clock signals using the create_clock  or create_generated_clock  SDC 
+commands.
+Description
+VC SpyGlass CDC reports this tag to report asynchronous signals, which isolate the clock, 
+but are not in the same domain as the clock signal. It reports one violation per clock cone 
+per asynchronous isolation source signal.
+A clock cone is a net that directly drives either the clock pin of a sequential element, top-
+level port, or black-box pin.
+VC SpyGlass Clock Domain Crossing User Guide
+X-2025.06
+101
+
+================================================================================
+CDC_VERIFY_STRUCT
+================================================================================
+(0 pages captured)

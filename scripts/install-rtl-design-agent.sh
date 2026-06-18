@@ -9,7 +9,7 @@ BRANCH="${RTL_DESIGN_BRANCH:-main}"
 LINK_TO_PROJECT=false
 DO_COPY=false
 USE_LOCAL=false
-SKILL_NAMES=(rtl-design rtl-coding-standards)
+SKILL_NAMES=(rtl-design rtl-coding-standards timing-analysis sdc cdc lint testbench help)
 
 while [[ $# -gt 0 ]]; do
   case "$1" in

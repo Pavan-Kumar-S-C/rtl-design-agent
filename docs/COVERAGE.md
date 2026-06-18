@@ -12,14 +12,22 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | quartus-design-recommendations.md | §3 metastability / MTBF | Quartus + Metastability rows | quartus-metastability | synchronizer_attributes.sv | full |
 | [metastability-mtbf.md](standards/metastability-mtbf.md) | bridge | Metastability / MTBF row | quartus-metastability | bitsync3_inst.sv | full |
 | [Design Recommendations.pdf](standards/Design%20Recommendations.pdf) | full UG 683082 | pdf opt-in in INDEX | quartus-metastability | — | pdf |
-| [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Ch.1 concepts + Ch.2 STA/SDC (see below) | Timing Analyzer UG router | timing-analyzer | 4× UG `.sdc` | **partial** |
-| [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | All cookbook topics (27 pp) | Cookbook row + 12-row router | timing-analyzer | 10× cookbook `.sdc` + stubs | **full** |
-| Timing Analyser UG.pdf | full UG 683243 (~145 pp) | pdf opt-in | timing-analyzer | — | pdf |
-| [Timing analyser CookBook.pdf](standards/Timing%20analyser%20CookBook.pdf) | MNL-01035 / 683081 | pdf opt-in (JTAG Tcl) | timing-analyzer | — | pdf |
+| [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Ch.1 concepts + Ch.2 STA/SDC (see below) | Timing Analyzer UG router | [@timing-analysis](../../.cursor/skills/timing-analysis/) | 4× UG `.sdc` | **partial** |
+| [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | All cookbook topics (27 pp) | Cookbook row + 12-row router | [@sdc](../../.cursor/skills/sdc/) | 10× cookbook `.sdc` + stubs | **full** |
+| Timing Analyser UG.pdf | full UG 683243 (~145 pp) | pdf opt-in | @timing-analysis | — | pdf |
+| [Timing analyser CookBook.pdf](standards/Timing%20analyser%20CookBook.pdf) | MNL-01035 / 683081 | pdf opt-in (JTAG Tcl) | @sdc | — | pdf |
+| [spyglass-cdc-fpga.md](standards/spyglass-cdc-fpga.md) | index | SpyGlass CDC router | @cdc | — | **partial** |
+| [spyglass-cdc/cdc_setup.md](standards/spyglass-cdc/cdc_setup.md) | setup + setup_check | SpyGlass CDC | @cdc | — | partial |
+| [spyglass-cdc/cdc_reset_integrity.md](standards/spyglass-cdc/cdc_reset_integrity.md) | reset integrity | SpyGlass CDC | @cdc | — | partial |
+| [spyglass-cdc/cdc_verify.md](standards/spyglass-cdc/cdc_verify.md) | sync verify | SpyGlass CDC | @cdc | — | partial |
+| [spyglass-cdc/cdc_verify_struct.md](standards/spyglass-cdc/cdc_verify_struct.md) | struct/convergence | SpyGlass CDC | @cdc | — | partial |
+| [spyglass-cdc/cdc_abstract.md](standards/spyglass-cdc/cdc_abstract.md) | SAM | SpyGlass CDC | @cdc | — | partial |
+| [VC_SpyGlass_CDC_UserGuide.pdf](standards/VC_SpyGlass_CDC_UserGuide.pdf) | full UG | SpyGlass CDC router | @cdc | — | pdf |
+| [vc_spyglass_lint_userguide.pdf](standards/vc_spyglass_lint_userguide.pdf) | lint_rtl / initial_rtl | SpyGlass Lint router | @lint | examples/comb/ | **partial** (spyglass-lint-fpga.md) |
 | [cdc-crossings.md](standards/cdc-crossings.md) | pointer | CDC row | cdc | examples/cdc/ | partial |
 | [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | § agent–simulation | Megafunctions row | rtl-macros | — | full |
 | [ug_intro_to_megafunctions-683102-848730.pdf](standards/ug_intro_to_megafunctions-683102-848730.pdf) | UG-01056 | pdf opt-in | rtl-macros | — | pdf |
-| Other standards/*.md | per topic | per row | per topic | per topic | full |
+| [testbench-generation.md](standards/testbench-generation.md) | TB workflow | Testbench row | @testbench | — | full |
 | [rtl-database-schema.md](standards/rtl-database-schema.md) | DB + report schema | Requirements / RTL database / Traceability rows | requirements, rtl-database, traceability | templates/rtl-db/ + templates/project-layout/ | full |
 
 ### Timing Analyzer UG — section coverage (timing-analyzer-ug.md)
@@ -73,6 +81,12 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | [.cursor/skills/rtl-design/SKILL.md](../.cursor/skills/rtl-design/SKILL.md) | Routes via INDEX; coding vs lifecycle mode; Quartus/MTBF called out |
 | [topic-router.md](../.cursor/skills/rtl-design/topic-router.md) | Procedure for selective load; Step 0 intent split |
 | [dev-verify-workflow.md](../.cursor/skills/rtl-design/dev-verify-workflow.md) | Lifecycle: assessment → database → gated generation → traceability |
+| [timing-analysis/SKILL.md](../.cursor/skills/timing-analysis/SKILL.md) | `@timing-analysis` — STA / reports; [topic-router.md](../.cursor/skills/timing-analysis/topic-router.md) |
+| [sdc/SKILL.md](../.cursor/skills/sdc/SKILL.md) | `@sdc` — constraint authoring; [topic-router.md](../.cursor/skills/sdc/topic-router.md) |
+| [cdc/SKILL.md](../.cursor/skills/cdc/SKILL.md) | `@cdc` — SpyGlass CDC (6 goals); [topic-router.md](../.cursor/skills/cdc/topic-router.md) |
+| [lint/SKILL.md](../.cursor/skills/lint/SKILL.md) | `@lint` — SpyGlass Lint FPGA; [topic-router.md](../.cursor/skills/lint/topic-router.md) |
+| [testbench/SKILL.md](../.cursor/skills/testbench/SKILL.md) | `@testbench` — self-checking TB; [topic-router.md](../.cursor/skills/testbench/topic-router.md) |
+| [help/SKILL.md](../.cursor/skills/help/SKILL.md) | `@help` — invoke registry |
 
 ## Maintainer
 

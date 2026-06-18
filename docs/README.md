@@ -1,5 +1,19 @@
 # RTL documentation index
 
+## Invoke skills
+
+| Invoke | Skill | Router |
+|--------|-------|--------|
+| `@help` | [.cursor/skills/help/](../.cursor/skills/help/) | [invoke-registry.md](../.cursor/skills/invoke-registry.md) |
+| `@rtl-design` | RTL + lifecycle | [rtl-design/topic-router.md](../.cursor/skills/rtl-design/topic-router.md) |
+| `@timing-analysis` | STA / timing reports | [timing-analysis/topic-router.md](../.cursor/skills/timing-analysis/topic-router.md) |
+| `@sdc` | SDC constraints | [sdc/topic-router.md](../.cursor/skills/sdc/topic-router.md) |
+| `@cdc` | SpyGlass CDC verification | [cdc/topic-router.md](../.cursor/skills/cdc/topic-router.md) |
+| `@lint` | SpyGlass Lint (FPGA) | [lint/topic-router.md](../.cursor/skills/lint/topic-router.md) |
+| `@testbench` | Self-checking testbenches | [testbench/topic-router.md](../.cursor/skills/testbench/topic-router.md) |
+
+Registry: [.cursor/skills/invoke-registry.md](../.cursor/skills/invoke-registry.md)
+
 ## How the agent reads docs
 
 1. **Never loads everything** — matches your words to topics in [standards/INDEX.md](standards/INDEX.md).
@@ -15,11 +29,15 @@ Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → f
 | [verilog-systemverilog-dialect.md](standards/verilog-systemverilog-dialect.md) | Dialect |
 | [synthesizability-lint.md](standards/synthesizability-lint.md) | Synth / lint |
 | [clocks-resets.md](standards/clocks-resets.md) | Clocks / resets |
-| [cdc-crossings.md](standards/cdc-crossings.md) | CDC |
+| [cdc-crossings.md](standards/cdc-crossings.md) | CDC RTL patterns |
+| [spyglass-cdc-fpga.md](standards/spyglass-cdc-fpga.md) | SpyGlass CDC index — invoke **`@cdc`** |
+| [spyglass-cdc/](standards/spyglass-cdc/) | Per-goal CDC files (`cdc_setup`, `cdc_verify`, …) |
+| [spyglass-lint-fpga.md](standards/spyglass-lint-fpga.md) | SpyGlass Lint — invoke **`@lint`** |
+| [testbench-generation.md](standards/testbench-generation.md) | Testbench — invoke **`@testbench`** |
 | [metastability-mtbf.md](standards/metastability-mtbf.md) | Metastability / MTBF bridge |
 | [quartus-design-recommendations.md](standards/quartus-design-recommendations.md) | Quartus RTL + metastability |
-| [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Timing Analyzer / STA concepts |
-| [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | SDC recipes (cookbook) |
+| [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Timing Analyzer / STA concepts — invoke **`@timing-analysis`** (reports) or **`@sdc`** (§2.6.x constraints) |
+| [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | SDC recipes — invoke **`@sdc`** |
 | [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | IP Catalog / megafunctions |
 | [rtl-macros.md](standards/rtl-macros.md) | RTL macros / library vs IP |
 | [fsm-coding.md](standards/fsm-coding.md) | FSM |
@@ -31,7 +49,7 @@ Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → f
 
 Legacy index stub: [rtl-coding-standards.md](standards/rtl-coding-standards.md) → use INDEX.md.
 
-**PDFs (opt-in verbatim):** under `standards/` — Design Recommendations, Timing Analyser UG, Timing Cookbook, megafunctions UG.
+**PDFs (opt-in verbatim):** under `standards/` — Design Recommendations, Timing Analyser UG, Timing Cookbook, megafunctions UG, VC SpyGlass CDC/Lint UGs.
 
 ## Your design documents
 
@@ -55,7 +73,7 @@ The agent also runs a HAS/MAS → RTL database → gated generation → traceabi
 
 ## Examples
 
-Golden patterns: [examples/](examples/) — CDC, latching, resets, FSM, comb, dialect, [SDC/STA](examples/sdc/).
+Golden patterns: [examples/](examples/) — CDC, latching, resets, FSM, comb, dialect. **SDC:** [examples/sdc/](examples/sdc/) — invoke **`@sdc`** (authoring) or **`@timing-analysis`** (UG-linked context for reports).
 
 ## Coverage matrix
 

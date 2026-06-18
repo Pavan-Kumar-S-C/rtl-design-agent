@@ -6,7 +6,9 @@ globs: "**/*.{sv,svh,v,vh}"
 
 # RTL in this project
 
-For **writing, reviewing, or refactoring** Verilog (`.v`, `.vh`) or SystemVerilog (`.sv`, `.svh`) in matched files, invoke **`@rtl-design`** or **`@rtl-coding-standards`** in Agent chat.
+For **writing, reviewing, or refactoring** Verilog (`.v`, `.vh`) or SystemVerilog (`.sv`, `.svh`) in matched files, invoke **`@rtl-design`** in Agent chat.
+
+For **SDC** use **`@sdc`**. For **timing analysis / STA reports** use **`@timing-analysis`**. Type **`@help`** to list all invokes.
 
 Match the **dialect and style** of the surrounding files in this project.
 

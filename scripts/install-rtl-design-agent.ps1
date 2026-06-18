@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Install @rtl-design and @rtl-coding-standards skills to user or project .cursor/skills.
+  Install @rtl-design, @rtl-coding-standards, @timing-analysis, @sdc, @cdc, @lint, @testbench, and @help skills to user or project .cursor/skills.
 
 .EXAMPLE
   .\scripts\install-rtl-design-agent.ps1
@@ -19,7 +19,7 @@ param(
 $ErrorActionPreference = "Stop"
 $ScriptDir = $PSScriptRoot
 $RepoRoot = Split-Path $ScriptDir -Parent
-$SkillNames = @("rtl-design", "rtl-coding-standards")
+$SkillNames = @("rtl-design", "rtl-coding-standards", "timing-analysis", "sdc", "cdc", "lint", "testbench", "help")
 
 function Get-ConfigRepoUrl {
     foreach ($cfg in @(

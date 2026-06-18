@@ -9,13 +9,15 @@ If **no topic matches** → use **coding guidelines** (at minimum dialect + synt
 | Topic | Keywords (match any) | Standard file | Skill topic | Examples |
 |-------|----------------------|---------------|-------------|----------|
 | Dialect | verilog, systemverilog, sv, .v, .sv, logic, always_ff | [verilog-systemverilog-dialect.md](verilog-systemverilog-dialect.md) | [topics/dialect.md](../../.cursor/skills/rtl-design/topics/dialect.md) | [examples/dialect/](../examples/dialect/) |
-| Synth / lint | synth, latch, lint, spyglass, verilator, combinational, initial, #delay | [synthesizability-lint.md](synthesizability-lint.md) | [topics/synthesizability.md](../../.cursor/skills/rtl-design/topics/synthesizability.md) | [examples/comb/](../examples/comb/) |
+| Synth / lint | synth, latch, lint, verilator, combinational, initial, #delay | [synthesizability-lint.md](synthesizability-lint.md) | [topics/synthesizability.md](../../.cursor/skills/rtl-design/topics/synthesizability.md) | [examples/comb/](../examples/comb/) |
+| SpyGlass Lint | spyglass lint, check_lint, lint_rtl, lint violation, W415, inferred latch, multiple driver, combinational loop | [spyglass-lint-fpga.md](spyglass-lint-fpga.md) | [@lint](../../.cursor/skills/lint/SKILL.md) — **not @rtl-design** | [examples/comb/](../examples/comb/) |
 | Clocks / resets | clock, clk, reset, rst, async, sync, posedge | [clocks-resets.md](clocks-resets.md) | [topics/clocks-resets.md](../../.cursor/skills/rtl-design/topics/clocks-resets.md) | [examples/resets/](../examples/resets/) |
 | CDC | cdc, crossing, synchronizer, 2ff, metastable, fifo, gray, vecsync, pulse cross, async fifo | [cdc-crossings.md](cdc-crossings.md) | [topics/cdc.md](../../.cursor/skills/rtl-design/topics/cdc.md) | [examples/cdc/](../examples/cdc/) |
+| SpyGlass CDC | spyglass cdc, check_cdc, cdc_setup, cdc_verify, cdc_reset_integrity, cdc_abstract, cdc_verify_struct, CDC_UNSYNC, SETUP_CLKPROP, SAM abstract | [spyglass-cdc-fpga.md](spyglass-cdc-fpga.md) | [@cdc](../../.cursor/skills/cdc/SKILL.md) — **not @rtl-design** | — |
 | Metastability / MTBF | metastability, metastable, mtbf, bitsync3, 3-flop, 3-stage, synchronizer chain, settling time, toggle rate | [metastability-mtbf.md](metastability-mtbf.md) | [topics/quartus-metastability.md](../../.cursor/skills/rtl-design/topics/quartus-metastability.md) | [examples/cdc/bitsync3_inst.sv](../examples/cdc/bitsync3_inst.sv), [synchronizer_attributes.sv](../examples/cdc/synchronizer_attributes.sv) |
 | Quartus / Intel STA | quartus, altera_attribute, synchronizer identification, preserve register, dont merge, report_metastability, optimize for metastability, quartus prime | [quartus-design-recommendations.md](quartus-design-recommendations.md) | [topics/quartus-metastability.md](../../.cursor/skills/rtl-design/topics/quartus-metastability.md) | [examples/cdc/synchronizer_attributes.sv](../examples/cdc/synchronizer_attributes.sv) |
-| Timing Analyzer / SDC | timing analyzer, sdc, sta, create_clock, set_clock_groups, set_false_path, set_multicycle_path, set_input_delay, set_output_delay, set_max_skew, set_net_delay, report_clock_transfers, quartus_sta | [timing-analyzer-ug.md](timing-analyzer-ug.md) | [topics/timing-analyzer.md](../../.cursor/skills/rtl-design/topics/timing-analyzer.md) | [examples/sdc/](../examples/sdc/) |
-| Timing Analyzer Cookbook | timing cookbook, sdc recipe, virtual clock, derive_pll_clocks, duty cycle, -waveform, -add, clock mux, pll switchover, system synchronous, tsu, th, tco, jtag, altera_reserved, get_fanouts, clock enable multicycle | [timing-analyzer-cookbook.md](timing-analyzer-cookbook.md) | [topics/timing-analyzer.md](../../.cursor/skills/rtl-design/topics/timing-analyzer.md) | [examples/sdc/](../examples/sdc/) |
+| Timing Analyzer / SDC | timing analyzer, sdc, sta, create_clock, set_clock_groups, set_false_path, set_multicycle_path, set_input_delay, set_output_delay, set_max_skew, set_net_delay, report_clock_transfers, quartus_sta | [timing-analyzer-ug.md](timing-analyzer-ug.md) | [@timing-analysis](../../.cursor/skills/timing-analysis/SKILL.md) — **not @rtl-design** | [examples/sdc/](../examples/sdc/) |
+| Timing Analyzer Cookbook | timing cookbook, sdc recipe, virtual clock, derive_pll_clocks, duty cycle, -waveform, -add, clock mux, pll switchover, system synchronous, tsu, th, tco, jtag, altera_reserved, get_fanouts, clock enable multicycle | [timing-analyzer-cookbook.md](timing-analyzer-cookbook.md) | [@sdc](../../.cursor/skills/sdc/SKILL.md) — **not @rtl-design** | [examples/sdc/](../examples/sdc/) |
 | RTL macros / library | macro, km_hssi, library module, instantiate, reuse, standard cell, vecsync, bitsync, pulse cross | [rtl-macros.md](rtl-macros.md) | [topics/rtl-macros.md](../../.cursor/skills/rtl-design/topics/rtl-macros.md) | [examples/cdc/](../examples/cdc/) |
 | Megafunctions / IP Catalog | megafunction, ip catalog, parameter editor, altera ip, intel ip, altera_mf, altfp, qip, inferred ram, inferred fifo, pll ip, dsp ip | [megafunctions-ip-cores.md](megafunctions-ip-cores.md) | [topics/rtl-macros.md](../../.cursor/skills/rtl-design/topics/rtl-macros.md) | — |
 | FSM | fsm, state machine, state, next state, default case | [fsm-coding.md](fsm-coding.md) | [topics/fsm.md](../../.cursor/skills/rtl-design/topics/fsm.md) | [examples/fsm/](../examples/fsm/) |
@@ -26,6 +28,7 @@ If **no topic matches** → use **coding guidelines** (at minimum dialect + synt
 | Requirements (HAS/MAS) | has, mas, requirement, spec intake, requirement model, extract requirements | [rtl-database-schema.md](rtl-database-schema.md) | [topics/requirements.md](../../.cursor/skills/rtl-design/topics/requirements.md) | [templates/rtl-db/](../../templates/rtl-db/) |
 | RTL database | rtl database, rtl_db, db entry, requirement database, register map index | [rtl-database-schema.md](rtl-database-schema.md) | [topics/rtl-database.md](../../.cursor/skills/rtl-design/topics/rtl-database.md) | [templates/rtl-db/](../../templates/rtl-db/) |
 | Traceability / verification | traceability, traceability matrix, coverage, gap analysis, verify rtl, uncovered requirement, consistency check | [rtl-database-schema.md](rtl-database-schema.md) | [topics/traceability.md](../../.cursor/skills/rtl-design/topics/traceability.md) | [templates/rtl-db/reports/](../../templates/rtl-db/reports/) |
+| Testbench generation | testbench, tb, self-checking, scoreboard, stimulus, uvm-lite, simulation test, test bench | [testbench-generation.md](testbench-generation.md) | [@testbench](../../.cursor/skills/testbench/SKILL.md) — **not @rtl-design** | — |
 
 ## Design source documents (authoritative for project patterns)
 
@@ -126,14 +129,47 @@ Source: [timing-analyzer-cookbook.md](timing-analyzer-cookbook.md) (summary of [
 
 **Verbatim PDF:** [Timing analyser CookBook.pdf](Timing%20analyser%20CookBook.pdf) for full JTAG Tcl procs (Example 21).
 
+## SpyGlass CDC — goal router
+
+Source: [spyglass-cdc/](spyglass-cdc/) goal files (index: [spyglass-cdc-fpga.md](spyglass-cdc-fpga.md)). **Invoke `@cdc`**. Load **one** goal file per task.
+
+| Goal | File | Keywords |
+|------|------|----------|
+| `cdc_setup` / `cdc_setup_check` | [spyglass-cdc/cdc_setup.md](spyglass-cdc/cdc_setup.md) | setup, read_sdc, SETUP_, configure_cdc_setup_check |
+| `cdc_reset_integrity` | [spyglass-cdc/cdc_reset_integrity.md](spyglass-cdc/cdc_reset_integrity.md) | CDC_UNSYNC_ASYNCRESET, reset crossing |
+| `cdc_verify` | [spyglass-cdc/cdc_verify.md](spyglass-cdc/cdc_verify.md) | CDC_UNSYNC, CDC_SYNC, synchronizer, NFF |
+| `cdc_verify_struct` | [spyglass-cdc/cdc_verify_struct.md](spyglass-cdc/cdc_verify_struct.md) | struct, convergence, glitch, SETUP_CLOCK_GLITCH |
+| `cdc_abstract` | [spyglass-cdc/cdc_abstract.md](spyglass-cdc/cdc_abstract.md) | SAM, abstract model, set_abstract_model |
+
+**Verbatim PDF:** [VC_SpyGlass_CDC_UserGuide.pdf](VC_SpyGlass_CDC_UserGuide.pdf) for per-tag debug.
+
+## SpyGlass Lint — section router
+
+Source: [spyglass-lint-fpga.md](spyglass-lint-fpga.md) (summary of [vc_spyglass_lint_userguide.pdf](vc_spyglass_lint_userguide.pdf)). **Invoke `@lint`**. Read **one** `##` section.
+
+| Section | Keywords |
+|---------|----------|
+| FPGA scope + flow | check_lint, lint_rtl, initial_rtl, enable_lint |
+| Rule categories | latch, unsynth, multiple driver, combinational loop, sensitivity, blocking |
+| Application variables | lint_clk_rst_node_latch, lint_clk_rst_node_on_pad |
+| Tag configuration | configure_lint_tag, disable tag, W415 |
+
+**Verbatim PDF:** [vc_spyglass_lint_userguide.pdf](vc_spyglass_lint_userguide.pdf) for per-tag reference.
+
 ## Default loads
 
 | User intent | Always read | Also read (if keywords match) |
 |-------------|-------------|-------------------------------|
 | Any RTL task | This INDEX + conduct rule | Matched topic files only |
-| Write / implement | [design-workflow.md](../../.cursor/skills/rtl-design/design-workflow.md) | Matched topics + matched examples |
+| Write / implement | [design-workflow.md](../../.cursor/skills/rtl-design/design-workflow.md) | Matched topics + matched examples (**not** Timing Analyzer / Cookbook / examples/sdc — see [rtl-design-exclusions.md](../../.cursor/skills/rtl-design/rtl-design-exclusions.md)) |
 | Review | [review-checklist.md](../../.cursor/skills/rtl-design/review-checklist.md) | `review-workflow.md` + matched topics |
 | Lifecycle (requirements / database / traceability / generate / verify) | [dev-verify-workflow.md](../../.cursor/skills/rtl-design/dev-verify-workflow.md) + [rtl-database-schema.md](rtl-database-schema.md) | Matched coding topics during generation |
+| Timing analysis (STA / reports) | [timing-analysis/SKILL.md](../../.cursor/skills/timing-analysis/SKILL.md) | UG + metastability rows only |
+| SDC constraints | [sdc/SKILL.md](../../.cursor/skills/sdc/SKILL.md) | Cookbook + examples/sdc/ |
+| SpyGlass CDC | [cdc/SKILL.md](../../.cursor/skills/cdc/SKILL.md) | spyglass-cdc/*.md goal files |
+| SpyGlass Lint (FPGA) | [lint/SKILL.md](../../.cursor/skills/lint/SKILL.md) | spyglass-lint-fpga.md |
+| Testbench generation | [testbench/SKILL.md](../../.cursor/skills/testbench/SKILL.md) | testbench-generation.md |
+| List invokes | [help/SKILL.md](../../.cursor/skills/help/SKILL.md) | [invoke-registry.md](../../.cursor/skills/invoke-registry.md) |
 
 ## Maintainer
 

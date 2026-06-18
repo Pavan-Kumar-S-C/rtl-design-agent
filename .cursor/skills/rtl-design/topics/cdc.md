@@ -6,7 +6,7 @@
 
 **Also load when MTBF / Quartus / 3-flop:** [metastability-mtbf.md](../../../../docs/standards/metastability-mtbf.md), [quartus-design-recommendations.md](../../../../docs/standards/quartus-design-recommendations.md) (see [topics/quartus-metastability.md](quartus-metastability.md))
 
-**Also load when CDC SDC / STA:** [timing-analyzer-ug.md](../../../../docs/standards/timing-analyzer-ug.md) (see [topics/timing-analyzer.md](timing-analyzer.md)), [examples/sdc/](../../../../docs/examples/sdc/)
+**Do not load under `@rtl-design`:** CDC SDC / STA → **`@timing-analysis`** or **`@sdc`**. SpyGlass CDC verification → **`@cdc`** ([rtl-design-exclusions.md](../rtl-design-exclusions.md)).
 
 **Examples:** [docs/examples/cdc/](../../../../docs/examples/cdc/)
 

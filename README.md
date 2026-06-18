@@ -2,14 +2,29 @@
 
 Company-wide Cursor agent for **writing, reviewing, and refactoring** synthesizable **Verilog** and **SystemVerilog** RTL.
 
-Standalone repository — use **`@rtl-design`** or **`@rtl-coding-standards`** (same standards in this repo).
+Standalone repository — invoke skills in Cursor Agent chat:
+
+| Invoke | Use for |
+|--------|---------|
+| `@help` | List all features |
+| `@rtl-design` | RTL + lifecycle |
+| `@timing-analysis` | STA / timing reports |
+| `@sdc` | SDC constraints |
 
 ## Invoke
 
 In Cursor **Agent** chat:
 
 ```text
+@help
+```
+
+```text
 @rtl-design Review this module for latch inference and missing default cases.
+```
+
+```text
+@sdc Add set_input_delay for this Avalon-MM slave port.
 ```
 
 ## Quick start
@@ -32,8 +47,12 @@ Restart Cursor → use `@rtl-design` in any RTL project.
 
 ```
 rtl-design-agent/
-├── .cursor/skills/rtl-design/           # @rtl-design entry
-├── .cursor/skills/rtl-coding-standards/ # @rtl-coding-standards (same rules)
+├── .cursor/skills/rtl-design/           # @rtl-design
+├── .cursor/skills/timing-analysis/    # @timing-analysis
+├── .cursor/skills/sdc/                # @sdc
+├── .cursor/skills/help/               # @help
+├── .cursor/skills/invoke-registry.md  # invoke catalog (maintainer)
+├── .cursor/skills/rtl-coding-standards/ # @rtl-coding-standards (alias)
 ├── .cursor/rules/                       # always-on conduct
 ├── docs/standards/INDEX.md          # keyword → topic files (selective load)
 ├── docs/design/                     # your design guides + section router
