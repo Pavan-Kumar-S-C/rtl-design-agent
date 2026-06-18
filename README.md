@@ -7,9 +7,12 @@ Standalone repository — invoke skills in Cursor Agent chat:
 | Invoke | Use for |
 |--------|---------|
 | `@help` | List all features |
-| `@rtl-design` | RTL + lifecycle |
-| `@timing-analysis` | STA / timing reports |
-| `@sdc` | SDC constraints |
+| `@rtl-design` | RTL write/review + HAS/MAS lifecycle |
+| `@timing-analysis` | STA / timing reports, MTBF |
+| `@sdc` | SDC constraint files |
+| `@cdc` | VC SpyGlass CDC verification (FPGA) |
+| `@lint` | VC SpyGlass Lint on FPGA RTL |
+| `@testbench` | Self-checking simulation testbenches |
 
 ## Invoke
 
@@ -25,6 +28,18 @@ In Cursor **Agent** chat:
 
 ```text
 @sdc Add set_input_delay for this Avalon-MM slave port.
+```
+
+```text
+@cdc Debug CDC_UNSYNC_ASYNCRESET after check_cdc -type sync.
+```
+
+```text
+@lint Fix lint_rtl violations — inferred latch and multiple drivers.
+```
+
+```text
+@testbench Generate a self-checking SystemVerilog testbench for this module.
 ```
 
 ## Quick start
@@ -48,15 +63,21 @@ Restart Cursor → use `@rtl-design` in any RTL project.
 ```
 rtl-design-agent/
 ├── .cursor/skills/rtl-design/           # @rtl-design
-├── .cursor/skills/timing-analysis/    # @timing-analysis
-├── .cursor/skills/sdc/                # @sdc
-├── .cursor/skills/help/               # @help
-├── .cursor/skills/invoke-registry.md  # invoke catalog (maintainer)
+├── .cursor/skills/timing-analysis/      # @timing-analysis
+├── .cursor/skills/sdc/                  # @sdc
+├── .cursor/skills/cdc/                  # @cdc (SpyGlass CDC)
+├── .cursor/skills/lint/                 # @lint (SpyGlass Lint)
+├── .cursor/skills/testbench/            # @testbench
+├── .cursor/skills/help/                 # @help
+├── .cursor/skills/invoke-registry.md    # invoke catalog (maintainer)
 ├── .cursor/skills/rtl-coding-standards/ # @rtl-coding-standards (alias)
 ├── .cursor/rules/                       # always-on conduct
-├── docs/standards/INDEX.md          # keyword → topic files (selective load)
-├── docs/design/                     # your design guides + section router
-├── docs/examples/                   # golden .v / .sv per topic
+├── docs/standards/INDEX.md              # keyword → topic files (selective load)
+├── docs/standards/spyglass-cdc/         # per-goal CDC summaries (@cdc)
+├── docs/standards/spyglass-lint-fpga.md # Lint summary (@lint)
+├── docs/standards/testbench-generation.md
+├── docs/design/                         # your design guides + section router
+├── docs/examples/                       # golden .v / .sv per topic
 └── scripts/                             # install to ~/.cursor or project
 ```
 
