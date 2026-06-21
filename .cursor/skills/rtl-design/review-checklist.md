@@ -30,6 +30,14 @@ Use [topic-router.md](topic-router.md): load **only** checklist sections whose t
 
 - [ ] Reset polarity documented; sync release where required
 
+### MAS / RTL — [mas-rtl-workflow.md](../../../docs/standards/mas-rtl-workflow.md) *(write/update or lifecycle)*
+
+- [ ] MAS exists and is understood before RTL changes (HAS reviewed first)
+- [ ] MAS documents assumptions and failure/unexpected-behavior conditions
+- [ ] Input ports `i_*`, output ports `o_*` (or documented legacy exception)
+- [ ] RTL blocks comment matching MAS `§` reference
+- [ ] Debug logic synthesizable, switch-controlled, inactive by default; mapped in MAS
+
 ### CSR — [csr-registers.md](../../../docs/standards/csr-registers.md) *(only if user confirmed CSR scope)*
 
 - [ ] Attributes per spec; no invented addresses

@@ -2,8 +2,9 @@
 
 ## Rule: understand RTL first; minimum questions; no false failures
 
-1. Read open RTL and user message — ports, clocks, resets, handshakes, FSMs, memories, FIFOs.
-2. Load [testbench-generation.md](../../../docs/standards/testbench-generation.md) — **one** section matching task phase (analysis → structure → checking → deliverables).
+1. Read open RTL, **MAS** (if provided), and user message — assumptions, failure modes, ports, clocks, resets, handshakes.
+2. Load [testbench-generation.md](../../../docs/standards/testbench-generation.md) — **one** section matching task phase.
+3. If MAS assumptions/failures exist → load [mas-rtl-workflow.md](../../../docs/standards/mas-rtl-workflow.md) § Failure and unexpected behavior.
 3. **Do not invent** protocol timing, reset polarity, or expected outputs.
 4. **Do not** write synthesizable DUT logic — redirect to `@rtl-design`.
 5. Ask only when **critical** info is missing (see standard § Minimum clarification questions).
@@ -29,6 +30,8 @@ Extract and document (mentally or in TB header comment):
 | Latency | Pipeline registers, FIFO depth, FSM states |
 | Memories / FIFOs | Read/write timing, full/empty flags |
 | Protocols | Bus signals — match RTL FSM only unless user gives spec |
+| MAS assumptions (A*) | `docs/mas/`, MAS §2 — stimulus must respect or violate per test type |
+| MAS failures (F*) | MAS §3 — negative test pass criteria |
 
 If clock period or reset hold is **not** in RTL → ask user **once** with suggested default in question.
 
@@ -57,16 +60,30 @@ Order of creation:
 8. Timeout watchdog
 9. `initial` test runner → summary → `$finish`
 
-## Step 4 — Test plan (minimum)
+## Step 4 — Test plan (mandatory)
+
+### Functional (positive)
 
 | Test | Purpose |
 |------|---------|
-| `test_reset` | Assert reset, release, idle state, no false compare during reset |
+| `test_reset` | Reset assert/release; idle state; no false compare during reset |
 | `test_sanity` | Single happy-path transaction |
-| `test_main` | Primary function per RTL/spec |
-| `test_corner` | At least one: back-pressure, empty/full, reset-during-busy, max counter, etc. |
+| `test_main` | Primary function per MAS § / RTL |
+| `test_corner` | Back-pressure, empty/full, reset-during-busy, boundary counts — **within** assumptions |
 
-Add tests only for behavior **evident** in RTL or user spec.
+### Negative
+
+| Test | Purpose |
+|------|---------|
+| `test_neg_assumption_<id>` | Violate MAS assumption A*; check DUT response per MAS |
+| `test_neg_failure_<id>` | Trigger documented failure F*; check symptom + debug if enabled |
+| `test_neg_protocol` | Illegal stimulus only when MAS/RTL defines expected reject behavior |
+
+- **One negative test per testable MAS assumption or failure ID** when MAS is available
+- If no MAS — use RTL `MAS §` comments or **ask** which violations to test
+- Do **not** invent expected failure response — mark `TBD` and ask
+
+Add tests only for behavior **evident** in RTL, MAS, or user spec.
 
 ## Step 5 — False-failure review
 

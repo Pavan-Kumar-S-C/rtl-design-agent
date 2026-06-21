@@ -9,6 +9,7 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | Source | Section / topic | standards/INDEX | topics/*.md | Example | Status |
 |--------|-----------------|-----------------|-------------|---------|--------|
 | [quartus-design-recommendations.md](standards/quartus-design-recommendations.md) | §1–2 overview | Quartus row + section router | quartus-metastability | — | full |
+| [quartus-module-build.md](standards/quartus-module-build.md) | full | Quartus module build row | quartus-module-build | — | full |
 | quartus-design-recommendations.md | §3 metastability / MTBF | Quartus + Metastability rows | quartus-metastability | synchronizer_attributes.sv | full |
 | [metastability-mtbf.md](standards/metastability-mtbf.md) | bridge | Metastability / MTBF row | quartus-metastability | bitsync3_inst.sv | full |
 | [Design Recommendations.pdf](standards/Design%20Recommendations.pdf) | full UG 683082 | pdf opt-in in INDEX | quartus-metastability | — | pdf |
@@ -28,6 +29,7 @@ Tracks mapping: **source section → INDEX row → skill topic → example file*
 | [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | § agent–simulation | Megafunctions row | rtl-macros | — | full |
 | [ug_intro_to_megafunctions-683102-848730.pdf](standards/ug_intro_to_megafunctions-683102-848730.pdf) | UG-01056 | pdf opt-in | rtl-macros | — | pdf |
 | [testbench-generation.md](standards/testbench-generation.md) | TB workflow | Testbench row | @testbench | — | full |
+| [mas-rtl-workflow.md](standards/mas-rtl-workflow.md) | HAS→MAS, ports, debug | MAS / RTL row | mas-rtl | templates/project-layout/docs/mas/ | full |
 | [rtl-database-schema.md](standards/rtl-database-schema.md) | DB + report schema | Requirements / RTL database / Traceability rows | requirements, rtl-database, traceability | templates/rtl-db/ + templates/project-layout/ | full |
 
 ### Timing Analyzer UG — section coverage (timing-analyzer-ug.md)

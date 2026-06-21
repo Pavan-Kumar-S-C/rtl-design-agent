@@ -50,6 +50,8 @@ For **Partial / Existing** projects: do **not** scaffold. Detect the real locati
 
 ## 3. Requirement analysis
 
+- **Review and understand HAS first** — extract high-level requirements; flag gaps as `TBD`.
+- **Prepare MAS for RTL implementation** after HAS is understood — see [mas-rtl-workflow.md](../../../docs/standards/mas-rtl-workflow.md) (assumptions, failure modes, debug strategy).
 - Extract requirements from HAS/MAS (only from provided documents — never invent).
 - Identify and categorize: modules, interfaces, registers, memories, clocks, resets, parameters, protocols, constraints.
 - Build the structured requirement model per [rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) (`requirements.yaml`).
@@ -83,6 +85,7 @@ Generate RTL **only after database validation**.
 - **Reuse existing RTL** where possible; avoid generating duplicate functionality.
 - For register logic, generate from the **SystemRDL/IP-XACT** toolchain/source rather than bespoke RTL (ask IP-vs-custom and library-macro questions per the conduct rule).
 - Follow coding standards and architecture guidelines via the existing [topic-router.md](topic-router.md) (FSM, CDC, clocks/resets, lint, dialect, etc.).
+- **MAS traceability:** RTL comments reference MAS `§` sections; port naming `i_*` / `o_*`; synthesizable debug logic per [mas-rtl-workflow.md](../../../docs/standards/mas-rtl-workflow.md).
 - Record generated files and their requirement links in `traceability.yaml`.
 
 ## 7. RTL verification & traceability
@@ -92,6 +95,23 @@ Generate RTL **only after database validation**.
 - Generate a **traceability matrix** (`reports/traceability-matrix.md`): requirement <-> database entry <-> RTL <-> verification artifact.
 - Report uncovered requirements and implementation gaps.
 - Output: **RTL verification report** (`reports/rtl-verification-report.md`).
+
+**Stop here by default.** Completing RTL from HAS/MAS (steps 3–7) does **not** imply Quartus compile, synthesis, fit, or STA.
+
+## 8. Module Quartus build (opt-in only)
+
+Run **only** when the user **explicitly** requests a Quartus step. See [quartus-module-build.md](../../../docs/standards/quartus-module-build.md).
+
+Use the **workspace as-is**: RTL where it already lives; run `quartus_map` / `quartus_fit` / `quartus_sta` from the user’s **existing `.qpf`** directory when **qshell** (or Quartus on PATH) is active. **Do not** create `quartus/module_build/` unless the user asks for a new project.
+
+| User asks for | Skill | Action |
+|---------------|-------|--------|
+| Synthesis | `@rtl-design` | `cd` to project with `.qpf`; run synthesis only |
+| `.qsf` / new Quartus project | `@rtl-design` | Only if user asked — update project in place |
+| Module `.sdc` | `@sdc` | If user asked |
+| Fit / STA / timing reports | `@timing-analysis` | If user asked |
+
+Ask **device family / part** if not in `.qsf`. Never chain phases without explicit user request.
 
 ## Decision flow
 
@@ -122,6 +142,7 @@ flowchart TD
 5. Generate RTL only from a verified database.
 6. Update the database only after user approval of the gap report.
 7. Separate **facts** (HAS/MAS, standards, RTL in workspace) from **recommendations**, and state which sources were used.
+8. **Quartus:** do not run synthesis, fit, STA, or create Quartus projects unless the user explicitly asks for that step ([quartus-module-build.md](../../../docs/standards/quartus-module-build.md)).
 
 ## Outputs (summary)
 

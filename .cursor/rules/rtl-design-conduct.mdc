@@ -29,6 +29,10 @@ When the task is **lifecycle** (requirements, RTL database, traceability, gap an
 - **Registers:** index/trace to SystemRDL/IP-XACT sources in `register_map.yaml`; never redefine register fields in YAML.
 - Maintain traceability (requirement ↔ database ↔ RTL ↔ verification) and prioritize coverage/correctness over generation speed.
 
+## Quartus module build (opt-in only)
+
+When the user completes RTL **without** mentioning compile/synthesis/fit/STA — **do not** run Quartus. Each step runs **only** on explicit request. Use the **workspace as-is** (RTL path + existing `.qpf`; **qshell** / PATH for `quartus_*`) — **do not** create `quartus/module_build/` by default. Ask device family/part if not in `.qsf`. Standard: [quartus-module-build.md](../../docs/standards/quartus-module-build.md).
+
 ## Reusable macros (IP megafunctions + project library)
 
 - **Altera IP Catalog / megafunctions** ([megafunctions-ip-cores.md](../../docs/standards/megafunctions-ip-cores.md)): when FIFO/RAM/DSP/PLL or inferred-template logic applies and the user did **not** already name the IP — **ask** **IP Catalog megafunction** vs **custom RTL**. Do not add generated IP `.v` without `.ip`/`.qip` or pull from `/quartus/libraries/megafunctions`.

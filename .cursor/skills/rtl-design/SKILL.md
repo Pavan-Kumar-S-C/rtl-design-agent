@@ -43,11 +43,13 @@ Follow [topic-router.md](topic-router.md):
 
 ## Topic skill stubs
 
-Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, csr, ct22, quartus-metastability, rtl-macros, requirements, rtl-database, traceability).
+Optional one-screen pointers: [topics/](topics/) (fsm, cdc, clocks-resets, dialect, synthesizability, structure, mas-rtl, csr, ct22, quartus-metastability, quartus-module-build, rtl-macros, requirements, rtl-database, traceability).
 
 **Timing / SDC / SpyGlass / TB:** use separate invokes — `@timing-analysis`, `@sdc`, `@cdc`, `@lint`, `@testbench` (see [invoke-registry.md](../invoke-registry.md)).
 
 **Lifecycle:** [dev-verify-workflow.md](dev-verify-workflow.md) + schema [docs/standards/rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) + [templates/rtl-db/](../../../templates/rtl-db/).
+
+**Quartus (module build):** [quartus-module-build.md](../../../docs/standards/quartus-module-build.md) — **opt-in only**; use workspace RTL + existing `.qpf`, **qshell**/PATH for commands; no default `quartus/module_build/`. Synthesis → `@rtl-design`; fit/STA → `@timing-analysis`; `.sdc` → `@sdc`.
 
 **Macros:** [megafunctions-ip-cores.md](../../../docs/standards/megafunctions-ip-cores.md) (IP Catalog / **ug_intro_to_megafunctions**) and [rtl-macro-library.md](../../../docs/design/rtl-macro-library.md) (`km_hssi_*`) — **ask the user** before using IP or library macro (conduct rule). 
 

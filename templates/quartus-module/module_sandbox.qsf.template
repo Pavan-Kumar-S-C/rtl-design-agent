@@ -1,0 +1,22 @@
+# Optional — only if the user explicitly asks to create a new Quartus project.
+# Normally use the existing .qpf in the FPGA workspace and run commands from qshell.
+
+set_global_assignment -name FAMILY "Agilex 5"
+set_global_assignment -name DEVICE AGF027A2K24C3V8
+set_global_assignment -name TOP_LEVEL_ENTITY MODULE_NAME
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+
+# RTL — use paths relative to this .qsf directory or absolute from project root
+set_global_assignment -name VERILOG_FILE ../../../rtl/MODULE_FILE.v
+
+# Optional IP (Standard Edition)
+# set_global_assignment -name QIP_FILE path/to/core.qip
+
+# Optional SDC before fit/STA
+# set_global_assignment -name SDC_FILE constraints/MODULE_NAME.sdc
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

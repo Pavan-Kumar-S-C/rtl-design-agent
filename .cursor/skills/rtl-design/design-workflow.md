@@ -21,6 +21,7 @@
 ## 3. Implementation
 
 - Load matched standards + [docs/examples/](../../../docs/examples/) only
+- **MAS / ports / debug:** [mas-rtl-workflow.md](../../../docs/standards/mas-rtl-workflow.md) — `i_*`/`o_*` ports, MAS `§` comments, switch-controlled synthesizable debug (off by default)
 - FSM: [fsm-coding.md](../../../docs/standards/fsm-coding.md) + `examples/fsm/`
 - CDC with catalog match: confirm macro choice with user → then use `docs/examples/cdc/*_inst.sv` templates or inline per user answer
 

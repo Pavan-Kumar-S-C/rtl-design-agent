@@ -11,6 +11,14 @@ paths:
   register_sources: ["regs"]
   standards_dir: "docs/standards"
   reports_dir: "rtl_db/reports"
+# Optional — fill when user runs Quartus (do not invent device/part)
+implementation:
+  quartus_edition: standard
+  quartus_project: ""          # optional path to .qpf in this workspace
+  quartus_bin: ""              # only if not using qshell/PATH
+  device_family: "TBD"
+  device_part: "TBD"
+  quartus_version: "TBD"
 files:
   - requirements.yaml
   - modules.yaml

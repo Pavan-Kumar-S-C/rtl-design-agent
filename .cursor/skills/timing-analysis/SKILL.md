@@ -43,6 +43,7 @@ Follow [topic-router.md](topic-router.md) — selective load only; **one** UG or
 
 - Base answers on standards + user reports / open `.sdc` context. **Do not invent** clocks, periods, or slack.
 - **Ask** when report type, device family, or clock names are missing.
+- **Quartus fit/STA:** run fitter, STA, or read timing `.rpt` **only** when the user explicitly asks ([quartus-module-build.md](../../../docs/standards/quartus-module-build.md)). Use workspace `.qpf` + **qshell**/PATH; do not create `quartus/module_build/` by default.
 - Separate facts from recommendations; cite UG or Quartus section used.
 
 ## Related invokes

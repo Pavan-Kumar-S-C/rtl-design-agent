@@ -2,6 +2,8 @@
 
 ## Rule: standards + user input; ask only when in doubt
 
+**Opt-in:** Run Quartus fit/STA or read compile reports **only** when the user explicitly requests that step. Use workspace `.qpf` + **qshell**/PATH ([quartus-module-build.md](../../../docs/standards/quartus-module-build.md)). Interpreting an already-open `.rpt` the user pasted is in scope without re-running tools.
+
 1. Use **Timing Analyzer UG**, **Quartus metastability/MTBF reporting** docs, and **user input** (reports, open `.sdc` for context, clock names).
 2. **Do not** load every standards file — match keywords; read **one** `##` section at a time.
 3. **Do not invent** clock names, periods, slack values, or board delays.
@@ -17,6 +19,7 @@ Read [docs/standards/INDEX.md](../../../docs/standards/INDEX.md). Match **only**
 | **Timing Analyzer / SDC** | STA, reports, slack, paths, `report_*`, Tcl analysis |
 | **Metastability / MTBF** | MTBF, synchronizer chain analysis, toggle rate |
 | **Quartus / Intel STA** | `report_metastability`, Quartus metastability flow, MTBF optimization |
+| **Quartus module build** | `fit`, `fitter`, `run sta`, `quartus fit`, module timing compile — load [quartus-module-build.md](../../../docs/standards/quartus-module-build.md) § fit/STA when user explicitly asked |
 
 **Skip:** Timing Analyzer **Cookbook** row → `@sdc`.
 

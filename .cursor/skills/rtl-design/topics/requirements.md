@@ -6,7 +6,7 @@
 
 **Schema:** [docs/standards/rtl-database-schema.md](../../../../docs/standards/rtl-database-schema.md) (`requirements.yaml`)
 
-**Do:** extract only from provided HAS/MAS; categorize (interface/register/memory/clock/reset/parameter/protocol/constraint); flag unknowns as `TBD`.
+**Do:** extract from HAS first; then MAS for implementation detail — see [mas-rtl-workflow.md](../../../../docs/standards/mas-rtl-workflow.md).
 
 **Output:** requirement extraction report ([template](../../../../templates/rtl-db/reports/requirement-extraction-report.md)).
 

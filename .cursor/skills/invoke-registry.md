@@ -10,7 +10,7 @@
 | `@sdc` | — | SDC authoring/review: Timing Analyzer **Cookbook** (all recipe sections), UG §2.6.x constraints, full `docs/examples/sdc/` (14 templates). Router: [sdc/topic-router.md](sdc/topic-router.md). Does **not** interpret reports — use `@timing-analysis`. |
 | `@cdc` | — | VC SpyGlass CDC verification (FPGA): `cdc_setup`, `cdc_setup_check`, `cdc_reset_integrity`, `cdc_verify`, `cdc_abstract`, `cdc_verify_struct`. Router: [cdc/topic-router.md](cdc/topic-router.md). Does **not** write synchronizer RTL — use `@rtl-design`. |
 | `@lint` | — | VC SpyGlass Lint for FPGA: `lint_rtl` / `block/initial_rtl`, synthesizability, connectivity, structure. Router: [lint/topic-router.md](lint/topic-router.md). Does **not** run CDC checks — use `@cdc`. |
-| `@testbench` | `tb` | Generate complete self-checking Verilog/SystemVerilog testbenches for a module or full DUT/top. Router: [testbench/topic-router.md](testbench/topic-router.md). Does **not** write DUT RTL — use `@rtl-design`. |
+| `@testbench` | `tb` | Generate complete self-checking Verilog/SystemVerilog testbenches for a module or full DUT/top: **functional (positive) tests** and **negative tests** per MAS assumptions/failure IDs. Router: [testbench/topic-router.md](testbench/topic-router.md). Does **not** write DUT RTL — use `@rtl-design`. |
 
 ## Quick picker
 

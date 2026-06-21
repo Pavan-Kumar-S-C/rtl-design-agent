@@ -54,6 +54,8 @@ For each match, read **only**:
 
 **Quartus metastability / MTBF (RTL attributes only):** match in **RTL context** → [quartus-design-recommendations.md](../../../docs/standards/quartus-design-recommendations.md) (RTL attribute sections), [metastability-mtbf.md](../../../docs/standards/metastability-mtbf.md), [topics/quartus-metastability.md](topics/quartus-metastability.md). **Do not** load UG/Cookbook. For `report_metastability`, MTBF reports, or SDC → tell user to invoke `@timing-analysis` / `@sdc`.
 
+**Quartus module build (synthesis):** match `quartus`, `synthesis`, `compile`, `qpf`, `qsf`, `qshell` **only when the user explicitly requested that step** → [quartus-module-build.md](../../../docs/standards/quartus-module-build.md), [topics/quartus-module-build.md](topics/quartus-module-build.md). Use existing workspace `.qpf` and qshell/PATH — **do not** create `quartus/module_build/` by default. Fit/STA → `@timing-analysis`.
+
 **Macros / megafunctions:** match `macro`, `megafunction`, `ip catalog`, `km_hssi`, `altera ip` → [rtl-macros.md](../../../docs/standards/rtl-macros.md); load [megafunctions-ip-cores.md](../../../docs/standards/megafunctions-ip-cores.md) for IP Catalog (source: **ug_intro_to_megafunctions-683102-848730.pdf**); load [rtl-macro-library.md](../../../docs/design/rtl-macro-library.md) for `km_hssi_*`. **Ask** IP megafunction vs custom RTL and/or library macro vs inline unless user already chose.
 
 ## Step 3 — Workflow files (conditional)
@@ -63,6 +65,7 @@ For each match, read **only**:
 | review, audit, checklist | [review-checklist.md](review-checklist.md) + `review-workflow.md` standard |
 | write, implement, create, refactor | [design-workflow.md](design-workflow.md) |
 | requirements, database, traceability, generate-from-spec, verify (lifecycle) | [dev-verify-workflow.md](dev-verify-workflow.md) + [rtl-database-schema.md](../../../docs/standards/rtl-database-schema.md) |
+| synthesis, quartus compile, qsf, qshell, module quartus build (explicit request only) | [quartus-module-build.md](../../../docs/standards/quartus-module-build.md) |
 | (unclear) | **Ask** write vs review vs lifecycle vs explain |
 
 ## Step 4 — Topic skill stubs (optional)

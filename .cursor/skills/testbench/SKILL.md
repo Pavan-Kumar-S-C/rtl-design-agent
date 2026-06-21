@@ -3,8 +3,8 @@ name: testbench
 description: >-
   Generate complete self-checking Verilog/SystemVerilog testbenches for a single
   module or full DUT/top. Understands ports, timing, reset, handshakes, FSMs,
-  FIFOs, protocols, corner cases. Avoids false failures. Invoke @testbench.
-  For DUT RTL use @rtl-design.
+  FIFOs, protocols, corner cases, functional and negative tests (MAS assumptions).
+  Avoids false failures. Invoke @testbench. For DUT RTL use @rtl-design.
 disable-model-invocation: true
 ---
 
@@ -23,17 +23,21 @@ Expert **RTL verification** task: produce a **complete, correct, self-checking**
 
 You must understand RTL **functionality, ports, parameters, timing, reset, valid/ready handshakes, FSMs, counters, memories, FIFOs, protocols, and corner cases** before writing TB code.
 
-The TB must verify **all intended functionality**, **avoid false failures**, and keep checking logic aligned with **actual** RTL timing, reset behavior, latency, and handshake conditions. Correct waveforms must not produce incorrect FAIL/ERROR in the log.
+The TB must verify **all intended functionality** with **functional (positive) test cases**, plus **negative test cases** that violate MAS assumptions or trigger documented failure/misbehavior — checking the DUT responds as specified.
+
+The TB must **avoid false failures** and keep checking logic aligned with **actual** RTL timing, reset behavior, latency, and handshake conditions.
 
 ## Procedure
 
 Follow [topic-router.md](topic-router.md) and [testbench-generation.md](../../../docs/standards/testbench-generation.md).
 
-1. Read user RTL (and spec if provided) — **do not assume** clocks, resets, or protocol details not in RTL or user input
+1. Read user RTL and **MAS** (if provided) — assumptions (A*) and failure modes (F*)
 2. Ask **minimum** clarifications only when critical info is not inferable
 3. Choose scope: unit module vs top DUT
-4. Generate TB: clocks, reset, DUT instance, stimulus, checkers, tests, pass/fail summary
-5. Self-review against false-failure rules (reset settle, pipeline latency, handshake sampling)
+4. Generate TB: clocks, reset, DUT instance, stimulus, checkers
+5. **Functional tests** — happy path, main function, corners within assumptions
+6. **Negative tests** — one per testable assumption/failure; check MAS-specified response
+7. Self-review against false-failure rules
 
 ## Conduct
 

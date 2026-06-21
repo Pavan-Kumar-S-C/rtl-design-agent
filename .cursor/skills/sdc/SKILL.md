@@ -41,6 +41,7 @@ Follow [topic-router.md](topic-router.md) — selective load; **one** cookbook o
 - **Do not invent** clock names, periods, board delays, or ports — use user `.sdc`, RTL, or datasheet; ask when missing.
 - Match open project `.sdc` style and clock names.
 - Cite cookbook example or UG section for every recommended constraint.
+- **Module Quartus SDC:** author or update module `.sdc` for Quartus **only** when the user explicitly asks ([quartus-module-build.md](../../../docs/standards/quartus-module-build.md)). Do not add SDC automatically after RTL is written.
 - Separate facts from recommendations.
 
 ## Related invokes

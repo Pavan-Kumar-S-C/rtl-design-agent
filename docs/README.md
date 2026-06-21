@@ -10,7 +10,7 @@
 | `@sdc` | SDC constraints | [sdc/topic-router.md](../.cursor/skills/sdc/topic-router.md) |
 | `@cdc` | SpyGlass CDC verification | [cdc/topic-router.md](../.cursor/skills/cdc/topic-router.md) |
 | `@lint` | SpyGlass Lint (FPGA) | [lint/topic-router.md](../.cursor/skills/lint/topic-router.md) |
-| `@testbench` | Self-checking testbenches | [testbench/topic-router.md](../.cursor/skills/testbench/topic-router.md) |
+| `@testbench` | Self-checking testbenches — functional + negative (MAS assumptions/failures) | [testbench/topic-router.md](../.cursor/skills/testbench/topic-router.md) |
 
 Registry: [.cursor/skills/invoke-registry.md](../.cursor/skills/invoke-registry.md)
 
@@ -36,12 +36,13 @@ Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → f
 | [testbench-generation.md](standards/testbench-generation.md) | Testbench — invoke **`@testbench`** |
 | [metastability-mtbf.md](standards/metastability-mtbf.md) | Metastability / MTBF bridge |
 | [quartus-design-recommendations.md](standards/quartus-design-recommendations.md) | Quartus RTL + metastability |
+| [quartus-module-build.md](standards/quartus-module-build.md) | Module Quartus build (Standard) — workspace `.qpf` + qshell, opt-in |
 | [timing-analyzer-ug.md](standards/timing-analyzer-ug.md) | Timing Analyzer / STA concepts — invoke **`@timing-analysis`** (reports) or **`@sdc`** (§2.6.x constraints) |
 | [timing-analyzer-cookbook.md](standards/timing-analyzer-cookbook.md) | SDC recipes — invoke **`@sdc`** |
 | [megafunctions-ip-cores.md](standards/megafunctions-ip-cores.md) | IP Catalog / megafunctions |
 | [rtl-macros.md](standards/rtl-macros.md) | RTL macros / library vs IP |
 | [fsm-coding.md](standards/fsm-coding.md) | FSM |
-| [constants-structure.md](standards/constants-structure.md) | Parameters / structure |
+| [mas-rtl-workflow.md](standards/mas-rtl-workflow.md) | HAS→MAS→RTL, port naming, debug logic |
 | [csr-registers.md](standards/csr-registers.md) | CSR |
 | [ct22-security-debug.md](standards/ct22-security-debug.md) | CT22 |
 | [review-workflow.md](standards/review-workflow.md) | Review flow |
