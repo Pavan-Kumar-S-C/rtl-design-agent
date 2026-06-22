@@ -44,17 +44,22 @@ In Cursor **Agent** chat:
 
 ## Quick start
 
+**Slim clone (no PDFs):** [SETUP.md](SETUP.md#slim-clone-recommended--no-pdfs-2-mb-vs-70-mb)
+
 | Path | Who |
 |------|-----|
 | [SETUP.md](SETUP.md) | Designers — clone, install, daily use |
 | [AGENTS.md](AGENTS.md) | Maintainer — where rules and skills live |
 | [docs/standards/](docs/standards/) | Company RTL rules (markdown) |
 
-```bash
+```powershell
 git clone https://github.com/Pavan-Kumar-S-C/rtl-design-agent.git rtl-design-agent
 cd rtl-design-agent
-bash scripts/install-rtl-design-agent.sh
+.\scripts\apply-slim-docs-checkout.ps1    # optional: drop PDFs after full clone
+.\scripts\install-rtl-design-agent.ps1 -Local
 ```
+
+Or sparse clone in one step: `.\scripts\sparse-clone.ps1`
 
 Restart Cursor → use `@rtl-design` in any RTL project.
 

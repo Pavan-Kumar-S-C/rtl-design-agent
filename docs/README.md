@@ -20,6 +20,8 @@ Registry: [.cursor/skills/invoke-registry.md](../.cursor/skills/invoke-registry.
 2. **Design guides** — reads only the **Content** section you register in [design/INDEX.md](design/INDEX.md).
 3. Uses **coding guidelines + your input**; **asks you only when in doubt** (not on every task).
 
+**PDFs:** optional — slim clone excludes `docs/standards/*.pdf` (~69 MB). See [standards/PDFs-README.md](standards/PDFs-README.md). Agent uses `.md` summaries; PDFs are opt-in verbatim only.
+
 ## Standards (by topic)
 
 Router: [standards/INDEX.md](standards/INDEX.md) — **canonical** keyword → file map.

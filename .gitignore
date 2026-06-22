@@ -9,6 +9,9 @@ Thumbs.db
 # Cursor local (if any)
 .cursor/projects/
 
+# Local sparse-clone tests
+_sparse_test/
+
 # Maintainer PDF text extracts (regenerate via scripts/extract_*.py)
 docs/standards/_pdf_extract_raw.txt
 docs/standards/_timing_analyzer_extract_raw.txt

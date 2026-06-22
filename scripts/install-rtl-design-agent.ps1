@@ -7,13 +7,15 @@
   .\scripts\install-rtl-design-agent.ps1 -LinkToProject
   .\scripts\install-rtl-design-agent.ps1 -Local
   .\scripts\install-rtl-design-agent.ps1 -Copy
+  .\scripts\install-rtl-design-agent.ps1 -IncludePdfDocs   # full ~70 MB docs cache
 #>
 param(
     [string]$RepoUrl = "",
     [string]$Branch = "main",
     [switch]$LinkToProject,
     [switch]$Copy,
-    [switch]$Local
+    [switch]$Local,
+    [switch]$IncludePdfDocs
 )
 
 $ErrorActionPreference = "Stop"
@@ -68,6 +70,13 @@ function Install-AllFromRoot([string]$Root) {
     }
 }
 
+function Set-SlimSparseCheckout([string]$RepoPath) {
+    $slimList = Join-Path $ScriptDir "sparse-checkout-slim.list"
+    if (-not (Test-Path $slimList)) { return }
+    git -C $RepoPath sparse-checkout init --no-cone 2>$null
+    Get-Content $slimList | git -C $RepoPath sparse-checkout set --stdin
+}
+
 $useLocal = $Local -or -not $RepoUrl -or ($RepoUrl -match 'YOURORG')
 if ($useLocal) {
     Install-AllFromRoot $RepoRoot
@@ -78,7 +87,13 @@ if ($useLocal) {
 
 $cache = Join-Path $env:USERPROFILE ".cursor\rtl-design-agent-cache"
 if (-not (Test-Path (Join-Path $cache ".git"))) {
-    git clone --branch $Branch --single-branch $RepoUrl $cache
+    if ($IncludePdfDocs) {
+        git clone --branch $Branch --single-branch $RepoUrl $cache
+    } else {
+        git clone --filter=blob:none --sparse --branch $Branch --single-branch $RepoUrl $cache
+        Set-SlimSparseCheckout $cache
+        Write-Host "Slim cache clone (no PDFs). Use -IncludePdfDocs for full docs."
+    }
 } else {
     git -C $cache fetch origin $Branch
     git -C $cache checkout $Branch

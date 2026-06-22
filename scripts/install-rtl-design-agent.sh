@@ -9,6 +9,7 @@ BRANCH="${RTL_DESIGN_BRANCH:-main}"
 LINK_TO_PROJECT=false
 DO_COPY=false
 USE_LOCAL=false
+INCLUDE_PDF_DOCS=false
 SKILL_NAMES=(rtl-design rtl-coding-standards timing-analysis sdc cdc lint testbench help)
 
 while [[ $# -gt 0 ]]; do
@@ -18,6 +19,7 @@ while [[ $# -gt 0 ]]; do
     --link-to-project) LINK_TO_PROJECT=true; shift ;;
     --copy) DO_COPY=true; shift ;;
     --local) USE_LOCAL=true; shift ;;
+    --include-pdf-docs) INCLUDE_PDF_DOCS=true; shift ;;
     *) echo "Unknown arg: $1"; exit 1 ;;
   esac
 done
@@ -64,6 +66,14 @@ install_all_from_root() {
   done
 }
 
+apply_slim_sparse_checkout() {
+  local repo="$1"
+  local slim="${SCRIPT_DIR}/sparse-checkout-slim.list"
+  [[ -f "$slim" ]] || return 0
+  git -C "$repo" sparse-checkout init --no-cone 2>/dev/null || true
+  git -C "$repo" sparse-checkout set --stdin < "$slim"
+}
+
 if $USE_LOCAL || [[ -z "$REPO_URL" || "$REPO_URL" == *YOURORG* ]]; then
   install_all_from_root "$REPO_ROOT"
   echo ""
@@ -73,7 +83,13 @@ fi
 
 CACHE="${HOME}/.cursor/rtl-design-agent-cache"
 if [[ ! -d "$CACHE/.git" ]]; then
-  git clone --branch "$BRANCH" --single-branch "$REPO_URL" "$CACHE"
+  if $INCLUDE_PDF_DOCS; then
+    git clone --branch "$BRANCH" --single-branch "$REPO_URL" "$CACHE"
+  else
+    git clone --filter=blob:none --sparse --branch "$BRANCH" --single-branch "$REPO_URL" "$CACHE"
+    apply_slim_sparse_checkout "$CACHE"
+    echo "Slim cache clone (no PDFs). Use --include-pdf-docs for full docs."
+  fi
 else
   git -C "$CACHE" fetch origin "$BRANCH"
   git -C "$CACHE" checkout "$BRANCH"

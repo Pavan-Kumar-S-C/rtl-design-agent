@@ -11,6 +11,39 @@
 
 **Browse:** https://github.com/Pavan-Kumar-S-C/rtl-design-agent
 
+### Slim clone (recommended — no PDFs, ~2 MB vs ~70 MB)
+
+PDFs in `docs/standards/` are optional (verbatim UG reference only). Agent skills use **markdown** summaries.
+
+Windows (PowerShell):
+
+```powershell
+.\scripts\sparse-clone.ps1
+# or clone elsewhere:
+.\scripts\sparse-clone.ps1 -Destination C:\tools\rtl-design-agent
+```
+
+Linux / macOS:
+
+```bash
+bash scripts/sparse-clone.sh
+bash scripts/sparse-clone.sh my-rtl-design-agent
+```
+
+On an **existing** full clone, drop PDFs from the working tree:
+
+```powershell
+.\scripts\apply-slim-docs-checkout.ps1
+```
+
+```bash
+bash scripts/apply-slim-docs-checkout.sh
+```
+
+Restore PDFs later: `git sparse-checkout add docs/standards/*.pdf` — see [docs/standards/PDFs-README.md](docs/standards/PDFs-README.md).
+
+Global install (`install-rtl-design-agent.ps1`) uses a **slim cache** by default. Full docs cache: `-IncludePdfDocs` / `--include-pdf-docs`.
+
 ## Available invokes
 
 | Invoke | Purpose |
